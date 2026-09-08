@@ -642,14 +642,16 @@
 
         .pastor-rank-card .pastor-rank-head {
             position: relative;
+            gap: 15px;
         }
 
-        .pastor-rank-card::after {
+        /* 箭頭改成與平信徒排行榜一致：放在卡片標題列最右側 */
+        .pastor-rank-card .pastor-rank-head::after {
             content: '▼';
-            position: absolute;
-            right: 0;
-            top: 0;
-            font-size: 1rem;
+            margin-left: auto;
+            flex: 0 0 auto;
+            font-size: 1.2rem;
+            line-height: 1;
             color: #E67424;
             transition: transform 0.3s ease;
         }
@@ -659,13 +661,13 @@
             display: none;
         }
 
-        .pastor-rank-card.expanded::after {
+        .pastor-rank-card.expanded .pastor-rank-head::after {
             transform: rotate(180deg);
         }
 
         @media (max-width: 600px) {
-            .pastor-rank-card::after {
-                font-size: 0.85rem;
+            .pastor-rank-card .pastor-rank-head::after {
+                font-size: 1.1rem;
             }
         }
 
@@ -1060,7 +1062,6 @@
         }
 
         .mbti-option:focus-visible,
-        .lookup-share-btn:focus-visible,
         .mbti-card:focus-visible,
         .pastor-rank-card:focus-visible {
             outline: 3px solid #F4BF34;
@@ -1274,44 +1275,6 @@
             line-height: 1.8;
         }
 
-        .lookup-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 18px;
-        }
-
-        .lookup-share-btn {
-            appearance: none;
-            border: 0;
-            background: #E67424;
-            color: #FFFFFF;
-            padding: 12px 18px;
-            font: inherit;
-            font-weight: 900;
-            cursor: pointer;
-            box-shadow: 3px 3px 0 rgba(0,0,0,0.18);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .lookup-share-btn.secondary {
-            background: #F4BF34;
-            color: #4A301E;
-        }
-
-        .lookup-share-btn:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 4px 4px 0 rgba(0,0,0,0.18);
-        }
-
-        .lookup-share-feedback {
-            min-height: 1.4em;
-            margin-top: 10px;
-            color: #2D7A49;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
         .sr-only {
             position: absolute !important;
             width: 1px !important;
@@ -1366,14 +1329,6 @@
             .lookup-flow-arrow {
                 transform: rotate(90deg);
                 width: fit-content;
-            }
-
-            .lookup-actions {
-                flex-direction: column;
-            }
-
-            .lookup-share-btn {
-                width: 100%;
             }
         }
 
@@ -1629,13 +1584,7 @@
 <h3>數據怎麼說？</h3>
 <p data-field="insight">—</p>
 </div>
-<p class="lookup-method-note">這裡只描述本次線上自願參與樣本，不代表所有台灣基督徒；非人口隨機抽樣。MBTI 僅作娛樂與自我探索用途，不作臨床診斷。</p>
-<div class="lookup-actions">
-<button class="lookup-share-btn secondary" id="copy-result-link" type="button">複製結果連結</button>
-<button class="lookup-share-btn" hidden="" id="share-result" type="button">分享我的結果</button>
-</div>
-<p aria-live="polite" class="lookup-share-feedback" id="lookup-share-feedback"></p>
-</div>
+<p class="lookup-method-note">這裡只描述本次線上自願參與樣本，不代表所有台灣基督徒；非人口隨機抽樣。MBTI 僅作娛樂與自我探索用途，不作臨床診斷。</p></div>
 <p aria-atomic="true" aria-live="polite" class="sr-only" id="mbti-result-announcer"></p>
 </div>
 </section><section id="lay-ranking">
@@ -2211,82 +2160,6 @@
 
         .pastor-list-toggle:hover { transform: translate(-1px,-1px); }
 
-        .shift-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            margin-top: 32px;
-        }
-
-        .shift-group h3 {
-            color: #2D7A49;
-            font-size: 1.2rem;
-            margin-bottom: 14px;
-        }
-
-        .shift-list {
-            display: grid;
-            gap: 12px;
-        }
-
-        .shift-card {
-            background: #FFFFFF;
-            border: 2px solid #E6DDCB;
-            border-left: 5px solid #2D7A49;
-            padding: 18px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-        }
-
-        .shift-card.down { border-left-color: #E67424; }
-
-        .shift-card-head {
-            display: flex;
-            justify-content: space-between;
-            gap: 14px;
-            align-items: flex-start;
-        }
-
-        .shift-type {
-            color: #2D7A49;
-            font-weight: 950;
-            font-size: 1.15rem;
-        }
-
-        .shift-delta {
-            font-size: 1.35rem;
-            font-weight: 950;
-            white-space: nowrap;
-            color: #2D7A49;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .shift-card.down .shift-delta { color: #E67424; }
-
-        .shift-character {
-            margin-top: 3px;
-            font-size: 0.82rem;
-            color: #4A301E;
-            font-weight: 700;
-        }
-
-        .shift-values {
-            margin-top: 14px;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 8px;
-            align-items: center;
-            font-size: 0.84rem;
-        }
-
-        .shift-values span { text-align: center; }
-        .shift-values strong { display: block; color: #E67424; font-size: 1.05rem; }
-        .shift-values .arrow { color: #2D7A49; font-weight: 900; }
-
-        .data-caution {
-            margin-top: 20px;
-            font-size: 0.78rem;
-            color: #6B5A4B;
-        }
 
         .myth-grid {
             display: grid;
@@ -2519,7 +2392,7 @@
             .hero-story br { display: none; }
             .phase2-discovery-grid .discovery-card { padding-bottom: 55px; }
             .method-grid { grid-template-columns: 1fr; }
-            .shift-columns, .myth-grid { grid-template-columns: 1fr; }
+            .myth-grid { grid-template-columns: 1fr; }
             .dimension-row { grid-template-columns: 1fr; gap: 7px; }
             .dimension-row-label { font-size: 0.78rem; }
             .enfj-comparison { align-items: stretch; }
@@ -2533,8 +2406,6 @@
         @media (max-width: 360px) {
             .hero-sample-split { gap: 8px; font-size: 0.85rem; }
             .hero-sample-split span:not(.hero-times) { padding: 7px 8px; }
-            .shift-card { padding: 15px; }
-            .shift-values { grid-template-columns: 1fr auto 1fr; font-size: 0.75rem; }
             .dimension-compare-card { padding: 17px 14px; }
             .dimension-values { font-size: 0.72rem; }
             .temperament-share { grid-template-columns: 1fr 1fr; }
@@ -2974,22 +2845,6 @@
         而是：
         <strong>為什麼換成牧者之後，有些人格明顯變多，有些卻突然變少？</strong>
 </div>
-</section><section class="f-section shift-section" id="shift-section">
-<div class="section-tag">比例大洗牌</div>
-<h2 class="section-title">換成牧者之後，誰突然變多了？</h2>
-<p class="section-subtitle">再看另一邊：誰在牧者樣本裡明顯變少？這裡比較的是「牧者比例 − 平信徒比例」，單位是百分點，不是適任度排行榜。</p>
-<div class="divider"></div>
-<div class="shift-columns">
-<div aria-labelledby="shift-up-title" class="shift-group">
-<h3 id="shift-up-title">↑ Top 3 最大上升</h3>
-<div class="shift-list" id="shift-up-list"></div>
-</div>
-<div aria-labelledby="shift-down-title" class="shift-group">
-<h3 id="shift-down-title">↓ Top 3 最大下降</h3>
-<div class="shift-list" id="shift-down-list"></div>
-</div>
-</div>
-<p class="data-caution">只描述本次樣本中的比例差異，不代表某一型更適合或更不適合牧職。</p>
 </section><section class="alt myth-section" id="myth-section">
 <div class="section-tag">反差小抄</div>
 <h2 class="section-title">教會 MBTI：你以為 vs 實際上</h2>
@@ -3409,54 +3264,10 @@
             return true;
         }
 
-        async function copyText(text) {
-            if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return; }
-            const textarea = document.createElement('textarea');
-            textarea.value = text; textarea.setAttribute('readonly','');
-            textarea.style.position='fixed'; textarea.style.opacity='0';
-            document.body.appendChild(textarea); textarea.select();
-            const copied=document.execCommand('copy'); textarea.remove();
-            if (!copied) throw new Error('copy_failed');
-        }
-
-        function getSelectedType() {
-            const selected=document.querySelector('.mbti-option[aria-pressed="true"]');
-            return selected ? selected.dataset.type : '';
-        }
-
-        function setShareFeedback(message) {
-            const node=document.getElementById('lookup-share-feedback');
-            if (node) node.textContent=message;
-        }
-
-        async function copyResultLink() {
-            const type=getSelectedType();
-            if (!type) return;
-            try { await copyText(getResultUrl(type)); setShareFeedback('已複製，可以拿去炫耀了 ✨'); }
-            catch (error) { setShareFeedback('複製失敗，請直接從瀏覽器網址列複製。'); }
-        }
-
-        async function shareResult() {
-            const type=getSelectedType(); const entry=mbtiData[type];
-            if (!type || !entry) return;
-            const shareData={
-                title:`${type}｜教會 MBTI 圖鑑`,
-                text:`我是 ${type}，在教會平信徒樣本中排第 ${entry.lay.rank} 名，在牧者樣本中排第 ${entry.pastor.rank} 名。`,
-                url:getResultUrl(type)
-            };
-            if (!navigator.share) { await copyResultLink(); return; }
-            try { await navigator.share(shareData); setShareFeedback('分享完成 ✨'); }
-            catch (error) { if (error?.name !== 'AbortError') await copyResultLink(); }
-        }
-
         function initMbtiLookup() {
             document.querySelectorAll('.mbti-option').forEach((button) => {
-                button.addEventListener('click', () => { setShareFeedback(''); renderMbtiResult(button.dataset.type); });
+                button.addEventListener('click', () => renderMbtiResult(button.dataset.type));
             });
-            const copyButton=document.getElementById('copy-result-link');
-            if (copyButton) copyButton.addEventListener('click',copyResultLink);
-            const shareButton=document.getElementById('share-result');
-            if (shareButton && navigator.share) { shareButton.hidden=false; shareButton.addEventListener('click',shareResult); }
 
             const rawType=new URLSearchParams(window.location.search).get('type');
             const initialType=rawType ? rawType.trim().toUpperCase() : '';
@@ -3541,39 +3352,6 @@
             button.addEventListener('click',() => button.getAttribute('aria-expanded')==='true' ? closeList() : openList());
         }
 
-        function renderShiftSection() {
-            const rows=MBTI_TYPES.map((type) => ({
-                type,
-                lay:mbtiData[type]?.lay,
-                pastor:mbtiData[type]?.pastor,
-                delta:(mbtiData[type]?.pastor?.percent ?? 0) - (mbtiData[type]?.lay?.percent ?? 0)
-            })).filter((row)=>row.lay && row.pastor);
-            const up=[...rows].sort((a,b)=>b.delta-a.delta).slice(0,3);
-            const down=[...rows].sort((a,b)=>a.delta-b.delta).slice(0,3);
-            const render=(containerId,list,direction) => {
-                const container=document.getElementById(containerId);
-                if (!container) return;
-                container.innerHTML='';
-                list.forEach((row) => {
-                    const article=document.createElement('article');
-                    article.className=`shift-card ${direction==='down'?'down':'up'}`;
-                    const icon=direction==='down'?'↓':'↑';
-                    article.innerHTML=`
-                        <div class="shift-card-head">
-                          <div><div class="shift-type">${icon} ${row.type}</div><div class="shift-character">${row.lay.character} → ${row.pastor.character}</div></div>
-                          <div class="shift-delta">${formatPercentPoint(row.delta)} pt</div>
-                        </div>
-                        <div class="shift-values">
-                          <span>平信徒<strong>${row.lay.percent.toFixed(1)}%</strong></span>
-                          <span class="arrow" aria-hidden="true">→</span>
-                          <span>牧者<strong>${row.pastor.percent.toFixed(1)}%</strong></span>
-                        </div>`;
-                    container.appendChild(article);
-                });
-            };
-            render('shift-up-list',up,'up'); render('shift-down-list',down,'down');
-        }
-
         function renderDimensions() {
             const lay=calculateDimensions('lay');
             const pastor=calculateDimensions('pastor');
@@ -3635,7 +3413,6 @@
         initHero();
         initMethodPanel();
         initPastorListToggle();
-        renderShiftSection();
         const dimensions=renderDimensions();
         renderMyths(dimensions);
         renderTemperaments();
