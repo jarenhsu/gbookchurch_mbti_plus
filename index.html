@@ -1658,6 +1658,9 @@
                     </div>
 </div>
 </div>
+</div>
+<div class="lay-extra-shell" hidden id="lay-extra-shell">
+<div class="lay-extra-grid">
 <!-- 4. ENFJ 亞伯拉罕 -->
 <div class="mbti-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
@@ -1932,6 +1935,8 @@
 </div>
 </div>
 </div>
+</div>
+<button aria-controls="lay-extra-shell" aria-expanded="false" class="lay-list-toggle" id="lay-list-toggle" type="button">＋ 看完整 16 型平信徒排行榜</button>
 <style>
             .mbti-card.expanded .expand-indicator {
                 transform: rotate(180deg);
@@ -3289,6 +3294,48 @@
             });
         }
 
+
+        function initLayListToggle() {
+            const button=document.getElementById('lay-list-toggle');
+            const shell=document.getElementById('lay-extra-shell');
+            if (!button || !shell) return;
+            let closeTimer=0;
+            const openList=() => {
+                clearTimeout(closeTimer);
+                shell.hidden=false;
+                shell.style.maxHeight='0px';
+                requestAnimationFrame(() => {
+                    shell.classList.add('is-open');
+                    shell.style.maxHeight=prefersReducedMotion.matches ? 'none' : `${shell.scrollHeight}px`;
+                });
+                button.setAttribute('aria-expanded','true');
+                button.textContent='收起排行榜';
+                if (!prefersReducedMotion.matches) {
+                    window.setTimeout(() => { if (button.getAttribute('aria-expanded')==='true') shell.style.maxHeight='none'; },360);
+                }
+            };
+            const closeList=() => {
+                clearTimeout(closeTimer);
+                button.setAttribute('aria-expanded','false');
+                button.textContent='＋ 看完整 16 型平信徒排行榜';
+                if (prefersReducedMotion.matches) {
+                    shell.hidden=true;
+                    shell.classList.remove('is-open');
+                    shell.style.maxHeight='0px';
+                    return;
+                }
+                shell.style.maxHeight=`${shell.scrollHeight}px`;
+                requestAnimationFrame(() => {
+                    shell.classList.remove('is-open');
+                    shell.style.maxHeight='0px';
+                });
+                closeTimer=window.setTimeout(() => {
+                    if (button.getAttribute('aria-expanded')==='false') shell.hidden=true;
+                },360);
+            };
+            button.addEventListener('click',() => button.getAttribute('aria-expanded')==='true' ? closeList() : openList());
+        }
+
         function initPastorListToggle() {
             const button=document.getElementById('pastor-list-toggle');
             const shell=document.getElementById('pastor-extra-shell');
@@ -3380,6 +3427,7 @@
         initInteractiveRankCards();
         initHero();
         initMethodPanel();
+        initLayListToggle();
         initPastorListToggle();
         const dimensions=renderDimensions();
         renderMyths(dimensions);
@@ -3505,6 +3553,69 @@
         .cta-btn:hover,
         .cta-btn-primary:hover,
         .pastor-list-toggle:hover {
+            transform: none !important;
+        }
+    }
+
+
+    /* 平信徒排行榜：預設 Top 3，其餘收合 */
+    .lay-extra-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .lay-extra-shell {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.34s ease, opacity 0.25s ease;
+        margin-top: 20px;
+    }
+
+    .lay-extra-shell.is-open {
+        opacity: 1;
+    }
+
+    .lay-list-toggle {
+        display: block;
+        width: min(100%, 460px);
+        margin: 26px auto 0;
+        appearance: none;
+        border: 2px solid #456B58;
+        background: #F7F4EC;
+        color: #456B58;
+        padding: 13px 18px;
+        font: inherit;
+        font-weight: 900;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(35, 43, 38, 0.12);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lay-list-toggle:hover {
+        transform: translateY(-1px);
+    }
+
+    .lay-list-toggle:focus-visible {
+        outline: 3px solid #D6B66A;
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+        .lay-extra-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .lay-extra-shell,
+        .lay-list-toggle {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .lay-list-toggle:hover {
             transform: none !important;
         }
     }
