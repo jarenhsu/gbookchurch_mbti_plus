@@ -1,4 +1,4 @@
-         <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -257,6 +257,400 @@
         .discovery-card:nth-child(6) { animation-delay: 0.2s; }
         .discovery-card:nth-child(7) { animation-delay: 0.3s; }
         .discovery-card:nth-child(8) { animation-delay: 0.4s; }
+
+/* ===== SEARCH & COMPARE SECTION ===== */
+        .search-compare-section {
+            background: linear-gradient(135deg, rgba(245, 191, 52, 0.05) 0%, rgba(230, 116, 36, 0.05) 100%);
+            padding: 50px 20px;
+            margin: 60px 0;
+            border-radius: 12px;
+            border-left: 6px solid #E67424;
+        }
+
+        .search-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .search-input-group {
+            position: relative;
+        }
+
+        .search-input-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2D7A49;
+            font-size: 0.95rem;
+        }
+
+        .search-input-group input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 2px solid #E67424;
+            border-radius: 6px;
+            background-color: white;
+            color: #4A301E;
+            transition: all 0.3s;
+        }
+
+        .search-input-group input:focus {
+            outline: none;
+            border-color: #2D7A49;
+            box-shadow: 0 0 0 3px rgba(45, 122, 73, 0.1);
+        }
+
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #E67424;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+        }
+
+        .search-suggestions.active {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f9f0e8;
+        }
+
+        .suggestion-type {
+            font-weight: 700;
+            color: #E67424;
+        }
+
+        .suggestion-character {
+            color: #999;
+            font-size: 0.9rem;
+            margin-left: 8px;
+        }
+
+        .comparison-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #E67424;
+            display: none;
+        }
+
+        .comparison-card.active {
+            display: block;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .card-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #F4BF34;
+        }
+
+        .card-type {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #E67424;
+            margin-bottom: 8px;
+        }
+
+        .card-character {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2D7A49;
+            margin-bottom: 12px;
+        }
+
+        .card-emoji {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .card-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-item {
+            background: #f9f0e8;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #E67424;
+            display: block;
+        }
+
+        .stat-name {
+            font-size: 0.85rem;
+            color: #4A301E;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .card-description {
+            color: #4A301E;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            background: #F4BF34;
+            color: #4A301E;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        .no-selection {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+            font-style: italic;
+        }
+
+        /* 搜索提示 */
+        .search-hint {
+            color: #999;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        /* 清空按鈕 */
+        .clear-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #999;
+            padding: 5px;
+            display: none;
+        }
+
+        .clear-btn.visible {
+            display: block;
+        }
+
+        .clear-btn:hover {
+            color: #E67424;
+        }
+
+        /* ===== FINDINGS SECTION ===== */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .finding-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .finding-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .finding-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #E67424;
+            margin-bottom: 10px;
+        }
+
+        .finding-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2D7A49;
+            margin-bottom: 15px;
+        }
+
+        .finding-content {
+            color: #4A301E;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: #2D7A49;
+            color: #FFF9E8;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #F4BF34;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>教會MBTI圖鑑</h1>
+        <p class="subtitle">3 萬份測驗結果的真實數據</p>
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number" id="stat1">0</span>
+                <span class="stat-label">平信徒</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="stat2">0</span>
+                <span class="stat-label">牧者</span>
+            </div>
+        </div>
+        <a href="#findings" class="cta-btn">開始看看 →</a>
+    </div>
+</section>
+
+<section id="findings">
+    <div class="section-tag">8 個有趣發現</div>
+    <h2 class="section-title">一年數據，教會原來長這樣</h2>
+    <div class="divider"></div>
+
+    <div class="findings-grid">
+        <div class="finding-card">
+            <div class="finding-number">1</div>
+            <div class="finding-title">教會真的很 F</div>
+            <div class="finding-content">
+                73% 是 F 情感型，T 思考型只有 27%。難怪教會做決定時，除了事情對不對，也常常會先想：「這樣有人會不會受傷？」
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">2</div>
+            <div class="finding-title">牧師不一定是 E 人</div>
+            <div class="finding-content">
+                牧者裡有 53.5% 是 I 型，跟平信徒的比例幾乎沒差。台上很會講，不代表聚會結束後還想繼續聊天。
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">3</div>
+            <div class="finding-title">平信徒愛安排好，牧者常常得臨時改</div>
+            <div class="finding-content">
+                平信徒 58% 偏 J，牧者卻有 59% 偏 P，差了 17%。一邊喜歡照表操課，一邊每天都在處理行程表上沒寫的事。
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">4</div>
+            <div class="finding-title">最多人測出「馬大型」</div>
+            <div class="finding-content">
+                ESFJ 馬大型拿下第一名，占 12.1%。會照顧人、願意幫忙、事情也顧得到，這種人在教會真的不少。
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">5</div>
+            <div class="finding-title">牧者裡，馬利亞型特別多</div>
+            <div class="finding-content">
+                ESFP 馬利亞型在牧者中的比例，是平信徒的 2.24 倍。需要帶現場、接住突發狀況，反應快真的很有用。
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">6</div>
+            <div class="finding-title">ENFJ 到牧者這邊突然變少</div>
+            <div class="finding-content">
+                平信徒有 9% 是 ENFJ，牧者卻只有 0.9%。這麼會帶人、也很有號召力的一型，為什麼在牧者裡反而少見？
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">7</div>
+            <div class="finding-title">比起空談，教會更習慣直接做</div>
+            <div class="finding-content">
+                S 實感型占 55%，N 直覺型占 45%。有人負責想異象，也要有人問：「好，所以接下來到底要做什麼？」
+            </div>
+        </div>
+
+        <div class="finding-card">
+            <div class="finding-number">8</div>
+            <div class="finding-title">重感情，但也不是只靠感動</div>
+            <div class="finding-content">
+                F 型明顯最多，同時 S 型和 J 型也略占上風。簡單說，教會很在意人，但最後通常還是會回到：「所以誰要做？什麼時候做？」
+            </div>
+        </div>
+    </div>
+</section>
 
         .discovery-number {
             font-size: 2rem;
@@ -1257,7 +1651,71 @@
             <p style="margin-top: 20px; color: #4A301E;">平信徒傾向制定計畫、規律有序；牧者則更善於適應變化、保持彈性。這反映了兩種角色的不同需求：信徒需要聚焦和參與，牧者需要應變和牧養。</p>
         </div>
     </section>
-       <!-- 平信徒 16 型排行榜 -->
+   <!-- ===== 新增：個性化搜索和比較區 ===== -->
+<section class="search-compare-section" id="search-compare">
+    <div class="section-tag">互動探索</div>
+    <h2 class="section-title">搜尋你的人格類型</h2>
+    <div class="divider"></div>
+
+    <p style="color: #4A301E; font-size: 1.1rem; margin-bottom: 30px;">
+        輸入MBTI類型代碼（如 ESFJ）或聖經人物名稱（如 馬大），看看該類型在教會的完整描述、排名與特徵。
+    </p>
+
+    <div class="search-container">
+        <div class="search-input-group">
+            <label for="search-left">搜尋第一種人格</label>
+            <input 
+                type="text" 
+                id="search-left" 
+                placeholder="輸入類型代碼或人物名稱 (如: ESFJ 或 馬大)"
+                aria-label="搜尋第一種人格"
+                autocomplete="off"
+            >
+            <button class="clear-btn" id="clear-left" aria-label="清空第一個搜尋框">✕</button>
+            <div class="search-suggestions" id="suggestions-left" role="listbox" aria-label="第一種人格建議清單"></div>
+            <div class="search-hint">支援類型代碼或聖經人物名稱</div>
+        </div>
+
+        <div class="search-input-group">
+            <label for="search-right">搜尋第二種人格（可選）</label>
+            <input 
+                type="text" 
+                id="search-right" 
+                placeholder="輸入類型代碼或人物名稱 (如: ISFJ 或 路得)"
+                aria-label="搜尋第二種人格"
+                autocomplete="off"
+            >
+            <button class="clear-btn" id="clear-right" aria-label="清空第二個搜尋框">✕</button>
+            <div class="search-suggestions" id="suggestions-right" role="listbox" aria-label="第二種人格建議清單"></div>
+            <div class="search-hint">選填，用於比較兩種人格</div>
+        </div>
+    </div>
+
+    <div class="comparison-panel" id="comparison-panel" role="region" aria-label="人格比較結果">
+        <div class="comparison-card" id="card-left">
+            <div class="no-selection">搜尋一個人格類型以開始</div>
+        </div>
+        <div class="comparison-card" id="card-right">
+            <div class="no-selection">（可選）搜尋第二個人格進行比較</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p style="font-weight: 700;">《教會小本本》</p>
+    <p>資料：平信徒 28,796 人 ／ 牧者 1,649 人</p>
+    <p style="margin-top: 15px; font-size: 0.85rem;">為線上自願參與測驗者結果，非台灣基督徒人口隨機抽樣。</p>
+    <p style="margin-top: 10px; font-size: 0.85rem;">MBTI 為性格偏好工具，不作臨床診斷。性格類型無優劣之分。</p>
+    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255,249,232,0.3);">
+        <p style="font-weight: 700; font-size: 0.9rem;">© 版權 & 使用許可</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">
+            本網站採 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank">CC BY-NC-SA 4.0</a> 許可 <br>
+            可自由分享、改編，但需署名、非商業、相同方式共享
+        </p>
+    </div>
+</footer>
+
+        <!-- 平信徒 16 型排行榜 -->
     <section>
         <div class="section-tag">排行榜</div>
         <h2 class="section-title">平信徒 16 型全排行</h2>
@@ -2818,6 +3276,419 @@
         });
         
         console.log('✅ 牧者排行卡片點擊功能已啟用');
+
+    const mbtiData = [
+        {
+            type: 'ESFJ',
+            character: '馬大',
+            emoji: '📋',
+            rank_laypeople: 1,
+            count_laypeople: 3482,
+            percent_laypeople: 12.1,
+            rank_pastors: 4,
+            count_pastors: 150,
+            percent_pastors: 9.1,
+            description: '教會裡很會收拾場面的人。流程、名單、通知、統計，交出去通常就不用一直追。做事俐落，但也不是只顧事情，誰忙到快爆炸通常也看得出來。',
+            description_full: '教會裡很會收拾場面的人。場地、流程、簽到、奉獻統計、活動通知，事情一多反而更容易進入狀況。別人還在問「現在做到哪了」，這一型通常已經把表格整理好，順便提醒下一步。做事俐落，但也不是只顧事情，誰忙到快爆炸通常也看得出來。'
+        },
+        {
+            type: 'ISFJ',
+            character: '路得',
+            emoji: '🏰',
+            rank_laypeople: 2,
+            count_laypeople: 3408,
+            percent_laypeople: 11.8,
+            rank_pastors: 3,
+            count_pastors: 160,
+            percent_pastors: 9.7,
+            description: '很像教會裡的固定班底。新人名字記得住，誰最近不太對勁，也常常會放在心上。',
+            description_full: '很像教會裡的固定班底。新人來過一次，名字可能就記住了；誰最近比較安靜，也會默默留意。答應的服事通常不太需要催，該出現的時候就會出現。平常不出鋒頭，但哪天請假，大家反而會立刻發現：「欸，今天怎麼少了一個人？」'
+        },
+        {
+            type: 'ESFP',
+            character: '撒馬利亞婦人/馬利亞',
+            emoji: '💫',
+            rank_laypeople: 3,
+            count_laypeople: 2615,
+            percent_laypeople: 9.1,
+            rank_pastors: 1,
+            count_pastors: 336,
+            percent_pastors: 20.4,
+            description: '聚會裡自帶氣氛的人。很會接話，也很容易跟第一次來的人聊到像認識很久。',
+            description_full: '聚會裡自帶氣氛的人。很會接話，也很容易跟第一次來的人直接聊開，原本有點乾的場子通常幾分鐘就熱起來。最受不了大家客客氣氣坐成一排，能互動就不要只聽。平常看起來很鬧，但真的進到禱告或分享的時候，也可以突然認真得讓人有點意外。'
+        },
+        {
+            type: 'ENFJ',
+            character: '亞伯拉罕',
+            emoji: '👑',
+            rank_laypeople: 4,
+            count_laypeople: 2594,
+            percent_laypeople: 9.0,
+            rank_pastors: 15,
+            count_pastors: 15,
+            percent_pastors: 0.9,
+            description: '很會揪人的那一型。帶小組、辦活動、找同工，講一講大家就莫名其妙都答應了。',
+            description_full: '很會揪人的那一型。帶小組、辦活動、找同工，本來大家還在觀望，聊完常常就變成「好啦，我來」。很知道怎麼鼓勵人，也很會把不同的人湊在一起。麻煩是太容易把每個人都放在心上，忙到最後才想到，自己好像也需要休息。'
+        },
+        {
+            type: 'INFJ',
+            character: '但以理',
+            emoji: '🔮',
+            rank_laypeople: 5,
+            count_laypeople: 2486,
+            percent_laypeople: 8.6,
+            rank_pastors: 11,
+            count_pastors: 46,
+            percent_pastors: 2.8,
+            description: '教會的「靈魂雷達」。大家都說沒事的時候，這一型常常會多看兩眼。',
+            description_full: '教會的「靈魂雷達」。大家都說沒事的時候，這一型常常會多看兩眼，心裡想：「真的嗎？」不一定當場拆穿，但誰最近怪怪的、誰笑得有點勉強，通常會記在心裡。話不一定很多，可是一旦主動來問「你最近還好嗎」，多半是真的有注意到。'
+        },
+        {
+            type: 'ENFP',
+            character: '巴拿巴',
+            emoji: '✨',
+            rank_laypeople: 6,
+            count_laypeople: 2323,
+            percent_laypeople: 8.1,
+            rank_pastors: 5,
+            count_pastors: 142,
+            percent_pastors: 8.6,
+            description: '教會裡的打氣王。你只是做了一點點，也能被講得好像很值得慶祝。',
+            description_full: '教會裡的打氣王。你只是做了一點點，也能聽到「欸，這很棒耶！」很會看到別人的優點，也很愛冒出一句「不然我們試試看？」問題是上一個點子可能還沒收尾，下一個又來了。可是氣氛真的很低的時候，通常也是這一型最會把大家重新拉起來。'
+        },
+        {
+            type: 'ISFP',
+            character: '大衛',
+            emoji: '🎨',
+            rank_laypeople: 7,
+            count_laypeople: 2182,
+            percent_laypeople: 7.6,
+            rank_pastors: 7,
+            count_pastors: 126,
+            percent_pastors: 7.6,
+            description: '不一定話多，但很有自己的美感。敬拜、佈置、影像、文字，做出來常常一看就知道有想法。',
+            description_full: '不一定話多，但很有自己的美感。敬拜、佈置、影像、文字，做出來常常一看就知道有想法。碰到衝突通常不太想正面硬槓，會先自己消化一下。可是熟了之後會發現，平常看起來隨和，心裡其實有一套很清楚的堅持。'
+        },
+        {
+            type: 'INFP',
+            character: '約翰',
+            emoji: '💭',
+            rank_laypeople: 8,
+            count_laypeople: 1959,
+            percent_laypeople: 6.8,
+            rank_pastors: 2,
+            count_pastors: 187,
+            percent_pastors: 11.3,
+            description: '很適合半夜傳訊息說「你睡了嗎」的那一型。會先聽你講完，不會急著開藥方。',
+            description_full: '很適合半夜傳訊息說「你睡了嗎」的那一型。會先聽你講完，不會五分鐘後就丟出三個解法。看起來溫溫的，心裡其實想很多，對信仰和關係都有自己的理想。有時候現實一來會先卡住一下，但要說誰最懂那種「我也不知道怎麼講」的心情，這一型通常很可以。'
+        },
+        {
+            type: 'ISTJ',
+            character: '尼希米',
+            emoji: '🔨',
+            rank_laypeople: 9,
+            count_laypeople: 1899,
+            percent_laypeople: 6.6,
+            rank_pastors: 6,
+            count_pastors: 130,
+            percent_pastors: 7.9,
+            description: '教會的進度警察。流程、預算、時間表都會記得，說兩點集合就真的兩點到。',
+            description_full: '教會的進度警察。流程、預算、時間表都記得比大家清楚，說兩點集合就真的兩點到，不是兩點才從家裡出門。規則一多反而有安全感，有時候會被嫌太硬，但少了這一型，很多事情很快就會開始「大家憑感動」。那些沒人想管的小細節，通常也是默默補起來。'
+        },
+        {
+            type: 'INTJ',
+            character: '保羅/以利亞',
+            emoji: '⚡',
+            rank_laypeople: 10,
+            count_laypeople: 1312,
+            percent_laypeople: 4.6,
+            rank_pastors: 8,
+            count_pastors: 111,
+            percent_pastors: 6.7,
+            description: '教會裡很像顧問的那一型。平常安靜，一開口常常直接問到大家最不想面對的重點。',
+            description_full: '教會裡很像顧問的那一型。平常安靜，一開口常常直接問到大家最不想面對的重點。別人還在討論下個月，腦袋可能已經跑到三年後。分析很快是優點，也是小麻煩，因為有時候事情想通了，旁邊的人情緒調整還沒跟上。'
+        },
+        {
+            type: 'ESTJ',
+            character: '摩西',
+            emoji: '⚔️',
+            rank_laypeople: 11,
+            count_laypeople: 970,
+            percent_laypeople: 3.4,
+            rank_pastors: 10,
+            count_pastors: 50,
+            percent_pastors: 3.0,
+            description: '一看到混亂就會忍不住接手的人。「好，現在先做三件事」講完大家就開始動。',
+            description_full: '一看到混亂就會忍不住接手的人。「好，現在先做三件事。」講完大家就開始動。很會做決定，也很討厭事情一直懸在那裡。壓力一大講話可能會比較衝，但多半不是針對誰，只是真的很想趕快把事情處理完。'
+        },
+        {
+            type: 'INTP',
+            character: '多馬/所羅門',
+            emoji: '📚',
+            rank_laypeople: 12,
+            count_laypeople: 964,
+            percent_laypeople: 3.3,
+            rank_pastors: 9,
+            count_pastors: 100,
+            percent_pastors: 6.1,
+            description: '本來只想問一題，最後可能聊到原文、神學和歷史背景。凡事都想知道「為什麼」。',
+            description_full: '本來只想問一題，最後可能一路聊到原文、神學和歷史背景。不是故意唱反調，是真的很想搞懂：「所以為什麼？」聚會聽到哪裡怪怪的，可能先記下來，回家自己查。偶爾會因為想太久卡住，但這種什麼都敢問的個性，也常常替大家問出心裡其實早就有的疑問。'
+        },
+        {
+            type: 'ISTP',
+            character: '參孫',
+            emoji: '🧰',
+            rank_laypeople: 13,
+            count_laypeople: 890,
+            percent_laypeople: 3.1,
+            rank_pastors: 14,
+            count_pastors: 22,
+            percent_pastors: 1.3,
+            description: '教會裡很會救火的人。現場出包、流程卡住、臨時少人，先處理再說。',
+            description_full: '教會裡很會救火的人。投影突然掛掉、流程卡住、臨時少一個人，先看看現在能怎麼辦，比站在旁邊討論原因實際多了。通常不愛開太久的會，也不太喜歡把事情複雜化。平常存在感未必很高，但真的出事時，大家很容易突然想到：「欸，快找他。」'
+        },
+        {
+            type: 'ENTJ',
+            character: '底波拉',
+            emoji: '🎯',
+            rank_laypeople: 14,
+            count_laypeople: 635,
+            percent_laypeople: 2.2,
+            rank_pastors: 16,
+            count_pastors: 13,
+            percent_pastors: 0.8,
+            description: '很有「好，重點是什麼」氣場的人。目標一確定，就會開始分工、排進度、往前推。',
+            description_full: '很有「好，重點是什麼」氣場的人。目標一確定，就會開始分工、排進度、往前推。遇到大家討論半天還沒結論，通常會有點坐不住。氣勢強的時候，旁邊的人可能要鼓起勇氣才敢說「我有不同想法」，但真要把一件難事推動起來，這一型確實很可以負責。'
+        },
+        {
+            type: 'ENTP',
+            character: '雅各',
+            emoji: '🎤',
+            rank_laypeople: 15,
+            count_laypeople: 618,
+            percent_laypeople: 2.1,
+            rank_pastors: 12,
+            count_pastors: 39,
+            percent_pastors: 2.4,
+            description: '一個問題可以聊出十條支線。點子很多，話題一有趣，查經很容易直接延長半小時。',
+            description_full: '一個問題可以聊出十個點。腦筋轉很快，聚會裡常常突然丟一句：「可是如果換個角度呢？」然後大家就開始歪樓。只要話題有意思，聊半小時完全不是問題。點子很多是優點，麻煩是聊到最後常常會出現一句：「好，那所以誰要做？」'
+        },
+        {
+            type: 'ESTP',
+            character: '彼得',
+            emoji: '🚀',
+            rank_laypeople: 16,
+            count_laypeople: 459,
+            percent_laypeople: 1.6,
+            rank_pastors: 13,
+            count_pastors: 22,
+            percent_pastors: 1.3,
+            description: '「先做再說」的行動派。別人還在評估風險，這一型可能已經報名了。',
+            description_full: '「先做再說」的行動派。別人還在評估風險，這一型可能已經報名、開群組、問誰要一起了。很多事都是邊做邊學，想太久反而會失去耐性。至於計畫到底行不行，有時候真的做到一半才知道。但教會需要試新東西的時候，通常也少不了這種敢先跨出去的人。'
+        }
+    ];
+
+    // ===== 初始化動畫 =====
+    window.addEventListener('load', function() {
+        countUpNumber('stat1', 28796, 2000);
+        countUpNumber('stat2', 1649, 2000);
+    });
+
+    function countUpNumber(id, target, duration) {
+        const element = document.getElementById(id);
+        if (!element) return;
+        
+        element.textContent = '0';
+        const start = performance.now();
+        function animate(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(target * progress);
+            element.textContent = current.toLocaleString('zh-TW');
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // ===== 搜尋功能 =====
+    class MBTISearch {
+        constructor(inputId, suggestionsId, cardId, clearBtnId, isLeft = true) {
+            this.input = document.getElementById(inputId);
+            this.suggestions = document.getElementById(suggestionsId);
+            this.card = document.getElementById(cardId);
+            this.clearBtn = document.getElementById(clearBtnId);
+            this.isLeft = isLeft;
+            this.currentData = null;
+            this.selectedIndex = -1;
+
+            this.init();
+        }
+
+        init() {
+            this.input.addEventListener('input', (e) => this.handleInput(e));
+            this.input.addEventListener('focus', (e) => this.handleInput(e));
+            this.input.addEventListener('keydown', (e) => this.handleKeyboard(e));
+            this.input.addEventListener('blur', () => this.hideSuggestions());
+            this.clearBtn.addEventListener('click', () => this.clear());
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest(`#${this.input.id}`) && !e.target.closest(`#${this.suggestions.id}`)) {
+                    this.hideSuggestions();
+                }
+            });
+        }
+
+        handleInput(e) {
+            const value = e.target.value.trim().toUpperCase();
+            this.selectedIndex = -1;
+
+            if (!value) {
+                this.hideSuggestions();
+                this.clearBtn.classList.remove('visible');
+                return;
+            }
+
+            this.clearBtn.classList.add('visible');
+            const matches = this.search(value);
+            this.displaySuggestions(matches);
+        }
+
+        search(query) {
+            return mbtiData.filter(item => 
+                item.type.includes(query) || 
+                item.character.includes(query)
+            );
+        }
+
+        displaySuggestions(matches) {
+            this.suggestions.innerHTML = '';
+
+            if (!matches.length) {
+                this.suggestions.innerHTML = '<div class="suggestion-item">找不到相符的類型</div>';
+                this.showSuggestions();
+                return;
+            }
+
+            matches.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'suggestion-item';
+                div.setAttribute('role', 'option');
+                div.setAttribute('data-index', index);
+                div.innerHTML = `
+                    <span class="suggestion-type">${item.type}</span>
+                    <span class="suggestion-character">${item.emoji} ${item.character}</span>
+                `;
+                div.addEventListener('click', () => this.selectSuggestion(item));
+                this.suggestions.appendChild(div);
+            });
+
+            this.showSuggestions();
+        }
+
+        selectSuggestion(data) {
+            this.currentData = data;
+            this.input.value = data.type;
+            this.hideSuggestions();
+            this.renderCard();
+            this.clearBtn.classList.add('visible');
+        }
+
+        handleKeyboard(e) {
+            const items = this.suggestions.querySelectorAll('.suggestion-item');
+            
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                this.selectedIndex = Math.min(this.selectedIndex + 1, items.length - 1);
+                this.updateSelection(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                this.selectedIndex = Math.max(this.selectedIndex - 1, -1);
+                this.updateSelection(items);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (this.selectedIndex >= 0 && items[this.selectedIndex]) {
+                    const type = items[this.selectedIndex].querySelector('.suggestion-type').textContent;
+                    const data = mbtiData.find(d => d.type === type);
+                    if (data) this.selectSuggestion(data);
+                }
+            } else if (e.key === 'Escape') {
+                this.hideSuggestions();
+            }
+        }
+
+        updateSelection(items) {
+            items.forEach((item, i) => {
+                if (i === this.selectedIndex) {
+                    item.style.backgroundColor = '#f9f0e8';
+                } else {
+                    item.style.backgroundColor = '';
+                }
+            });
+        }
+
+        showSuggestions() {
+            this.suggestions.classList.add('active');
+        }
+
+        hideSuggestions() {
+            this.suggestions.classList.remove('active');
+        }
+
+        renderCard() {
+            if (!this.currentData) return;
+
+            const data = this.currentData;
+            const rankValue = this.isLeft ? data.rank_laypeople : data.rank_pastors;
+            const countValue = this.isLeft ? data.count_laypeople : data.count_pastors;
+            const percentValue = this.isLeft ? data.percent_laypeople : data.percent_pastors;
+            const groupLabel = this.isLeft ? '平信徒' : '牧者';
+
+            const html = `
+                <div class="card-header">
+                    <div class="card-type">${data.type}</div>
+                    <div class="card-character">
+                        <span class="card-emoji">${data.emoji}</span> ${data.character}
+                    </div>
+                </div>
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">#${rankValue}</span>
+                        <span class="stat-name">排名</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${percentValue}%</span>
+                        <span class="stat-name">比例</span>
+                    </div>
+                </div>
+                <div class="card-description">${data.description_full}</div>
+                <div class="rank-badge">${groupLabel}：${countValue} 人</div>
+            `;
+
+            this.card.innerHTML = html;
+            this.card.classList.add('active');
+        }
+
+        clear() {
+            this.input.value = '';
+            this.currentData = null;
+            this.card.innerHTML = '<div class="no-selection">' + 
+                (this.isLeft ? '搜尋一個人格類型以開始' : '（可選）搜尋第二個人格進行比較') + 
+                '</div>';
+            this.card.classList.remove('active');
+            this.hideSuggestions();
+            this.clearBtn.classList.remove('visible');
+        }
+    }
+
+    // 初始化搜尋
+    const searchLeft = new MBTISearch('search-left', 'suggestions-left', 'card-left', 'clear-left', true);
+    const searchRight = new MBTISearch('search-right', 'suggestions-right', 'card-right', 'clear-right', false);
+</script>
+
+</body>
+</html>
     </script>
 </body>
 </html>
