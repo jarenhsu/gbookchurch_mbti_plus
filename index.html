@@ -83,6 +83,11 @@
             margin-bottom: 20px;
         }
 
+        .hero-content p {
+            text-align: left;
+            line-height: 1.8;
+        }
+
         .stats {
             display: flex;
             justify-content: center;
@@ -205,6 +210,8 @@
             font-size: 1.1rem;
             color: #4A301E;
             margin-bottom: 30px;
+            text-align: left;
+            line-height: 1.8;
         }
 
         .divider {
@@ -212,6 +219,13 @@
             height: 3px;
             background: #E67424;
             margin: 20px 0;
+        }
+
+        /* 多行文字統一靠左，提升閱讀性 */
+        section p,
+        .long-text {
+            text-align: left !important;
+            line-height: 1.8;
         }
 
         /* ===== 8個核心發現卡 ===== */
@@ -261,7 +275,8 @@
         .discovery-text {
             font-size: 0.9rem;
             color: #4A301E;
-            line-height: 1.6;
+            line-height: 1.7;
+            text-align: left;
         }
 
         /* ===== SECTION 02: F型 ===== */
@@ -318,6 +333,8 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: #E67424;
+            line-height: 1.8;
+            text-align: left;
             animation: slideInRight 0.8s ease-out;
         }
 
@@ -379,6 +396,8 @@
             background: rgba(244, 191, 52, 0.1);
             padding: 15px;
             margin-bottom: 10px;
+            line-height: 1.8;
+            text-align: left;
         }
 
         /* ===== SECTION 04: J/P ===== */
@@ -549,6 +568,70 @@
             }
         }
 
+        /* ===== 牧者排行榜 ===== */
+        .pastor-rank-card {
+            background: #FFFFFF;
+            border-left: 4px solid #E67424;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            animation: slideUpFade 0.8s ease-out;
+        }
+
+        .pastor-rank-head {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .pastor-rank-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #F4BF34;
+            line-height: 1;
+            min-width: 34px;
+        }
+
+        .pastor-rank-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #2D7A49;
+        }
+
+        .pastor-rank-stat {
+            font-size: 0.85rem;
+            color: #E67424;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .lay-reference {
+            display: inline-block;
+            background: #F0E8D8;
+            color: #4A301E;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .pastor-observation {
+            padding: 14px 16px;
+            background: #FFF9E8;
+            border-left: 3px solid #E67424;
+            color: #4A301E;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .pastor-observation-title {
+            color: #E67424;
+            font-weight: 900;
+            margin-bottom: 7px;
+            text-align: left;
+        }
+
         /* ===== 信徒 vs 牧者對比 ===== */
         .comparison-grid {
             display: grid;
@@ -580,12 +663,14 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            text-align: left;
         }
 
         .comparison-person {
             background: #FFF9E8;
             padding: 10px;
             border-left: 3px solid #E67424;
+            text-align: left;
         }
 
         .comparison-label {
@@ -600,7 +685,7 @@
             font-weight: 600;
         }
 
-        /* ===== 四大向度分析 ===== */
+        /* ===== 四大面向分析 ===== */
         .dimension-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -645,6 +730,11 @@
             font-size: 0.8rem;
             color: #4A301E;
             font-weight: 600;
+        }
+
+        .dimension-card p {
+            text-align: left;
+            line-height: 1.8;
         }
 
         /* ===== SECTION 07: ENFJ ===== */
@@ -707,11 +797,12 @@
             padding: 20px;
             margin: 20px 0;
             font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.8;
+            text-align: left;
             animation: slideUpFade 0.8s ease-out 0.2s backwards;
         }
 
-        /* ===== 氣質分析 ===== */
+        /* ===== 四大性格群 ===== */
         .temperament-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -746,6 +837,7 @@
         .temperament-body {
             padding: 20px;
             background: #FFF9E8;
+            text-align: left;
         }
 
         .temperament-types {
@@ -758,7 +850,8 @@
         .temperament-desc {
             font-size: 0.85rem;
             color: #4A301E;
-            line-height: 1.6;
+            line-height: 1.8;
+            text-align: left;
         }
 
         /* ===== SECTION 08: SUMMARY ===== */
@@ -800,6 +893,12 @@
             background: #FFF9E8;
             padding: 8px 16px;
             margin: 5px;
+        }
+
+        .summary-card p,
+        .summary-card .summary-text {
+            text-align: left;
+            line-height: 1.8;
         }
 
         /* ===== FINAL CTA ===== */
@@ -852,6 +951,12 @@
             animation: slideUpFade 0.8s ease-out 0.3s backwards;
         }
 
+        .final-cta p,
+        .share-template {
+            text-align: left;
+            line-height: 1.8;
+        }
+
         /* ===== FOOTER ===== */
         footer {
             background: #4A301E;
@@ -882,6 +987,30 @@
 
             .cta-btn, .cta-btn-primary {
                 width: 100%;
+            }
+
+            .pastor-rank-card {
+                padding: 18px;
+            }
+
+            .pastor-rank-title {
+                font-size: 1rem;
+            }
+
+            .pastor-observation {
+                padding: 13px 14px;
+                font-size: 0.85rem;
+            }
+
+            .person-state,
+            .comparison-row,
+            .dimension-card p,
+            .enfj-note,
+            .temperament-body,
+            .summary-card p,
+            .final-cta p,
+            .share-template {
+                text-align: left;
             }
         }
     </style>
