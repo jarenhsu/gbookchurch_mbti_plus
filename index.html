@@ -636,6 +636,7 @@
         .pastor-rank-card {
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .pastor-rank-card .pastor-rank-head {
@@ -1001,6 +1002,412 @@
             font-size: 0.9rem;
         }
 
+
+        /* ===== MBTI 個人排名查詢 ===== */
+        .mbti-lookup-section {
+            position: relative;
+        }
+
+        .mbti-lookup-shell {
+            margin-top: 30px;
+            background: #FFFFFF;
+            border: 2px solid #F4BF34;
+            padding: clamp(20px, 4vw, 34px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .mbti-lookup-kicker {
+            color: #2D7A49;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: -12px;
+            margin-bottom: 24px;
+        }
+
+        .mbti-picker {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            min-width: 0;
+        }
+
+        .mbti-picker-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .mbti-option {
+            appearance: none;
+            border: 2px solid #2D7A49;
+            background: #FFF9E8;
+            color: #2D7A49;
+            min-height: 52px;
+            padding: 12px 10px;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 rgba(45,122,73,0.14);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .mbti-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 4px 5px 0 rgba(45,122,73,0.16);
+        }
+
+        .mbti-option:focus-visible,
+        .lookup-share-btn:focus-visible,
+        .mbti-card:focus-visible,
+        .pastor-rank-card:focus-visible {
+            outline: 3px solid #F4BF34;
+            outline-offset: 3px;
+        }
+
+        .mbti-option[aria-pressed="true"] {
+            background: #2D7A49;
+            color: #FFFFFF;
+            border-color: #F4BF34;
+            box-shadow: 4px 4px 0 #E67424;
+            transform: translate(-1px, -1px);
+        }
+
+        .mbti-lookup-result {
+            margin-top: 30px;
+            border-top: 2px solid #F0E8D8;
+            padding-top: 30px;
+        }
+
+        .mbti-lookup-result.is-entering {
+            animation: lookupResultIn 0.45s ease-out both;
+        }
+
+        @keyframes lookupResultIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lookup-you-are {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 900;
+            color: #2D7A49;
+            margin-bottom: 20px;
+        }
+
+        .lookup-you-are strong {
+            color: #E67424;
+        }
+
+        .lookup-result-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .lookup-world-card {
+            min-width: 0;
+            background: #FFF9E8;
+            border-left: 4px solid #E67424;
+            padding: 22px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+        .lookup-world-label {
+            display: inline-block;
+            background: #2D7A49;
+            color: #FFFFFF;
+            padding: 5px 10px;
+            font-size: 0.78rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .lookup-character {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #2D7A49;
+            margin-bottom: 10px;
+            overflow-wrap: anywhere;
+        }
+
+        .lookup-rank {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #F4BF34;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .lookup-stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            color: #4A301E;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .lookup-change-card {
+            margin-top: 18px;
+            background: #F5F0E6;
+            border: 2px solid #F4BF34;
+            padding: 20px;
+        }
+
+        .lookup-change-title {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: #2D7A49;
+            margin-bottom: 12px;
+        }
+
+        .lookup-change-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .lookup-change-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            font-size: 0.88rem;
+            font-weight: 900;
+            background: #FFFFFF;
+            border-left: 3px solid #4A301E;
+        }
+
+        .lookup-change-pill.up {
+            color: #2D7A49;
+            border-left-color: #2D7A49;
+        }
+
+        .lookup-change-pill.down {
+            color: #E67424;
+            border-left-color: #E67424;
+        }
+
+        .lookup-change-pill.same {
+            color: #4A301E;
+            border-left-color: #F4BF34;
+        }
+
+        .lookup-character-shift {
+            margin-top: 18px;
+            padding: 18px;
+            background: #FFFFFF;
+            border-left: 4px solid #2D7A49;
+        }
+
+        .lookup-character-flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            color: #2D7A49;
+        }
+
+        .lookup-character-flow > span:not(.lookup-flow-arrow) {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .lookup-flow-arrow {
+            color: #E67424;
+            font-size: 1.3rem;
+        }
+
+        .lookup-character-comment {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #4A301E;
+            font-weight: 700;
+        }
+
+        .lookup-rarity {
+            margin-top: 18px;
+            padding: 14px 16px;
+            background: rgba(244,191,52,0.12);
+            border-left: 4px solid #F4BF34;
+        }
+
+        .lookup-rarity-stars {
+            font-weight: 900;
+            color: #E67424;
+            letter-spacing: 0.08em;
+        }
+
+        .lookup-rarity-note,
+        .lookup-method-note {
+            margin-top: 6px;
+            font-size: 0.78rem;
+            color: #4A301E;
+            line-height: 1.7;
+        }
+
+        .lookup-insight {
+            margin-top: 18px;
+            background: #2D7A49;
+            color: #FFF9E8;
+            padding: 20px;
+        }
+
+        .lookup-insight h3 {
+            color: #F4BF34;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .lookup-insight p {
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .lookup-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .lookup-share-btn {
+            appearance: none;
+            border: 0;
+            background: #E67424;
+            color: #FFFFFF;
+            padding: 12px 18px;
+            font: inherit;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .lookup-share-btn.secondary {
+            background: #F4BF34;
+            color: #4A301E;
+        }
+
+        .lookup-share-btn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.18);
+        }
+
+        .lookup-share-feedback {
+            min-height: 1.4em;
+            margin-top: 10px;
+            color: #2D7A49;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            /* 修正原網站 ENFJ 比較卡在窄螢幕的 min-content overflow */
+            .enfj-left {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .enfj-comparison {
+                width: 100%;
+                gap: 10px;
+            }
+
+            .enfj-box {
+                min-width: 0;
+                padding: 14px 10px;
+            }
+
+            .enfj-percent {
+                font-size: 2.4rem;
+            }
+
+            .mbti-picker-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .mbti-option {
+                min-height: 50px;
+            }
+
+            .lookup-result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lookup-character-flow {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .lookup-flow-arrow {
+                transform: rotate(90deg);
+                width: fit-content;
+            }
+
+            .lookup-actions {
+                flex-direction: column;
+            }
+
+            .lookup-share-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .mbti-lookup-shell {
+                padding: 18px 14px;
+            }
+
+            .mbti-option {
+                padding-left: 6px;
+                padding-right: 6px;
+                font-size: 0.95rem;
+            }
+
+            .lookup-world-card,
+            .lookup-change-card,
+            .lookup-character-shift,
+            .lookup-insight {
+                padding: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .hero {
@@ -1068,7 +1475,7 @@
                 </div>
             </div>
 
-            <button class="cta-btn" onclick="document.getElementById('discovery-section').scrollIntoView();">開始看看 →</button>
+            <button class="cta-btn" id="hero-start-button" type="button">開始看看 →</button>
         </div>
     </section>
 
@@ -1154,6 +1561,104 @@
 
     </div>
 </section>
+
+    <!-- 互動功能：你的 MBTI 在教會裡排第幾？ -->
+    <section class="f-section mbti-lookup-section" id="mbti-lookup" aria-labelledby="mbti-lookup-title">
+        <div class="section-tag">找到你的位置</div>
+        <h2 class="section-title" id="mbti-lookup-title">你的 MBTI 在教會裡排第幾？</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">選擇你的 MBTI，看看你在教會裡到底是熱門款，還是稀有種。</p>
+
+        <div class="mbti-lookup-shell">
+            <p class="mbti-lookup-kicker">不是測驗，你只需要告訴我們你是哪一型。</p>
+
+            <fieldset class="mbti-picker">
+                <legend class="sr-only">選擇你的 MBTI 類型</legend>
+                <div class="mbti-picker-grid" role="group" aria-label="16 型 MBTI 選擇器">
+                    <button class="mbti-option" type="button" data-type="INTJ" aria-pressed="false">INTJ</button>
+                    <button class="mbti-option" type="button" data-type="INTP" aria-pressed="false">INTP</button>
+                    <button class="mbti-option" type="button" data-type="ENTJ" aria-pressed="false">ENTJ</button>
+                    <button class="mbti-option" type="button" data-type="ENTP" aria-pressed="false">ENTP</button>
+                    <button class="mbti-option" type="button" data-type="INFJ" aria-pressed="false">INFJ</button>
+                    <button class="mbti-option" type="button" data-type="INFP" aria-pressed="false">INFP</button>
+                    <button class="mbti-option" type="button" data-type="ENFJ" aria-pressed="false">ENFJ</button>
+                    <button class="mbti-option" type="button" data-type="ENFP" aria-pressed="false">ENFP</button>
+                    <button class="mbti-option" type="button" data-type="ISTJ" aria-pressed="false">ISTJ</button>
+                    <button class="mbti-option" type="button" data-type="ISFJ" aria-pressed="false">ISFJ</button>
+                    <button class="mbti-option" type="button" data-type="ESTJ" aria-pressed="false">ESTJ</button>
+                    <button class="mbti-option" type="button" data-type="ESFJ" aria-pressed="false">ESFJ</button>
+                    <button class="mbti-option" type="button" data-type="ISTP" aria-pressed="false">ISTP</button>
+                    <button class="mbti-option" type="button" data-type="ISFP" aria-pressed="false">ISFP</button>
+                    <button class="mbti-option" type="button" data-type="ESTP" aria-pressed="false">ESTP</button>
+                    <button class="mbti-option" type="button" data-type="ESFP" aria-pressed="false">ESFP</button>
+                </div>
+            </fieldset>
+
+            <div class="mbti-lookup-result" id="mbti-lookup-result" hidden>
+                <p class="lookup-you-are">你是 <strong data-field="type">—</strong></p>
+
+                <div class="lookup-result-grid">
+                    <article class="lookup-world-card" aria-labelledby="lookup-lay-title">
+                        <div class="lookup-world-label" id="lookup-lay-title">平信徒</div>
+                        <div class="lookup-character"><span data-field="lay-character">—</span>型</div>
+                        <div class="lookup-rank">第 <span data-field="lay-rank">—</span> 名</div>
+                        <div class="lookup-stats-row">
+                            <span><span data-field="lay-count">—</span> 人</span>
+                            <span><span data-field="lay-percent">—</span>%</span>
+                        </div>
+                    </article>
+
+                    <article class="lookup-world-card" aria-labelledby="lookup-pastor-title">
+                        <div class="lookup-world-label" id="lookup-pastor-title">牧者</div>
+                        <div class="lookup-character"><span data-field="pastor-character">—</span>型</div>
+                        <div class="lookup-rank">第 <span data-field="pastor-rank">—</span> 名</div>
+                        <div class="lookup-stats-row">
+                            <span><span data-field="pastor-count">—</span> 人</span>
+                            <span><span data-field="pastor-percent">—</span>%</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="lookup-change-card">
+                    <div class="lookup-change-title">平信徒 → 牧者</div>
+                    <div class="lookup-change-row">
+                        <span class="lookup-change-pill" data-field="rank-change">—</span>
+                        <span class="lookup-change-pill" data-field="percent-change">—</span>
+                    </div>
+                </div>
+
+                <div class="lookup-character-shift">
+                    <div class="lookup-character-flow">
+                        <span>平信徒世界：<strong data-field="lay-world-character">—</strong>型</span>
+                        <span class="lookup-flow-arrow" aria-hidden="true">→</span>
+                        <span>牧者世界：<strong data-field="pastor-world-character">—</strong>型</span>
+                    </div>
+                    <p class="lookup-character-comment" data-field="character-comment">—</p>
+                </div>
+
+                <div class="lookup-rarity">
+                    <div><strong>教會稀有度</strong> <span class="lookup-rarity-stars" data-field="rarity-stars">☆☆☆☆☆</span></div>
+                    <p class="lookup-rarity-note">娛樂指標，依本次平信徒樣本比例計算；比例越低，星數越高。</p>
+                </div>
+
+                <div class="lookup-insight">
+                    <h3>數據怎麼說？</h3>
+                    <p data-field="insight">—</p>
+                </div>
+
+                <p class="lookup-method-note">這裡只描述本次線上自願參與樣本，不代表所有台灣基督徒；非人口隨機抽樣。MBTI 僅作娛樂與自我探索用途，不作臨床診斷。</p>
+
+                <div class="lookup-actions">
+                    <button class="lookup-share-btn secondary" id="copy-result-link" type="button">複製結果連結</button>
+                    <button class="lookup-share-btn" id="share-result" type="button" hidden>分享我的結果</button>
+                </div>
+                <p class="lookup-share-feedback" id="lookup-share-feedback" aria-live="polite"></p>
+            </div>
+
+            <p class="sr-only" id="mbti-result-announcer" aria-live="polite" aria-atomic="true"></p>
+        </div>
+    </section>
+
     <!-- F 型 -->
     <section class="alt">
         <div class="section-tag">深度分析</div>
@@ -1270,7 +1775,7 @@
 
         <div style="display: grid; gap: 20px; margin: 30px 0;">
             <!-- 1. ESFJ 馬大 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">1</div>
@@ -1292,7 +1797,7 @@
             </div>
 
             <!-- 2. ISFJ 路得 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">2</div>
@@ -1314,7 +1819,7 @@
             </div>
 
             <!-- 3. ESFP 撒馬利亞婦人 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">3</div>
@@ -1336,7 +1841,7 @@
             </div>
 
             <!-- 4. ENFJ 亞伯拉罕 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">4</div>
@@ -1358,7 +1863,7 @@
             </div>
 
             <!-- 5. INFJ 但以理 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">5</div>
@@ -1380,7 +1885,7 @@
             </div>
 
             <!-- 6. ENFP 巴拿巴 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">6</div>
@@ -1402,7 +1907,7 @@
             </div>
 
             <!-- 7. ISFP 大衛 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">7</div>
@@ -1424,7 +1929,7 @@
             </div>
 
             <!-- 8. INFP 約翰 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">8</div>
@@ -1446,7 +1951,7 @@
             </div>
 
             <!-- 9. ISTJ 尼希米 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">9</div>
@@ -1468,7 +1973,7 @@
             </div>
 
             <!-- 10. INTJ 保羅 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">10</div>
@@ -1490,7 +1995,7 @@
             </div>
 
             <!-- 11. ESTJ 摩西 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">11</div>
@@ -1512,7 +2017,7 @@
             </div>
 
             <!-- 12. INTP 多馬 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">12</div>
@@ -1534,7 +2039,7 @@
             </div>
 
             <!-- 13. ISTP 參孫 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">13</div>
@@ -1556,7 +2061,7 @@
             </div>
 
             <!-- 14. ENTJ 底波拉 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">14</div>
@@ -1578,7 +2083,7 @@
             </div>
 
             <!-- 15. ENTP 雅各 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">15</div>
@@ -1600,7 +2105,7 @@
             </div>
 
             <!-- 16. ESTP 彼得 -->
-            <div class="mbti-card" onclick="this.classList.toggle('expanded')" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <div class="mbti-card" style="background: white; border-left: 4px solid #E67424; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                     <div>
                         <div style="font-size: 1.8rem; font-weight: 900; color: #F4BF34; line-height: 1;">16</div>
@@ -2702,12 +3207,447 @@
 </footer>
 
     <script>
-        console.log('=== 教會MBTI網站 - 完整版動畫啟動 ===');
+        const MBTI_TYPES = [
+            'INTJ', 'INTP', 'ENTJ', 'ENTP',
+            'INFJ', 'INFP', 'ENFJ', 'ENFP',
+            'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ',
+            'ISTP', 'ISFP', 'ESTP', 'ESFP'
+        ];
+
+        const mbtiInsights = {
+            INTJ: '在平信徒裡排第 10，到了牧者樣本往前到第 8，比例也多了 2.1 個百分點。原本算中後段，換到牧者榜反而稍微更常見；而且保羅直接換成以利亞，角色真的有換台。',
+            INTP: '平信徒第 12、牧者第 9，比例增加 2.8 個百分點，是很明顯的往前移。這型在兩邊都不是最大宗，但到了牧者樣本存在感確實提高，多馬也換成所羅門來演。',
+            ENTJ: '平信徒本來就偏稀有，到了牧者樣本又從第 14 掉到第 16，比例少 1.4 個百分點。底波拉沒有換人，只是這次在牧者榜真的站得比較後面。',
+            ENTP: '名次從第 15 升到第 12，看起來前進不少，但比例其實只增加 0.3 個百分點。這張很適合提醒大家：名次是相對位置，不能只看箭頭就腦補一整齣。',
+            INFJ: '平信徒第 5，到了牧者樣本掉到第 11，比例少了 5.8 個百分點。這次資料裡的落差很明顯，但只能說樣本分布不同，先不要急著替但以理寫職涯建議。',
+            INFP: '從平信徒第 8 一口氣到牧者第 2，比例增加 4.5 個百分點，是這次排名上升很明顯的一型。約翰沒有換人，只是到了牧者世界突然站到很前面。',
+            ENFJ: '平信徒第 4，牧者樣本卻到第 15，比例少了 8.1 個百分點，是整份資料最醒目的落差之一。亞伯拉罕還是亞伯拉罕，只是這次牧者樣本裡真的很少見。',
+            ENFP: '第 6 變第 5，比例只多 0.5 個百分點，算是相當穩定。巴拿巴在兩個世界都維持差不多的存在感，沒有突然爆紅，也沒有突然神隱。',
+            ISTJ: '平信徒第 9、牧者第 6，比例增加 1.3 個百分點。尼希米型在牧者樣本裡往前幾格，屬於不是暴衝、但確實變得更常見的那種。',
+            ISFJ: '平信徒第 2、牧者第 3，名次只小退一格，但比例少了 2.1 個百分點。更有趣的是人物從路得換成以斯帖：MBTI 沒變，聖經卡司先換了。',
+            ESTJ: '名次從第 11 升到第 10，但比例反而少了 0.4 個百分點。這型根本是「不要只看排行榜」的示範題：位置前進，不等於樣本比例真的增加。',
+            ESFJ: '平信徒是第 1 名熱門款，到了牧者樣本變第 4，比例少 3.0 個百分點。馬大還是馬大，只是從榜首退了幾步，依然不算稀有。',
+            ISTP: '平信徒第 13、牧者第 14，比例少 1.8 個百分點。本來就不是教會裡的大宗，到了牧者樣本又更少一些；參孫這次一路自己演到底。',
+            ISFP: '這型很妙：平信徒第 7、牧者也是第 7，兩邊比例都剛好 7.6%。數字穩得像複製貼上，但人物卻從大衛換成以利沙，統計沒動、卡司動了。',
+            ESTP: '名次從第 16 升到第 13，但比例其實少了 0.3 個百分點。彼得看起來往前衝了三名，實際上更像是其他類型重新洗牌，不是自己突然大量出現。',
+            ESFP: '平信徒第 3，到了牧者樣本直接第 1，比例增加 11.3 個百分點，是這次最明顯的上升之一。撒馬利亞婦人換成馬利亞，連人物都跟著排行榜一起大洗牌。'
+        };
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        function normalizeText(value) {
+            return (value || '').replace(/\s+/g, ' ').trim();
+        }
+
+        function parseCountPercent(value) {
+            const match = normalizeText(value).match(/([\d,]+)\s*人\s*\/\s*([\d.]+)%/);
+            if (!match) return null;
+            return {
+                count: Number(match[1].replace(/,/g, '')),
+                percent: Number(match[2])
+            };
+        }
+
+        function buildMbtiDataFromRankings() {
+            const data = {};
+
+            document.querySelectorAll('.mbti-card').forEach((card) => {
+                const cardText = normalizeText(card.textContent);
+                const match = cardText.match(/^(\d+)\s+([EI][NS][TF][JP])｜(.+?)\s+([\d,]+)\s*人\s*\/\s*([\d.]+)%/);
+                if (!match) return;
+
+                const [, rank, type, character, count, percent] = match;
+                data[type] = data[type] || {};
+                data[type].lay = {
+                    rank: Number(rank),
+                    percent: Number(percent),
+                    count: Number(count.replace(/,/g, '')),
+                    character: character.trim()
+                };
+            });
+
+            document.querySelectorAll('.pastor-rank-card').forEach((card) => {
+                const rankNode = card.querySelector('.pastor-rank-number');
+                const titleNode = card.querySelector('.pastor-rank-title');
+                const statNode = card.querySelector('.pastor-rank-stat');
+                const stats = parseCountPercent(statNode ? statNode.textContent : '');
+                const titleParts = normalizeText(titleNode ? titleNode.textContent : '').split('｜');
+                const type = titleParts[0] || '';
+                const character = titleParts[1] || '';
+
+                if (!MBTI_TYPES.includes(type) || !rankNode || !stats) return;
+
+                data[type] = data[type] || {};
+                data[type].pastor = {
+                    rank: Number(normalizeText(rankNode.textContent)),
+                    percent: stats.percent,
+                    count: stats.count,
+                    character: character.trim()
+                };
+            });
+
+            MBTI_TYPES.forEach((type) => {
+                if (data[type]) data[type].insight = mbtiInsights[type] || '';
+            });
+
+            return data;
+        }
+
+        const mbtiData = buildMbtiDataFromRankings();
+
+        function getRarityStars(percent) {
+            let stars = 5;
+            if (percent >= 10) stars = 1;
+            else if (percent >= 7) stars = 2;
+            else if (percent >= 4) stars = 3;
+            else if (percent >= 2) stars = 4;
+            return '★'.repeat(stars) + '☆'.repeat(5 - stars);
+        }
+
+        function formatPercentPoint(value) {
+            if (Math.abs(value) < 0.05) return '0.0';
+            const sign = value > 0 ? '+' : '−';
+            return `${sign}${Math.abs(value).toFixed(1)}`;
+        }
+
+        function getResultUrl(type) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('type', type);
+            return url.toString();
+        }
+
+        function updateUrlType(type) {
+            try {
+                window.history.replaceState(null, '', getResultUrl(type));
+            } catch (error) {
+                // 某些本機 file:// 環境限制 history API；部署到 GitHub Pages 不受影響。
+            }
+        }
+
+        function setField(name, value) {
+            document.querySelectorAll(`[data-field="${name}"]`).forEach((node) => {
+                node.textContent = value;
+            });
+        }
+
+        function animateNumber(node, target, options = {}) {
+            if (!node || !Number.isFinite(target)) return;
+            const decimals = options.decimals || 0;
+            const duration = options.duration || 450;
+            const formatter = options.formatter || ((value) => value.toFixed(decimals));
+
+            if (prefersReducedMotion.matches) {
+                node.textContent = formatter(target);
+                return;
+            }
+
+            const start = performance.now();
+            function step(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                node.textContent = formatter(target * eased);
+                if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        function animateResultNumbers(entry) {
+            const fields = {
+                'lay-rank': [entry.lay.rank, 0, (v) => Math.max(1, Math.round(v)).toString()],
+                'pastor-rank': [entry.pastor.rank, 0, (v) => Math.max(1, Math.round(v)).toString()],
+                'lay-count': [entry.lay.count, 0, (v) => Math.round(v).toLocaleString('zh-TW')],
+                'pastor-count': [entry.pastor.count, 0, (v) => Math.round(v).toLocaleString('zh-TW')],
+                'lay-percent': [entry.lay.percent, 1, (v) => v.toFixed(1)],
+                'pastor-percent': [entry.pastor.percent, 1, (v) => v.toFixed(1)]
+            };
+
+            Object.entries(fields).forEach(([field, config]) => {
+                const node = document.querySelector(`[data-field="${field}"]`);
+                animateNumber(node, config[0], { decimals: config[1], formatter: config[2] });
+            });
+        }
+
+        function renderMbtiResult(type, options = {}) {
+            const entry = mbtiData[type];
+            if (!entry || !entry.lay || !entry.pastor) return false;
+
+            document.querySelectorAll('.mbti-option').forEach((button) => {
+                button.setAttribute('aria-pressed', button.dataset.type === type ? 'true' : 'false');
+            });
+
+            const result = document.getElementById('mbti-lookup-result');
+            const rankChangeNode = document.querySelector('[data-field="rank-change"]');
+            const percentChangeNode = document.querySelector('[data-field="percent-change"]');
+            const rankDelta = entry.lay.rank - entry.pastor.rank;
+            const percentDelta = entry.pastor.percent - entry.lay.percent;
+
+            setField('type', type);
+            setField('lay-character', entry.lay.character);
+            setField('pastor-character', entry.pastor.character);
+            setField('lay-world-character', entry.lay.character);
+            setField('pastor-world-character', entry.pastor.character);
+            setField('rarity-stars', getRarityStars(entry.lay.percent));
+            setField('insight', entry.insight || '這一型的資料已載入；建議同時看排名與比例，不要只看其中一個數字。');
+
+            if (rankChangeNode) {
+                rankChangeNode.className = 'lookup-change-pill';
+                if (rankDelta > 0) {
+                    rankChangeNode.textContent = `排名 ↑ ${rankDelta} 名`;
+                    rankChangeNode.classList.add('up');
+                } else if (rankDelta < 0) {
+                    rankChangeNode.textContent = `排名 ↓ ${Math.abs(rankDelta)} 名`;
+                    rankChangeNode.classList.add('down');
+                } else {
+                    rankChangeNode.textContent = '排名 → 沒變';
+                    rankChangeNode.classList.add('same');
+                }
+            }
+
+            if (percentChangeNode) {
+                percentChangeNode.className = 'lookup-change-pill';
+                percentChangeNode.textContent = Math.abs(percentDelta) < 0.05
+                    ? '比例 → 持平（0.0 個百分點）'
+                    : `比例 ${formatPercentPoint(percentDelta)} 個百分點`;
+                percentChangeNode.classList.add(percentDelta > 0.05 ? 'up' : percentDelta < -0.05 ? 'down' : 'same');
+            }
+
+            const sameCharacter = entry.lay.character === entry.pastor.character;
+            setField(
+                'character-comment',
+                sameCharacter
+                    ? `這次人物沒有換人，${entry.lay.character}一路演到底。`
+                    : '你的 MBTI 沒變，但聖經人物換人演了。😂'
+            );
+
+            if (result) {
+                result.hidden = false;
+                result.classList.remove('is-entering');
+                void result.offsetWidth;
+                result.classList.add('is-entering');
+            }
+
+            animateResultNumbers(entry);
+
+            const announcer = document.getElementById('mbti-result-announcer');
+            if (announcer) {
+                const rankPhrase = rankDelta > 0
+                    ? `牧者排名上升 ${rankDelta} 名`
+                    : rankDelta < 0
+                        ? `牧者排名下降 ${Math.abs(rankDelta)} 名`
+                        : '兩邊排名相同';
+                announcer.textContent = `${type} 結果已更新。平信徒第 ${entry.lay.rank} 名，牧者第 ${entry.pastor.rank} 名，${rankPhrase}。`;
+            }
+
+            if (options.updateUrl !== false) updateUrlType(type);
+            return true;
+        }
+
+        async function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return;
+            }
+
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            const copied = document.execCommand('copy');
+            textarea.remove();
+            if (!copied) throw new Error('copy_failed');
+        }
+
+        function getSelectedType() {
+            const selected = document.querySelector('.mbti-option[aria-pressed="true"]');
+            return selected ? selected.dataset.type : '';
+        }
+
+        function setShareFeedback(message) {
+            const node = document.getElementById('lookup-share-feedback');
+            if (node) node.textContent = message;
+        }
+
+        async function copyResultLink() {
+            const type = getSelectedType();
+            if (!type) return;
+            try {
+                await copyText(getResultUrl(type));
+                setShareFeedback('已複製，可以拿去炫耀了 ✨');
+            } catch (error) {
+                setShareFeedback('複製失敗，請直接從瀏覽器網址列複製。');
+            }
+        }
+
+        async function shareResult() {
+            const type = getSelectedType();
+            const entry = mbtiData[type];
+            if (!type || !entry) return;
+
+            const shareData = {
+                title: `${type} 在教會裡排第幾？`,
+                text: `我是 ${type}：平信徒第 ${entry.lay.rank} 名，牧者第 ${entry.pastor.rank} 名。`,
+                url: getResultUrl(type)
+            };
+
+            if (!navigator.share) {
+                await copyResultLink();
+                return;
+            }
+
+            try {
+                await navigator.share(shareData);
+                setShareFeedback('分享完成 ✨');
+            } catch (error) {
+                if (error && error.name === 'AbortError') return;
+                await copyResultLink();
+            }
+        }
+
+        function initMbtiLookup() {
+            document.querySelectorAll('.mbti-option').forEach((button) => {
+                button.addEventListener('click', () => {
+                    setShareFeedback('');
+                    renderMbtiResult(button.dataset.type);
+                });
+            });
+
+            const copyButton = document.getElementById('copy-result-link');
+            if (copyButton) copyButton.addEventListener('click', copyResultLink);
+
+            const shareButton = document.getElementById('share-result');
+            if (shareButton && navigator.share) {
+                shareButton.hidden = false;
+                shareButton.addEventListener('click', shareResult);
+            }
+
+            const rawType = new URLSearchParams(window.location.search).get('type');
+            const initialType = rawType ? rawType.trim().toUpperCase() : '';
+            if (MBTI_TYPES.includes(initialType) && renderMbtiResult(initialType, { updateUrl: false })) {
+                requestAnimationFrame(() => {
+                    const section = document.getElementById('mbti-lookup');
+                    if (section) section.scrollIntoView({ behavior: 'auto', block: 'start' });
+                });
+            }
+        }
+
+        function initInteractiveRankCards() {
+            document.querySelectorAll('.mbti-card').forEach((card) => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-expanded', card.classList.contains('expanded') ? 'true' : 'false');
+
+                const toggle = () => {
+                    card.classList.toggle('expanded');
+                    card.setAttribute('aria-expanded', card.classList.contains('expanded') ? 'true' : 'false');
+                };
+
+                card.addEventListener('click', toggle);
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggle();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.pastor-rank-card').forEach((card) => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-expanded', card.classList.contains('expanded') ? 'true' : 'false');
+
+                const toggle = () => {
+                    card.classList.toggle('expanded');
+                    card.setAttribute('aria-expanded', card.classList.contains('expanded') ? 'true' : 'false');
+                };
+
+                card.addEventListener('click', (event) => {
+                    if (event.target.closest('a')) return;
+                    toggle();
+                });
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggle();
+                    }
+                });
+            });
+        }
+
+        function countUpNumber(id, target, duration) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            animateNumber(element, target, {
+                duration,
+                formatter: (value) => Math.floor(value).toLocaleString('zh-TW')
+            });
+        }
+
+        function countUpDecimal(id, target, duration) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            animateNumber(element, target, {
+                duration,
+                decimals: 1,
+                formatter: (value) => value.toFixed(1)
+            });
+        }
+
+        function activateFIcons() {
+            const container = document.getElementById('f-icons');
+            if (!container) return;
+            const icons = container.querySelectorAll('.icon-person');
+
+            if (prefersReducedMotion.matches) {
+                icons.forEach((icon, index) => {
+                    if (index < 7) icon.style.filter = 'opacity(1) drop-shadow(0 0 12px #E67424)';
+                });
+                return;
+            }
+
+            icons.forEach((icon, index) => {
+                if (index < 7) {
+                    setTimeout(() => {
+                        icon.style.filter = 'opacity(1) drop-shadow(0 0 12px #E67424)';
+                        icon.style.transition = 'all 0.5s ease-in-out';
+                        icon.style.transform = 'scale(1.2)';
+                        setTimeout(() => {
+                            icon.style.transform = 'scale(1)';
+                        }, 300);
+                    }, index * 300);
+                }
+            });
+        }
+
+        function activateJPBars() {
+            const bar1 = document.getElementById('jp-bar1');
+            const bar2 = document.getElementById('jp-bar2');
+            if (bar1) {
+                bar1.style.width = '58%';
+                bar1.textContent = '58%';
+            }
+            if (bar2) {
+                bar2.style.width = '59%';
+                bar2.textContent = '59%';
+            }
+        }
+
+        const heroStartButton = document.getElementById('hero-start-button');
+        if (heroStartButton) {
+            heroStartButton.addEventListener('click', () => {
+                const discoverySection = document.getElementById('discovery-section');
+                if (discoverySection) {
+                    discoverySection.scrollIntoView({ behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+                }
+            });
+        }
+
+        initInteractiveRankCards();
+        initMbtiLookup();
 
         window.addEventListener('load', function() {
-            console.log('✅ 頁面加載完成，開始執行動畫');
-            
-            // 1. 數字計數
             countUpNumber('stat1', 28796, 2000);
             countUpNumber('stat2', 1649, 2000);
             countUpNumber('f-stat1', 73, 2000);
@@ -2724,100 +3664,9 @@
             countUpNumber('dim-p', 41, 2000);
             countUpDecimal('enfj-stat1', 9, 2000);
             countUpDecimal('enfj-stat2', 0.9, 2000);
-
-            // 2. F 型心形亮起
             activateFIcons();
-
-            // 3. J/P 進度條
-            setTimeout(activateJPBars, 1000);
+            window.setTimeout(activateJPBars, prefersReducedMotion.matches ? 0 : 1000);
         });
-
-        function countUpNumber(id, target, duration) {
-            const element = document.getElementById(id);
-            if (!element) return;
-            
-            element.textContent = '0';
-            const start = performance.now();
-            function animate(now) {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const current = Math.floor(target * progress);
-                element.textContent = current.toLocaleString('zh-TW');
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-
-        function countUpDecimal(id, target, duration) {
-            const element = document.getElementById(id);
-            if (!element) return;
-            
-            element.textContent = '0';
-            const start = performance.now();
-            function animate(now) {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const current = target * progress;
-                element.textContent = current.toFixed(1);
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-
-        function activateFIcons() {
-            const container = document.getElementById('f-icons');
-            if (!container) return;
-            
-            const icons = container.querySelectorAll('.icon-person');
-            icons.forEach((icon, i) => {
-                if (i < 7) {
-                    setTimeout(() => {
-                        icon.style.filter = 'opacity(1) drop-shadow(0 0 12px #E67424)';
-                        icon.style.transition = 'all 0.5s ease-in-out';
-                        icon.style.transform = 'scale(1.2)';
-                        
-                        setTimeout(() => {
-                            icon.style.transform = 'scale(1)';
-                        }, 300);
-                    }, i * 300);
-                }
-            });
-        }
-
-        function activateJPBars() {
-            const bar1 = document.getElementById('jp-bar1');
-            const bar2 = document.getElementById('jp-bar2');
-            
-            if (bar1) {
-                bar1.style.width = '58%';
-                bar1.textContent = '58%';
-            }
-            
-            if (bar2) {
-                bar2.style.width = '59%';
-                bar2.textContent = '59%';
-            }
-        }
-
-        console.log('✅ 所有函數已定義');
-
-        // 牧者卡片點擊展開/收合
-        document.querySelectorAll('.pastor-rank-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                // 防止連結被點擊時觸發
-                if (e.target.tagName === 'A') return;
-                
-                this.classList.toggle('expanded');
-            });
-        });
-        
-        console.log('✅ 牧者排行卡片點擊功能已啟用');
     </script>
 </body>
 </html>
