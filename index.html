@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？</title>
-    <meta name="description" content="近 3 萬位平信徒與 1,649 位牧者完成 MBTI × 聖經人物測驗。看看教會最多哪種人格、牧者和平信徒有什麼差異，以及一年後的你有沒有改變。">
-    <meta property="og:title" content="教會 MBTI 大調查 | 教會小本本">
+    <meta name="description" content="近 3 萬位平信徒與 1,649 位牧者完成 MBTI × 聖經人物測驗。看看教會最多哪種人格、牧者和平信徒有什麼差異。">
     <style>
         * {
             margin: 0;
@@ -204,17 +203,17 @@
         .icon-person {
             font-size: 2.5rem;
             filter: opacity(0.4);
-            transition: all 0.5s;
+            transition: all 0.5s ease-in-out;
         }
 
         .icon-person.active {
-            filter: opacity(1) drop-shadow(0 0 8px #E67424);
-            animation: pulse 0.5s;
+            filter: opacity(1) drop-shadow(0 0 10px #E67424);
+            animation: pulse 0.6s ease-in-out;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
 
@@ -345,7 +344,7 @@
             border: 2px solid #2D7A49;
             padding: 20px;
             opacity: 0;
-            animation: slideUp 0.6s ease-out forwards;
+            animation: slideUpFade 0.8s ease-out forwards;
             display: flex;
             gap: 15px;
             align-items: flex-start;
@@ -357,7 +356,7 @@
         .rank-item:nth-child(4) { animation-delay: 0.4s; }
         .rank-item:nth-child(5) { animation-delay: 0.5s; }
 
-        @keyframes slideUp {
+        @keyframes slideUpFade {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -390,17 +389,6 @@
             font-size: 0.85rem;
             color: #E67424;
             font-weight: 700;
-        }
-
-        .expand-btn {
-            background-color: #2D7A49;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 20px;
         }
 
         /* ===== SECTION 07: ENFJ ===== */
@@ -514,6 +502,12 @@
             font-weight: 900;
             border: none;
             cursor: pointer;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .cta-btn-primary:hover {
+            transform: translate(-2px, -2px);
         }
 
         .share-template {
@@ -821,8 +815,14 @@
     </footer>
 
     <script>
-        // 頁面加載完成時立即觸發
+        console.log('=== 教會MBTI網站 - 動畫啟動 ===');
+
+        // 頁面加載完成時立即觸發所有動畫
         window.addEventListener('load', function() {
+            console.log('✅ 頁面加載完成，開始執行動畫');
+            
+            // 1. 數字計數 - 立即執行
+            console.log('📊 開始數字動畫');
             countUpNumber('stat1', 28796, 2000);
             countUpNumber('stat2', 1649, 2000);
             countUpNumber('f-stat1', 73, 2000);
@@ -832,53 +832,101 @@
             countUpDecimal('enfj-stat1', 9, 2000);
             countUpDecimal('enfj-stat2', 0.9, 2000);
 
-            setTimeout(activateFIcons, 500);
+            // 2. F 型心形亮起 - 立即執行（不延遲）
+            console.log('💓 F 型心形即將逐一亮起');
+            activateFIcons();
+
+            // 3. J/P 進度條 - 延遲 1 秒執行
+            console.log('📈 J/P 進度條即將展開');
             setTimeout(activateJPBars, 1000);
         });
 
-        // 計數（整數）
+        // ===== 計數函數（整數）=====
         function countUpNumber(id, target, duration) {
-            const el = document.getElementById(id);
-            if (!el) return;
+            const element = document.getElementById(id);
+            if (!element) {
+                console.warn('❌ 找不到元素 ID: ' + id);
+                return;
+            }
+            
             const start = performance.now();
             function animate(now) {
-                const progress = Math.min((now - start) / duration, 1);
-                el.textContent = Math.floor(target * progress).toLocaleString('zh-TW');
-                if (progress < 1) requestAnimationFrame(animate);
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(target * progress);
+                element.textContent = current.toLocaleString('zh-TW');
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
             }
             requestAnimationFrame(animate);
         }
 
-        // 計數（小數）
+        // ===== 計數函數（小數）=====
         function countUpDecimal(id, target, duration) {
-            const el = document.getElementById(id);
-            if (!el) return;
+            const element = document.getElementById(id);
+            if (!element) {
+                console.warn('❌ 找不到元素 ID: ' + id);
+                return;
+            }
+            
             const start = performance.now();
             function animate(now) {
-                const progress = Math.min((now - start) / duration, 1);
-                el.textContent = (target * progress).toFixed(1);
-                if (progress < 1) requestAnimationFrame(animate);
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = target * progress;
+                element.textContent = current.toFixed(1);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
             }
             requestAnimationFrame(animate);
         }
 
-        // F 型亮起
+        // ===== F 型心形亮起 =====
         function activateFIcons() {
-            const icons = document.querySelectorAll('#f-icons .icon-person');
+            const container = document.getElementById('f-icons');
+            if (!container) {
+                console.error('❌ 找不到 #f-icons 容器');
+                return;
+            }
+            
+            const icons = container.querySelectorAll('.icon-person');
+            console.log('🎯 找到 ' + icons.length + ' 個心形');
+            
+            // 立即逐一亮起前 7 個（不延遲）
             icons.forEach((icon, i) => {
                 if (i < 7) {
-                    setTimeout(() => icon.classList.add('active'), i * 150);
+                    // 使用 setTimeout 稍微錯開，讓視覺效果更明顯
+                    setTimeout(() => {
+                        icon.classList.add('active');
+                        console.log('✨ 第 ' + (i + 1) + ' 個心形亮起');
+                    }, i * 200);
                 }
             });
         }
 
-        // J/P 進度條
+        // ===== J/P 進度條 =====
         function activateJPBars() {
             const bar1 = document.getElementById('jp-bar1');
             const bar2 = document.getElementById('jp-bar2');
-            if (bar1) { bar1.style.width = '58%'; bar1.textContent = '58%'; }
-            if (bar2) { bar2.style.width = '59%'; bar2.textContent = '59%'; }
+            
+            if (bar1) {
+                bar1.style.width = '58%';
+                bar1.textContent = '58%';
+                console.log('📊 平信徒 J 進度條展開: 58%');
+            }
+            
+            if (bar2) {
+                bar2.style.width = '59%';
+                bar2.textContent = '59%';
+                console.log('📊 牧者 P 進度條展開: 59%');
+            }
         }
+
+        console.log('✅ 所有函數已定義，等待頁面加載完成...');
     </script>
 </body>
 </html>
