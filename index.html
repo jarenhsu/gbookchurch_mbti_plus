@@ -6,8 +6,6 @@
     <title>教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？</title>
     <meta name="description" content="近 3 萬位平信徒與 1,649 位牧者完成 MBTI × 聖經人物測驗。看看教會最多哪種人格、牧者和平信徒有什麼差異，以及一年後的你有沒有改變。">
     <meta property="og:title" content="教會 MBTI 大調查 | 教會小本本">
-    <meta property="og:description" content="近 3 萬位基督徒的人格分布，會不會跟你想的一樣？">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=教會MBTI大調查">
     <style>
         * {
             margin: 0;
@@ -24,11 +22,6 @@
             background-color: #FFF9E8;
             color: #4A301E;
             line-height: 1.6;
-        }
-
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
         }
 
         /* ===== HERO ===== */
@@ -81,7 +74,6 @@
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.2;
-            letter-spacing: -1px;
         }
 
         .hero .subtitle {
@@ -89,7 +81,6 @@
             color: #F4BF34;
             font-weight: 700;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .stats {
@@ -104,7 +95,6 @@
             background: rgba(244, 191, 52, 0.2);
             padding: 20px 30px;
             border: 2px solid #F4BF34;
-            border-radius: 0;
         }
 
         .stat-number {
@@ -130,21 +120,15 @@
             cursor: pointer;
             margin-top: 30px;
             transition: all 0.3s;
-            text-decoration: none;
             display: inline-block;
             box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
         }
 
         .cta-btn:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
         }
 
-        .cta-btn:active {
-            transform: translate(1px, 1px);
-        }
-
-        /* ===== SECTION GENERAL ===== */
+        /* ===== SECTION ===== */
         section {
             padding: 60px 20px;
             max-width: 1000px;
@@ -167,7 +151,6 @@
             font-size: 0.85rem;
             font-weight: 700;
             margin-bottom: 15px;
-            border-radius: 0;
         }
 
         .section-title {
@@ -175,14 +158,12 @@
             font-weight: 900;
             color: #F4BF34;
             margin-bottom: 10px;
-            line-height: 1.2;
         }
 
         .section-subtitle {
             font-size: 1.1rem;
             color: #4A301E;
             margin-bottom: 30px;
-            max-width: 500px;
         }
 
         .divider {
@@ -201,12 +182,7 @@
             margin-top: 30px;
         }
 
-        .f-left {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .f-right {
+        .f-left, .f-right {
             flex: 1;
             min-width: 280px;
         }
@@ -322,7 +298,6 @@
         .jp-bar-bg {
             background-color: #f0e8d8;
             height: 40px;
-            position: relative;
             border: 2px solid #4A301E;
             overflow: hidden;
         }
@@ -331,7 +306,7 @@
             background: linear-gradient(90deg, #F4BF34, #E67424);
             height: 100%;
             width: 0;
-            transition: width 1s ease-out;
+            transition: width 1.5s ease-out;
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -351,14 +326,13 @@
         .jp-highlight {
             background: #F4BF34;
             padding: 20px;
-            border-radius: 0;
             font-size: 1.3rem;
             font-weight: 700;
             color: #4A301E;
             margin: 20px 0;
         }
 
-        /* ===== RANKING SECTIONS ===== */
+        /* ===== RANKING ===== */
         .ranking-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -412,12 +386,6 @@
             margin-bottom: 5px;
         }
 
-        .rank-name {
-            font-size: 0.9rem;
-            color: #4A301E;
-            margin-bottom: 5px;
-        }
-
         .rank-stat {
             font-size: 0.85rem;
             color: #E67424;
@@ -433,11 +401,6 @@
             font-weight: 700;
             cursor: pointer;
             margin-top: 20px;
-            transition: all 0.3s;
-        }
-
-        .expand-btn:hover {
-            background-color: #1a4d2e;
         }
 
         /* ===== SECTION 07: ENFJ ===== */
@@ -515,22 +478,14 @@
             margin-bottom: 20px;
         }
 
-        .summary-traits {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #E67424;
-            line-height: 1.8;
-        }
-
         .summary-trait {
             display: inline-block;
             background: #FFF9E8;
             padding: 8px 16px;
             margin: 5px;
-            border-radius: 0;
         }
 
-        /* ===== SECTION 09: FINAL CTA ===== */
+        /* ===== FINAL CTA ===== */
         .final-cta {
             text-align: center;
             padding: 60px 20px;
@@ -541,14 +496,6 @@
         .final-cta h2 {
             font-size: 2rem;
             margin-bottom: 20px;
-        }
-
-        .final-cta p {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .cta-buttons {
@@ -565,23 +512,8 @@
             padding: 18px 40px;
             font-size: 1.1rem;
             font-weight: 900;
-        }
-
-        .cta-btn-primary:hover {
-            background-color: #E67424;
-        }
-
-        .cta-btn-secondary {
-            background-color: transparent;
-            color: #FFF9E8;
-            border: 2px solid #FFF9E8;
-            padding: 16px 40px;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .cta-btn-secondary:hover {
-            background-color: rgba(255,255,255,0.1);
+            border: none;
+            cursor: pointer;
         }
 
         .share-template {
@@ -589,7 +521,6 @@
             border: 1px solid #F4BF34;
             padding: 20px;
             margin: 30px 0;
-            font-size: 1rem;
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
@@ -602,37 +533,15 @@
             text-align: center;
             padding: 40px 20px;
             font-size: 0.9rem;
-            line-height: 1.7;
-        }
-
-        footer a {
-            color: #F4BF34;
-            text-decoration: none;
         }
 
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .hero {
                 min-height: 80vh;
-                padding: 40px 20px;
             }
 
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .stats {
-                gap: 20px;
-            }
-
-            section {
-                padding: 40px 20px;
-            }
-
-            .f-content,
-            .person-display,
-            .enfj-content,
-            .summary-grid {
+            .f-content, .person-display, .enfj-content, .summary-grid {
                 flex-direction: column;
                 gap: 30px;
             }
@@ -641,79 +550,53 @@
                 grid-template-columns: 1fr;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .cta-btn,
-            .cta-btn-primary,
-            .cta-btn-secondary {
-                width: 100%;
-                padding: 16px 20px;
-            }
-
-            .jp-row {
-                flex-direction: column;
-            }
-
             .ranking-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        /* ===== ACCESSIBILITY ===== */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+            .cta-btn, .cta-btn-primary {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- SECTION 01: HERO -->
-    <section class="hero" id="hero">
+    <!-- HERO -->
+    <section class="hero">
         <div class="hero-content">
             <h1>教會人格圖鑑</h1>
             <p class="subtitle">3 萬份測驗結果的真實故事</p>
             
             <div class="stats">
                 <div class="stat">
-                    <span class="stat-number" data-count="28796">0</span>
+                    <span class="stat-number" id="stat1">0</span>
                     <div class="stat-label">平信徒</div>
                 </div>
                 <div class="stat">
-                    <span class="stat-number" data-count="1649">0</span>
+                    <span class="stat-number" id="stat2">0</span>
                     <div class="stat-label">牧者</div>
                 </div>
             </div>
-
-            <p style="font-size: 1.1rem; margin: 30px 0;">教會裡的人格，真的跟你想的一樣嗎？</p>
 
             <button class="cta-btn" onclick="document.getElementById('f-section').scrollIntoView();">開始看看 →</button>
         </div>
     </section>
 
-    <!-- SECTION 02: F 型 -->
+    <!-- F 型 -->
     <section class="f-section" id="f-section">
         <div class="section-tag">核心發現</div>
         <h2 class="section-title">教會是 F 人的大本營？</h2>
-        <p class="section-subtitle">每 10 位受測者，大約有 7 位是 F 型。</p>
         <div class="divider"></div>
 
         <div class="f-content">
             <div class="f-left">
-                <div class="f-stat"><span class="count-up" data-target="73">0</span>%</div>
-                <p style="font-size: 1.1rem; color: #2D7A49; font-weight: 700;">平信徒是 F 型</p>
-                
-                <div class="f-stat" style="margin-top: 40px;"><span class="count-up" data-target="70">0</span>%</div>
-                <p style="font-size: 1.1rem; color: #2D7A49; font-weight: 700;">牧者也是 F 型</p>
+                <div class="f-stat"><span id="f-stat1">0</span>%</div>
+                <p style="color: #2D7A49; font-weight: 700;">平信徒是 F 型</p>
+                <div class="f-stat" style="margin-top: 40px;"><span id="f-stat2">0</span>%</div>
+                <p style="color: #2D7A49; font-weight: 700;">牧者也是 F 型</p>
             </div>
 
             <div class="f-right">
-                <p class="f-text">感情型（F）的特徵是「在乎人、重視關係、做決定時會考慮對方感受」。</p>
-
                 <div class="icons-row" id="f-icons">
                     <div class="icon-person">❤️</div>
                     <div class="icon-person">❤️</div>
@@ -728,17 +611,14 @@
                 </div>
 
                 <div class="f-quote">所以教會開會先問『他會不會受傷？』好像也不奇怪。</div>
-
-                <p class="f-text">這不是偶然。感情型人在乎「人、關係、價值」，而教會的核心就是「關懷、陪伴、服事」。教會天然吸引感情型的人。</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 03: E/I -->
-    <section class="alt" id="ei-section">
+    <!-- E/I -->
+    <section class="alt">
         <div class="section-tag">真實發現</div>
         <h2 class="section-title">牧師真的都是 E 人嗎？</h2>
-        <p class="section-subtitle">答案：不是。能站講台，不代表聚會結束後不用充電。</p>
         <div class="divider"></div>
 
         <div class="person-display">
@@ -747,82 +627,58 @@
                 <div class="person-label">牧者 I 型</div>
                 <div class="person-state">講台上：專業、帶領</div>
                 <div class="person-state">聚會後：需要安靜充電</div>
-                <p style="font-size: 1.3rem; font-weight: 900; color: #E67424; margin-top: 15px;"><span class="count-up" data-target="53">0</span>%</p>
+                <p style="font-size: 1.3rem; font-weight: 900; color: #E67424;"><span id="ei-stat1">0</span>%</p>
             </div>
-            <div style="font-size: 2rem; text-align: center; flex: 1; min-width: 100px;">VS</div>
+            <div style="font-size: 2rem; text-align: center; flex: 1;">VS</div>
             <div class="person-box">
                 <div class="person-emoji">👥</div>
                 <div class="person-label">平信徒 I 型</div>
                 <div class="person-state">只差 1% 而已</div>
-                <div class="person-state">內向體質很常見</div>
-                <p style="font-size: 1.3rem; font-weight: 900; color: #E67424; margin-top: 15px;"><span class="count-up" data-target="52">0</span>%</p>
+                <p style="font-size: 1.3rem; font-weight: 900; color: #E67424;"><span id="ei-stat2">0</span>%</p>
             </div>
         </div>
-
-        <p class="f-text" style="text-align: center; margin-top: 40px; font-size: 1.1rem;">
-            內向牧師能透過訓練、經驗、人脈累積做得和外向牧師一樣好。<br>
-            <strong>工作改變人，但改變的不是能量來源。</strong>
-        </p>
     </section>
 
-    <!-- SECTION 04: J/P -->
-    <section class="f-section" id="jp-section">
+    <!-- J/P -->
+    <section class="f-section">
         <div class="section-tag">最大差異</div>
         <h2 class="section-title">真正差最多的是 J / P</h2>
-        <p class="section-subtitle">這是平信徒和牧者之間最劇烈的結構差異。</p>
         <div class="divider"></div>
 
         <div class="jp-content">
             <div class="jp-row">
                 <div class="jp-bar-container">
-                    <div class="jp-bar-label">平信徒（偏 J - 有計畫）</div>
+                    <div class="jp-bar-label">平信徒（偏 J）</div>
                     <div class="jp-bar-bg">
-                        <div class="jp-bar-fill" style="width: 0;" data-target="58">0%</div>
+                        <div class="jp-bar-fill" id="jp-bar1">0%</div>
                     </div>
                 </div>
             </div>
 
             <div class="jp-row">
                 <div class="jp-bar-container">
-                    <div class="jp-bar-label">牧者（偏 P - 靈活變通）</div>
+                    <div class="jp-bar-label">牧者（偏 P）</div>
                     <div class="jp-bar-bg">
-                        <div class="jp-bar-fill" style="width: 0;" data-target="59">0%</div>
+                        <div class="jp-bar-fill" id="jp-bar2">0%</div>
                     </div>
                 </div>
             </div>
 
-            <div class="jp-highlight">
-                ↔️ 差異：17 個百分點，完全翻轉
-            </div>
-
-            <p class="jp-text">
-                <strong>J 型（判斷型）：</strong> 先排好流程、列清單、按計畫執行。<br>
-                <strong>P 型（感知型）：</strong> 先開始再調整、靈敏應變、隨機應變。
-            </p>
-
-            <p class="jp-text">
-                牧職工作充滿意外——會友失業、婚姻危機、聚會改變、人事衝突。這些具體、緊迫的問題，不斷訓練牧師的 P 特質（高手應變者）。
-            </p>
-
-            <p style="text-align: center; font-size: 1.1rem; color: #E67424; font-weight: 900; margin-top: 30px;">
-                原來教會裡最有計畫的，不一定是牧者。
-            </p>
+            <div class="jp-highlight">↔️ 差異：17 個百分點，完全翻轉</div>
         </div>
     </section>
 
-    <!-- SECTION 05: 平信徒排行榜 -->
-    <section class="alt" id="laity-rank">
+    <!-- 平信徒排行榜 -->
+    <section class="alt">
         <div class="section-tag">排行榜</div>
         <h2 class="section-title">平信徒 TOP 5</h2>
-        <p class="section-subtitle">前 8 名全部都是 F 型。沒有例外。</p>
         <div class="divider"></div>
 
-        <div class="ranking-grid" id="laity-ranking">
+        <div class="ranking-grid">
             <div class="rank-item">
                 <div class="rank-number">1</div>
                 <div class="rank-content">
                     <div class="rank-type">ESFJ｜馬大型</div>
-                    <div class="rank-name">外向 感受 感情 判斷</div>
                     <div class="rank-stat">3,482 人 / 12.1%</div>
                 </div>
             </div>
@@ -830,7 +686,6 @@
                 <div class="rank-number">2</div>
                 <div class="rank-content">
                     <div class="rank-type">ISFJ｜路得型</div>
-                    <div class="rank-name">內向 感受 感情 判斷</div>
                     <div class="rank-stat">3,408 人 / 11.8%</div>
                 </div>
             </div>
@@ -838,7 +693,6 @@
                 <div class="rank-number">3</div>
                 <div class="rank-content">
                     <div class="rank-type">ESFP｜撒馬利亞婦人</div>
-                    <div class="rank-name">外向 感受 感情 感知</div>
                     <div class="rank-stat">2,615 人 / 9.1%</div>
                 </div>
             </div>
@@ -846,7 +700,6 @@
                 <div class="rank-number">4</div>
                 <div class="rank-content">
                     <div class="rank-type">ENFJ｜亞伯拉罕</div>
-                    <div class="rank-name">外向 直覺 感情 判斷</div>
                     <div class="rank-stat">2,594 人 / 9.0%</div>
                 </div>
             </div>
@@ -854,36 +707,30 @@
                 <div class="rank-number">5</div>
                 <div class="rank-content">
                     <div class="rank-type">INFJ｜但以理型</div>
-                    <div class="rank-name">內向 直覺 感情 判斷</div>
                     <div class="rank-stat">2,486 人 / 8.6%</div>
                 </div>
             </div>
         </div>
-
-        <button class="expand-btn" onclick="toggleFullRanking('laity')">查看完整 16 型 ↓</button>
     </section>
 
-    <!-- SECTION 06: 牧者排行榜 -->
-    <section class="f-section" id="pastor-rank">
+    <!-- 牧者排行榜 -->
+    <section class="f-section">
         <div class="section-tag">排行榜</div>
         <h2 class="section-title">牧者 TOP 5</h2>
-        <p class="section-subtitle">ESFP 為牧者第一名。每 5 位牧者，約 1 位是 ESFP。</p>
         <div class="divider"></div>
 
-        <div class="ranking-grid" id="pastor-ranking">
+        <div class="ranking-grid">
             <div class="rank-item">
                 <div class="rank-number">1</div>
                 <div class="rank-content">
-                    <div class="rank-type">ESFP｜馬利亞</div>
-                    <div class="rank-name">外向 感受 感情 感知</div>
-                    <div class="rank-stat">336 人 / 20.4% <span style="color: #E67424; font-weight: 900;">🔥</span></div>
+                    <div class="rank-type">ESFP｜馬利亞 🔥</div>
+                    <div class="rank-stat">336 人 / 20.4%</div>
                 </div>
             </div>
             <div class="rank-item">
                 <div class="rank-number">2</div>
                 <div class="rank-content">
                     <div class="rank-type">INFP｜約翰型</div>
-                    <div class="rank-name">內向 直覺 感情 感知</div>
                     <div class="rank-stat">187 人 / 11.3%</div>
                 </div>
             </div>
@@ -891,7 +738,6 @@
                 <div class="rank-number">3</div>
                 <div class="rank-content">
                     <div class="rank-type">ISFJ｜以斯帖</div>
-                    <div class="rank-name">內向 感受 感情 判斷</div>
                     <div class="rank-stat">160 人 / 9.7%</div>
                 </div>
             </div>
@@ -899,7 +745,6 @@
                 <div class="rank-number">4</div>
                 <div class="rank-content">
                     <div class="rank-type">ESFJ｜馬大型</div>
-                    <div class="rank-name">外向 感受 感情 判斷</div>
                     <div class="rank-stat">150 人 / 9.1%</div>
                 </div>
             </div>
@@ -907,25 +752,16 @@
                 <div class="rank-number">5</div>
                 <div class="rank-content">
                     <div class="rank-type">ENFP｜巴拿巴型</div>
-                    <div class="rank-name">外向 直覺 感情 感知</div>
                     <div class="rank-stat">142 人 / 8.6%</div>
                 </div>
             </div>
         </div>
-
-        <button class="expand-btn" onclick="toggleFullRanking('pastor')">查看完整 16 型 ↓</button>
-
-        <p style="text-align: center; margin-top: 30px; font-size: 1rem; color: #E67424; font-weight: 700;">
-            牧者 ESFP（20.4%）是平信徒 ESFP（9.1%）的 <strong>2.24 倍</strong><br>
-            現場感強、即時反應的人，自然被牧職吸引。
-        </p>
     </section>
 
-    <!-- SECTION 07: ENFJ 謎團 -->
-    <section class="alt" id="enfj-mystery">
+    <!-- ENFJ 謎團 -->
+    <section class="alt">
         <div class="section-tag">謎團</div>
         <h2 class="section-title">ENFJ 消失謎團</h2>
-        <p class="section-subtitle">最「像領袖」的類型，為什麼在牧者中幾乎消失？</p>
         <div class="divider"></div>
 
         <div class="enfj-content">
@@ -933,38 +769,22 @@
                 <div class="enfj-comparison">
                     <div class="enfj-box">
                         <div class="enfj-emoji">👥</div>
-                        <div class="enfj-percent"><span class="count-up" data-target="9">0</span>%</div>
+                        <div class="enfj-percent"><span id="enfj-stat1">0</span>%</div>
                         <div class="enfj-label">平信徒</div>
                     </div>
-                    <div style="font-size: 2rem; font-weight: 900; color: #E67424; flex-shrink: 0;">→→→</div>
+                    <div style="font-size: 2rem; font-weight: 900; color: #E67424;">→</div>
                     <div class="enfj-box">
                         <div class="enfj-emoji">❓</div>
-                        <div class="enfj-percent"><span class="count-up" data-target="0.9">0</span>%</div>
+                        <div class="enfj-percent"><span id="enfj-stat2">0</span>%</div>
                         <div class="enfj-label">牧者</div>
                     </div>
                 </div>
-
-                <div style="text-align: center; font-size: 1.3rem; font-weight: 900; color: #E67424; margin: 30px 0;">
-                    只有十分之一
-                </div>
-            </div>
-
-            <div class="enfj-note">
-                <strong>ENFJ 的特質：</strong> 天生領袖、教導者、鼓舞者、群體動員家。看起來最「牧師」。<br><br>
-
-                <strong>但為什麼牧者中 ENFJ 這麼少？</strong><br>
-                • 樣本偏差？（牧者在某個教派較少）<br>
-                • 選擇偏差？（ENFJ 較少進入牧職）<br>
-                • 工作塑造？（進去後性格改變了）<br>
-                • 年齡效應？（不同世代的比例不同）<br><br>
-
-                <strong>這不是結論，而是謎團。值得進一步研究。</strong>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 08: 總結 -->
-    <section class="f-section" id="summary">
+    <!-- 總結 -->
+    <section class="f-section">
         <div class="section-tag">最終總結</div>
         <h2 class="section-title">最大的共同點 vs 最大的差異</h2>
         <div class="divider"></div>
@@ -972,135 +792,92 @@
         <div class="summary-grid">
             <div class="summary-card">
                 <div class="summary-label">最大的共同點</div>
-                <p style="font-size: 3rem; font-weight: 900; color: #E67424; margin: 20px 0;">F</p>
-                <p class="summary-traits">都在乎人<br>都重視關係<br>都想好好服事</p>
+                <p style="font-size: 3rem; font-weight: 900; color: #E67424;">F</p>
             </div>
             <div class="summary-card">
                 <div class="summary-label">最大的差異</div>
-                <p style="font-size: 3rem; font-weight: 900; color: #2D7A49; margin: 20px 0;">J ↔ P</p>
-                <p class="summary-traits">平信徒偏 J<br>牧者偏 P<br>差 17%</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; background: #FFF9E8; border: 2px solid #E67424; padding: 30px; margin: 40px 0;">
-            <p style="font-size: 1.2rem; color: #2D7A49; margin-bottom: 15px; font-weight: 700;">平信徒人格特徵</p>
-            <div>
-                <span class="summary-trait">略偏 I</span>
-                <span class="summary-trait">偏 S</span>
-                <span class="summary-trait">高 F</span>
-                <span class="summary-trait">偏 J</span>
-            </div>
-
-            <p style="font-size: 1.2rem; color: #2D7A49; margin: 30px 0 15px 0; font-weight: 700;">牧者人格特徵</p>
-            <div>
-                <span class="summary-trait">略偏 I</span>
-                <span class="summary-trait">偏 S</span>
-                <span class="summary-trait">高 F</span>
-                <span class="summary-trait">偏 P</span>
+                <p style="font-size: 3rem; font-weight: 900; color: #2D7A49;">J ↔ P</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 09: 最終 CTA -->
-    <section class="final-cta" id="final-cta">
+    <!-- 最終 CTA -->
+    <section class="final-cta">
         <h2>一年過去了，你還是原本的你嗎？</h2>
-        <p>去年做過的人，把舊結果找出來，再測一次。看看有沒有改變。</p>
-
         <div class="cta-buttons">
-            <button class="cta-btn cta-btn-primary" onclick="scrollToQuiz()">再測一次，看我現在像誰 →</button>
-            <button class="cta-btn cta-btn-secondary" onclick="alert('測驗連結將於稍後更新')">第一次玩？開始測驗</button>
+            <button class="cta-btn-primary" onclick="alert('測驗連結將於稍後更新')">再測一次 →</button>
         </div>
-
         <div class="share-template">
-            <p style="font-weight: 700; margin-bottom: 10px;">分享你的改變</p>
-            <p>「去年我是 ___ 型<br>今年我是 ___ 型<br>牧職真的改變了我」</p>
+            <p style="font-weight: 700;">分享你的改變</p>
+            <p>「去年我是 ___ 型<br>今年我是 ___ 型」</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p style="font-weight: 700; margin-bottom: 10px;">《教會小本本 | Church Little Notebook》</p>
+        <p style="font-weight: 700;">《教會小本本》</p>
         <p>資料：平信徒 28,796 人 ／ 牧者 1,649 人</p>
-        <p>為線上自願參與測驗者結果，非台灣基督徒人口隨機抽樣。</p>
-        <p style="margin-top: 15px; font-size: 0.85rem;">
-            MBTI® 為性格偏好工具，用於自我探索與娛樂目的。<br>
-            本網站資料不代表全體台灣基督徒結論，不作為臨床診斷或屬靈程度判定。
-        </p>
+        <p style="margin-top: 15px; font-size: 0.85rem;">為線上自願參與測驗者結果，非台灣基督徒人口隨機抽樣。</p>
     </footer>
 
     <script>
-        // 計數動畫
-        document.querySelectorAll('[data-count]').forEach(el => {
-            const target = parseInt(el.dataset.count);
-            const start = 0;
-            const duration = 2000;
-            const startTime = performance.now();
+        // 頁面加載完成時立即觸發
+        window.addEventListener('load', function() {
+            countUpNumber('stat1', 28796, 2000);
+            countUpNumber('stat2', 1649, 2000);
+            countUpNumber('f-stat1', 73, 2000);
+            countUpNumber('f-stat2', 70, 2000);
+            countUpNumber('ei-stat1', 53, 2000);
+            countUpNumber('ei-stat2', 52, 2000);
+            countUpDecimal('enfj-stat1', 9, 2000);
+            countUpDecimal('enfj-stat2', 0.9, 2000);
 
-            const animate = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const current = Math.floor(start + (target - start) * progress);
-                el.textContent = current.toLocaleString('zh-TW');
-                if (progress < 1) requestAnimationFrame(animate);
-            };
-
-            requestAnimationFrame(animate);
+            setTimeout(activateFIcons, 500);
+            setTimeout(activateJPBars, 1000);
         });
 
-        // F 型亮起動畫
-        window.addEventListener('scroll', () => {
-            const section = document.getElementById('f-section');
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.7) {
-                const icons = document.querySelectorAll('#f-icons .icon-person');
-                icons.forEach((icon, i) => {
-                    if (i < 7) {
-                        setTimeout(() => {
-                            icon.classList.add('active');
-                        }, i * 100);
-                    }
-                });
-            }
-        }, { once: true });
-
-        // J/P 進度條
-        window.addEventListener('scroll', () => {
-            const section = document.getElementById('jp-section');
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.7) {
-                document.querySelectorAll('.jp-bar-fill').forEach((bar, i) => {
-                    const target = bar.dataset.target;
-                    bar.style.width = target;
-                });
-            }
-        }, { once: true });
-
-        // Count-up 數字
-        document.querySelectorAll('.count-up').forEach(el => {
-            const target = parseInt(el.dataset.target);
-            const start = 0;
-            const duration = 2000;
-            const startTime = performance.now();
-
-            const animate = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const current = Math.floor(start + (target - start) * progress);
-                el.textContent = current;
+        // 計數（整數）
+        function countUpNumber(id, target, duration) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const start = performance.now();
+            function animate(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                el.textContent = Math.floor(target * progress).toLocaleString('zh-TW');
                 if (progress < 1) requestAnimationFrame(animate);
-            };
-
+            }
             requestAnimationFrame(animate);
-        });
-
-        // 展開完整排行榜
-        function toggleFullRanking(type) {
-            alert(type === 'laity' ? '完整 16 型排行榜展開功能' : '完整 16 型排行榜展開功能');
         }
 
-        // 捲動到測驗
-        function scrollToQuiz() {
-            alert('測驗連結將於稍後更新');
+        // 計數（小數）
+        function countUpDecimal(id, target, duration) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const start = performance.now();
+            function animate(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                el.textContent = (target * progress).toFixed(1);
+                if (progress < 1) requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // F 型亮起
+        function activateFIcons() {
+            const icons = document.querySelectorAll('#f-icons .icon-person');
+            icons.forEach((icon, i) => {
+                if (i < 7) {
+                    setTimeout(() => icon.classList.add('active'), i * 150);
+                }
+            });
+        }
+
+        // J/P 進度條
+        function activateJPBars() {
+            const bar1 = document.getElementById('jp-bar1');
+            const bar2 = document.getElementById('jp-bar2');
+            if (bar1) { bar1.style.width = '58%'; bar1.textContent = '58%'; }
+            if (bar2) { bar2.style.width = '59%'; bar2.textContent = '59%'; }
         }
     </script>
 </body>
