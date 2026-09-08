@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？</title>
-    <meta name="description" content="近 3 萬位平信徒與 1,649 位牧者完成 MBTI × 聖經人物測驗。看看教會最多哪種人格、牧者和平信徒有什麼差異，以及一年後的你有沒有改變。">
-    <meta property="og:title" content="教會 MBTI 大調查 | 教會小本本">
+    <meta name="description" content="近 3 萬位平信徒與 1,649 位牧者完成 MBTI × 聖經人物測驗。看看教會最多哪種人格、牧者和平信徒有什麼差異。">
     <style>
         * {
             margin: 0;
@@ -215,6 +214,56 @@
             margin: 20px 0;
         }
 
+        /* ===== 8個核心發現卡 ===== */
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .discovery-card {
+            background: white;
+            border-left: 4px solid #E67424;
+            padding: 25px;
+            animation: slideUpFade 0.8s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .discovery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .discovery-card:nth-child(2) { animation-delay: 0.1s; }
+        .discovery-card:nth-child(3) { animation-delay: 0.2s; }
+        .discovery-card:nth-child(4) { animation-delay: 0.3s; }
+        .discovery-card:nth-child(5) { animation-delay: 0.1s; }
+        .discovery-card:nth-child(6) { animation-delay: 0.2s; }
+        .discovery-card:nth-child(7) { animation-delay: 0.3s; }
+        .discovery-card:nth-child(8) { animation-delay: 0.4s; }
+
+        .discovery-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #E67424;
+            margin-bottom: 10px;
+        }
+
+        .discovery-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #2D7A49;
+            margin-bottom: 10px;
+        }
+
+        .discovery-text {
+            font-size: 0.9rem;
+            color: #4A301E;
+            line-height: 1.6;
+        }
+
         /* ===== SECTION 02: F型 ===== */
         .f-content {
             display: flex;
@@ -259,13 +308,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.3); }
             100% { transform: scale(1); }
-        }
-
-        .f-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #4A301E;
-            margin: 20px 0;
         }
 
         .f-quote {
@@ -386,13 +428,6 @@
             font-size: 1.1rem;
         }
 
-        .jp-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            margin: 30px 0;
-            color: #4A301E;
-        }
-
         .jp-highlight {
             background: #F4BF34;
             padding: 20px;
@@ -436,6 +471,17 @@
         .rank-item:nth-child(3) { animation-delay: 0.3s; }
         .rank-item:nth-child(4) { animation-delay: 0.4s; }
         .rank-item:nth-child(5) { animation-delay: 0.5s; }
+        .rank-item:nth-child(6) { animation-delay: 0.6s; }
+        .rank-item:nth-child(7) { animation-delay: 0.7s; }
+        .rank-item:nth-child(8) { animation-delay: 0.8s; }
+        .rank-item:nth-child(9) { animation-delay: 0.9s; }
+        .rank-item:nth-child(10) { animation-delay: 1s; }
+        .rank-item:nth-child(11) { animation-delay: 1.1s; }
+        .rank-item:nth-child(12) { animation-delay: 1.2s; }
+        .rank-item:nth-child(13) { animation-delay: 1.3s; }
+        .rank-item:nth-child(14) { animation-delay: 1.4s; }
+        .rank-item:nth-child(15) { animation-delay: 1.5s; }
+        .rank-item:nth-child(16) { animation-delay: 1.6s; }
 
         .rank-item::before {
             content: '';
@@ -454,10 +500,10 @@
         }
 
         .rank-number {
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: #E67424;
-            min-width: 50px;
+            min-width: 40px;
         }
 
         .rank-content {
@@ -465,14 +511,14 @@
         }
 
         .rank-type {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 900;
             color: #2D7A49;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .rank-stat {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #E67424;
             font-weight: 700;
             display: flex;
@@ -484,9 +530,9 @@
             display: inline-block;
             background: #E67424;
             color: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: 900;
             animation: scaleIn 0.6s ease-out;
             white-space: nowrap;
@@ -501,6 +547,57 @@
                 opacity: 1;
                 transform: scale(1);
             }
+        }
+
+        /* ===== 信徒 vs 牧者對比 ===== */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .comparison-card {
+            background: white;
+            border: 2px solid #F4BF34;
+            padding: 20px;
+            text-align: center;
+            animation: slideUpFade 0.8s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .comparison-card:nth-child(odd) { animation-delay: 0.1s; }
+        .comparison-card:nth-child(even) { animation-delay: 0.2s; }
+
+        .comparison-type {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: #2D7A49;
+            margin-bottom: 15px;
+        }
+
+        .comparison-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .comparison-person {
+            background: #FFF9E8;
+            padding: 10px;
+            border-left: 3px solid #E67424;
+        }
+
+        .comparison-label {
+            font-size: 0.8rem;
+            color: #2D7A49;
+            font-weight: 700;
+        }
+
+        .comparison-value {
+            font-size: 0.9rem;
+            color: #E67424;
+            font-weight: 600;
         }
 
         /* ===== 四大向度分析 ===== */
@@ -775,11 +872,11 @@
                 gap: 30px;
             }
 
-            .summary-grid {
+            .summary-grid, .comparison-grid {
                 grid-template-columns: 1fr;
             }
 
-            .ranking-grid, .dimension-grid, .temperament-grid {
+            .ranking-grid, .dimension-grid, .temperament-grid, .discovery-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -807,13 +904,63 @@
                 </div>
             </div>
 
-            <button class="cta-btn" onclick="document.getElementById('f-section').scrollIntoView();">開始看看 →</button>
+            <button class="cta-btn" onclick="document.getElementById('discovery-section').scrollIntoView();">開始看看 →</button>
+        </div>
+    </section>
+
+    <!-- 8個核心發現 -->
+    <section class="f-section" id="discovery-section">
+        <div class="section-tag">8 個核心發現</div>
+        <h2 class="section-title">一年的數據揭露了什麼？</h2>
+        <div class="divider"></div>
+
+        <div class="discovery-grid">
+            <div class="discovery-card">
+                <div class="discovery-number">1</div>
+                <div class="discovery-title">教會是 F 人的天下</div>
+                <div class="discovery-text">73% 是情感型，只有 27% 是邏輯型。教會決策優先考慮人際和價值。</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">2</div>
+                <div class="discovery-title">牧師並非全是外向型</div>
+                <div class="discovery-text">牧者中 53.5% 是內向型，和平信徒只差 1%。內向牧者用靈性陪伴感動人心。</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">3</div>
+                <div class="discovery-title">最大差異是 J / P</div>
+                <div class="discovery-text">平信徒 58% 偏 J，牧者 59% 偏 P。相差 17%，是四個向度中最大的翻轉。</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">4</div>
+                <div class="discovery-title">馬大型最多</div>
+                <div class="discovery-text">ESFJ 馬大型人數最多（12.1%），代表教會充滿樂於服侍的信徒。</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">5</div>
+                <div class="discovery-title">牧者愛馬利亞</div>
+                <div class="discovery-text">牧者中 ESFP 馬利亞型是平信徒的 2.24 倍，反映牧者需要更多的現場活力。</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">6</div>
+                <div class="discovery-title">ENFJ 謎團</div>
+                <div class="discovery-text">9% 的平信徒是 ENFJ，但牧者只有 0.9%。天生領袖為何在教會稀少？</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">7</div>
+                <div class="discovery-title">實踐者略佔上風</div>
+                <div class="discovery-text">55% 用實感，45% 用直覺。教會偏向現實可行，少於夢想遠景。</div>
+            </div>
+            <div class="discovery-card">
+                <div class="discovery-number">8</div>
+                <div class="discovery-title">結構化的信仰</div>
+                <div class="discovery-text">平信徒傾向制定計畫、參與聚焦；牧者傾向應變彈性、適應牧養需求。</div>
+            </div>
         </div>
     </section>
 
     <!-- F 型 -->
-    <section class="f-section" id="f-section">
-        <div class="section-tag">核心發現</div>
+    <section class="alt">
+        <div class="section-tag">深度分析</div>
         <h2 class="section-title">教會是 F 人的大本營？</h2>
         <div class="divider"></div>
 
@@ -848,7 +995,7 @@
     </section>
 
     <!-- E/I -->
-    <section class="alt">
+    <section class="f-section">
         <div class="section-tag">真實發現</div>
         <h2 class="section-title">牧師真的都是 E 人嗎？</h2>
         <div class="divider"></div>
@@ -874,7 +1021,7 @@
     </section>
 
     <!-- J/P -->
-    <section class="f-section">
+    <section class="alt">
         <div class="section-tag">最大差異</div>
         <h2 class="section-title">真正差最多的是 J / P</h2>
         <div class="divider"></div>
@@ -904,45 +1051,13 @@
         </div>
     </section>
 
-    <!-- 四大向度分析 -->
-    <section class="alt">
-        <div class="section-tag">向度分析</div>
-        <h2 class="section-title">四大向度深度分析</h2>
-        <div class="divider"></div>
-
-        <p style="margin-bottom: 30px; color: #4A301E;">MBTI 的四個向度顯示了我們性格的不同面向。在教會樣本中，這些向度的分布反映了一個注重關係、實踐信仰、結構化行動的群體。</p>
-
-        <div class="dimension-grid">
-            <div class="dimension-card">
-                <div class="dimension-title">E 外向 / I 內向</div>
-                <div class="dimension-percent"><span id="dim-ei">0</span>% / <span id="dim-ii">0</span>%</div>
-                <div class="dimension-label">平衡，略偏內向</div>
-            </div>
-            <div class="dimension-card">
-                <div class="dimension-title">S 實感 / N 直覺</div>
-                <div class="dimension-percent"><span id="dim-s">0</span>% / <span id="dim-n">0</span>%</div>
-                <div class="dimension-label">實踐者略佔優勢</div>
-            </div>
-            <div class="dimension-card">
-                <div class="dimension-title">T 思考 / F 情感</div>
-                <div class="dimension-percent"><span id="dim-t">0</span>% / <span id="dim-f">0</span>%</div>
-                <div class="dimension-label">情感導向極為明顯</div>
-            </div>
-            <div class="dimension-card">
-                <div class="dimension-title">J 判斷 / P 感知</div>
-                <div class="dimension-percent"><span id="dim-j">0</span>% / <span id="dim-p">0</span>%</div>
-                <div class="dimension-label">平信徒偏結構化</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 平信徒排行榜 -->
+    <!-- 平信徒 16 型排行榜 -->
     <section class="f-section">
         <div class="section-tag">排行榜</div>
-        <h2 class="section-title">平信徒 TOP 5</h2>
+        <h2 class="section-title">平信徒 16 型全排行</h2>
         <div class="divider"></div>
 
-        <p style="margin-bottom: 30px; color: #4A301E;">馬大型（ESFJ）人數最多，代表教會中有許多樂於服侍、關懷他人的信徒。他們是教會活動的組織者和參與者。</p>
+        <p style="margin-bottom: 20px; color: #4A301E;">完整的 16 型人格在平信徒中的分布。每一型都在教會中發揮獨特的角色。</p>
 
         <div class="ranking-grid">
             <div class="rank-item">
@@ -980,22 +1095,99 @@
                     <div class="rank-stat">2,486 人 / 8.6%</div>
                 </div>
             </div>
+            <div class="rank-item">
+                <div class="rank-number">6</div>
+                <div class="rank-content">
+                    <div class="rank-type">ENFP｜巴拿巴型</div>
+                    <div class="rank-stat">2,323 人 / 8.1%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">7</div>
+                <div class="rank-content">
+                    <div class="rank-type">ISFP｜大衛型</div>
+                    <div class="rank-stat">2,182 人 / 7.6%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">8</div>
+                <div class="rank-content">
+                    <div class="rank-type">INFP｜約翰型</div>
+                    <div class="rank-stat">1,959 人 / 6.8%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">9</div>
+                <div class="rank-content">
+                    <div class="rank-type">ISTJ｜尼希米型</div>
+                    <div class="rank-stat">1,899 人 / 6.0%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">10</div>
+                <div class="rank-content">
+                    <div class="rank-type">INTJ｜保羅型</div>
+                    <div class="rank-stat">1,312 人 / 4.6%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">11</div>
+                <div class="rank-content">
+                    <div class="rank-type">ESTJ｜摩西型</div>
+                    <div class="rank-stat">970 人 / 3.4%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">12</div>
+                <div class="rank-content">
+                    <div class="rank-type">INTP｜多馬型</div>
+                    <div class="rank-stat">964 人 / 3.3%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">13</div>
+                <div class="rank-content">
+                    <div class="rank-type">ISTP｜參孫型</div>
+                    <div class="rank-stat">890 人 / 3.1%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">14</div>
+                <div class="rank-content">
+                    <div class="rank-type">ENTJ｜底波拉型</div>
+                    <div class="rank-stat">635 人 / 2.2%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">15</div>
+                <div class="rank-content">
+                    <div class="rank-type">ENTP｜雅各型</div>
+                    <div class="rank-stat">618 人 / 2.1%</div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">16</div>
+                <div class="rank-content">
+                    <div class="rank-type">ESTP｜彼得型</div>
+                    <div class="rank-stat">459 人 / 1.6%</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 牧者排行榜 -->
+    <!-- 牧者 16 型排行榜 -->
     <section class="alt">
         <div class="section-tag">排行榜</div>
-        <h2 class="section-title">牧者 TOP 5</h2>
+        <h2 class="section-title">牧者 16 型全排行</h2>
         <div class="divider"></div>
 
-        <p style="margin-bottom: 30px; color: #4A301E;">牧者的人格分布與平信徒有明顯不同。ESFP 馬利亞型在牧者中出現比例是平信徒的 2.24 倍，顯示牧者更傾向於直面群眾、臨場反應和活力呈現。</p>
+        <p style="margin-bottom: 20px; color: #4A301E;">牧者的人格分布顯示明顯的偏好。ESFP 馬利亞型在牧者中出現比例是平信徒的 2.24 倍，反映牧職對現場活力和適應能力的需求。</p>
 
         <div class="ranking-grid">
             <div class="rank-item">
                 <div class="rank-number">1</div>
                 <div class="rank-content">
-                    <div class="rank-type">ESFP｜馬利亞 🔥</div>
+                    <div class="rank-type">ESFP｜馬利亞</div>
                     <div class="rank-stat">336 人 / 20.4% 
                         <span class="comparison-badge">2.24倍</span>
                     </div>
@@ -1036,6 +1228,245 @@
                         <span class="comparison-badge">1.06倍</span>
                     </div>
                 </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">6</div>
+                <div class="rank-content">
+                    <div class="rank-type">ISTJ｜尼希米型</div>
+                    <div class="rank-stat">130 人 / 7.9%
+                        <span class="comparison-badge">1.32倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">7</div>
+                <div class="rank-content">
+                    <div class="rank-type">ISFP｜以利沙</div>
+                    <div class="rank-stat">126 人 / 7.6%
+                        <span class="comparison-badge">1.01倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">8</div>
+                <div class="rank-content">
+                    <div class="rank-type">INTJ｜以利亞</div>
+                    <div class="rank-stat">111 人 / 6.7%
+                        <span class="comparison-badge">0.85倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">9</div>
+                <div class="rank-content">
+                    <div class="rank-type">INTP｜所羅門</div>
+                    <div class="rank-stat">100 人 / 6.1%
+                        <span class="comparison-badge">1.04倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">10</div>
+                <div class="rank-content">
+                    <div class="rank-type">ESTJ｜摩西型</div>
+                    <div class="rank-stat">50 人 / 3.0%
+                        <span class="comparison-badge">0.88倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">11</div>
+                <div class="rank-content">
+                    <div class="rank-type">INFJ｜但以理型</div>
+                    <div class="rank-stat">46 人 / 2.8%
+                        <span class="comparison-badge">0.33倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">12</div>
+                <div class="rank-content">
+                    <div class="rank-type">ENTP｜雅各型</div>
+                    <div class="rank-stat">39 人 / 2.4%
+                        <span class="comparison-badge">1.14倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">13</div>
+                <div class="rank-content">
+                    <div class="rank-type">ESTP｜彼得型</div>
+                    <div class="rank-stat">22 人 / 1.3%
+                        <span class="comparison-badge">0.81倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">14</div>
+                <div class="rank-content">
+                    <div class="rank-type">ISTP｜參孫型</div>
+                    <div class="rank-stat">22 人 / 1.3%
+                        <span class="comparison-badge">0.42倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">15</div>
+                <div class="rank-content">
+                    <div class="rank-type">ENFJ｜亞伯拉罕</div>
+                    <div class="rank-stat">15 人 / 0.9%
+                        <span class="comparison-badge">0.10倍</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number">16</div>
+                <div class="rank-content">
+                    <div class="rank-type">ENTJ｜底波拉型</div>
+                    <div class="rank-stat">13 人 / 0.8%
+                        <span class="comparison-badge">0.36倍</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 信徒 vs 牧者對比 -->
+    <section class="f-section">
+        <div class="section-tag">對比分析</div>
+        <h2 class="section-title">信徒 vs 牧者：差異最大的類型</h2>
+        <div class="divider"></div>
+
+        <p style="margin-bottom: 30px; color: #4A301E;">某些人格類型在平信徒和牧者中的比例差異懸殊。這反映了牧職選擇和教會結構的影響。</p>
+
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <div class="comparison-type">ESFP｜馬利亞</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">平信徒</div>
+                        <div class="comparison-value">9.1%</div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0; text-align: center; color: #E67424; font-weight: 900;">↓</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">牧者</div>
+                        <div class="comparison-value">20.4% (2.24倍)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-card">
+                <div class="comparison-type">INFP｜約翰型</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">平信徒</div>
+                        <div class="comparison-value">6.8%</div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0; text-align: center; color: #E67424; font-weight: 900;">↓</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">牧者</div>
+                        <div class="comparison-value">11.3% (1.66倍)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-card">
+                <div class="comparison-type">ISFJ｜路得型</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">平信徒</div>
+                        <div class="comparison-value">11.8%</div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0; text-align: center; color: #E67424; font-weight: 900;">↓</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">牧者</div>
+                        <div class="comparison-value">9.7% (0.82倍)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-card">
+                <div class="comparison-type">INTJ｜保羅型</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">平信徒</div>
+                        <div class="comparison-value">4.6%</div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0; text-align: center; color: #E67424; font-weight: 900;">↓</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">牧者</div>
+                        <div class="comparison-value">6.7% (0.85倍)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-card">
+                <div class="comparison-type">INTP｜多馬型</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">平信徒</div>
+                        <div class="comparison-value">3.3%</div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0; text-align: center; color: #E67424; font-weight: 900;">↓</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">牧者</div>
+                        <div class="comparison-value">6.1% (1.04倍)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-card">
+                <div class="comparison-type">ENFJ｜亞伯拉罕</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">平信徒</div>
+                        <div class="comparison-value">9.0%</div>
+                    </div>
+                </div>
+                <div style="margin: 10px 0; text-align: center; color: #E67424; font-weight: 900;">↓</div>
+                <div class="comparison-row">
+                    <div class="comparison-person">
+                        <div class="comparison-label">牧者</div>
+                        <div class="comparison-value">0.9% (0.10倍)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四大向度分析 -->
+    <section class="alt">
+        <div class="section-tag">向度分析</div>
+        <h2 class="section-title">四大向度深度分析</h2>
+        <div class="divider"></div>
+
+        <p style="margin-bottom: 30px; color: #4A301E;">MBTI 的四個向度顯示了我們性格的不同面向。在教會樣本中，這些向度的分布反映了一個注重關係、實踐信仰、結構化行動的群體。</p>
+
+        <div class="dimension-grid">
+            <div class="dimension-card">
+                <div class="dimension-title">E 外向 / I 內向</div>
+                <div class="dimension-percent"><span id="dim-ei">0</span>% / <span id="dim-ii">0</span>%</div>
+                <div class="dimension-label">平衡，略偏內向</div>
+            </div>
+            <div class="dimension-card">
+                <div class="dimension-title">S 實感 / N 直覺</div>
+                <div class="dimension-percent"><span id="dim-s">0</span>% / <span id="dim-n">0</span>%</div>
+                <div class="dimension-label">實踐者略佔優勢</div>
+            </div>
+            <div class="dimension-card">
+                <div class="dimension-title">T 思考 / F 情感</div>
+                <div class="dimension-percent"><span id="dim-t">0</span>% / <span id="dim-f">0</span>%</div>
+                <div class="dimension-label">情感導向極為明顯</div>
+            </div>
+            <div class="dimension-card">
+                <div class="dimension-title">J 判斷 / P 感知</div>
+                <div class="dimension-percent"><span id="dim-j">0</span>% / <span id="dim-p">0</span>%</div>
+                <div class="dimension-label">平信徒偏結構化</div>
             </div>
         </div>
     </section>
