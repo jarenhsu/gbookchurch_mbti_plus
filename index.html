@@ -1130,6 +1130,21 @@
             letter-spacing: 0.03em;
         }
 
+        .lookup-character {
+            margin-bottom: 7px;
+            color: #463B33;
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.45;
+        }
+
+        .lookup-character::before {
+            content: '聖經人物｜';
+            color: #7A6D62;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
         .lookup-rank {
             font-size: 2rem;
             font-weight: 900;
@@ -1494,10 +1509,12 @@
 <div class="lookup-result-grid">
 <article aria-labelledby="lookup-lay-title" class="lookup-world-card">
 <div class="lookup-world-label" id="lookup-lay-title">平信徒排名</div>
+<div class="lookup-character"><span data-field="lay-character">—</span></div>
 <div class="lookup-rank">第 <span data-field="lay-rank">—</span> 名</div>
 </article>
 <article aria-labelledby="lookup-pastor-title" class="lookup-world-card">
 <div class="lookup-world-label" id="lookup-pastor-title">牧者排名</div>
+<div class="lookup-character"><span data-field="pastor-character">—</span></div>
 <div class="lookup-rank">第 <span data-field="pastor-rank">—</span> 名</div>
 </article>
 </div>
@@ -3353,6 +3370,8 @@
             const result = document.getElementById('mbti-lookup-result');
 
             setField('type', type);
+            setField('lay-character', entry.lay.character || '—');
+            setField('pastor-character', entry.pastor.character || '—');
             setField('rarity-stars', getRarityStars(entry.lay.percent));
             setField('profile-tags', profile.tags || '—');
 
@@ -3374,7 +3393,7 @@
 
             const announcer = document.getElementById('mbti-result-announcer');
             if (announcer) {
-                announcer.textContent = `${type} 結果已更新。平信徒第 ${entry.lay.rank} 名，牧者第 ${entry.pastor.rank} 名。`;
+                announcer.textContent = `${type} 結果已更新。平信徒版本代表 ${entry.lay.character}，第 ${entry.lay.rank} 名；牧者版本代表 ${entry.pastor.character}，第 ${entry.pastor.rank} 名。`;
             }
 
             if (options.updateUrl !== false) updateUrlType(type);
