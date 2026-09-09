@@ -1415,29 +1415,34 @@
             }
         }
     
-/* ===== V49｜《教會小本本》LINE 貼圖廣告：桌機／手機雙圖版 ===== */
+/* ===== V53｜《教會小本本》LINE 貼圖廣告：精簡不佔版面 ===== */
 .sticker-ad-section {
-    padding: 28px 22px 44px;
-    background: linear-gradient(180deg, #F7F4EC 0%, #F1EEE5 100%);
+    padding: 18px 22px 26px;
+    background: linear-gradient(180deg, #F7F4EC 0%, #F3EFE7 100%);
 }
 
 .sticker-ad-card {
-    width: min(1040px, 100%);
+    width: min(980px, 100%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
-    min-height: 330px;
-    overflow: hidden;
-    border: 1px solid rgba(69,107,88,.18);
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    padding: 16px 18px;
+    border: 1px solid rgba(69,107,88,.16);
     border-radius: 18px;
     background: #FFFEFB;
-    box-shadow: 0 14px 36px rgba(48,76,64,.10);
+    box-shadow: 0 10px 24px rgba(48,76,64,.08);
 }
 
 .sticker-ad-visual {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-width: 0;
-    background: #F4EEDB;
+    padding: 4px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #F5EFE0 0%, #F2ECDD 100%);
     overflow: hidden;
     position: relative;
 }
@@ -1449,16 +1454,17 @@
 }
 
 .sticker-ad-picture img {
-    height: 100%;
-    min-height: 330px;
-    object-fit: cover;
-    object-position: center 25%;
-    filter: saturate(.88) contrast(.98);
-    transition: transform .28s ease, filter .28s ease;
+    height: auto;
+    max-height: 170px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 12px;
+    filter: saturate(.94) contrast(.99);
+    transition: transform .24s ease, filter .24s ease, box-shadow .24s ease;
 }
 
 .sticker-ad-copy {
-    padding: clamp(30px, 4vw, 48px);
+    padding: 2px 6px 2px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1469,57 +1475,58 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 13px;
-    padding: 6px 11px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
     border-radius: 999px;
     background: #E7EFE9;
     color: #456B58;
-    font-size: .78rem;
+    font-size: .74rem;
     font-weight: 800;
     letter-spacing: .04em;
 }
 
 .sticker-ad-copy h2 {
-    margin: 0 0 14px;
+    margin: 0 0 8px;
     color: #304C40;
-    font-size: clamp(1.85rem, 3.6vw, 2.7rem);
-    line-height: 1.12;
+    font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+    line-height: 1.18;
     letter-spacing: -.02em;
     font-weight: 850;
 }
 
 .sticker-ad-copy p {
-    margin: 0 0 23px;
-    max-width: 28rem;
+    margin: 0 0 14px;
+    max-width: 34rem;
     color: #665F55;
-    font-size: .98rem;
-    line-height: 1.75;
+    font-size: .94rem;
+    line-height: 1.65;
 }
 
 .sticker-ad-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 46px;
-    padding: 11px 18px;
+    min-height: 40px;
+    padding: 10px 16px;
     border-radius: 999px;
     background: #456B58;
     color: #fff !important;
     text-decoration: none;
+    font-size: .92rem;
     font-weight: 800;
-    box-shadow: 0 5px 0 #304C40;
+    box-shadow: 0 4px 0 #304C40;
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .sticker-ad-footer {
-    padding: 24px 18px 30px;
+    padding: 20px 18px 26px;
     text-align: center;
     background: #F7F4EC;
     border-top: 1px solid rgba(69,107,88,.12);
 }
 
 .sticker-ad-footer p {
-    margin: 0 0 6px;
+    margin: 0 0 4px;
     color: #304C40;
 }
 
@@ -1532,45 +1539,65 @@
 
 @media (hover: hover) and (pointer: fine) {
     .sticker-ad-card:hover .sticker-ad-picture img {
-        transform: scale(1.025);
-        filter: saturate(.94) contrast(1);
+        transform: translateY(-1px) scale(1.012);
+        filter: saturate(.98) contrast(1);
     }
 
     .sticker-ad-button:hover {
         background: #3C5E4E;
         transform: translateY(-2px);
-        box-shadow: 0 7px 0 #304C40;
+        box-shadow: 0 6px 0 #304C40;
     }
 }
 
 @media (max-width: 720px) {
     .sticker-ad-section {
-        padding: 22px 16px 34px;
+        padding: 14px 16px 22px;
     }
 
     .sticker-ad-card {
-        display: block;
-        min-height: 0;
+        grid-template-columns: 104px minmax(0, 1fr);
+        gap: 14px;
+        padding: 12px;
         border-radius: 15px;
-        background: transparent;
-        border-color: rgba(69,107,88,.14);
     }
 
     .sticker-ad-visual {
-        background: #fff;
+        align-self: stretch;
+        padding: 3px;
     }
 
     .sticker-ad-picture img {
-        height: auto;
-        min-height: 0;
-        object-fit: contain;
-        object-position: center;
-        filter: saturate(.96) contrast(.99);
+        max-height: 136px;
+        height: 100%;
     }
 
-    /* 手機版海報已經含有完整文案與下載指引，避免再重複一整段文字。 */
     .sticker-ad-copy {
-        display: none;
+        padding: 2px 2px 2px 0;
+    }
+
+    .sticker-ad-kicker {
+        margin-bottom: 8px;
+        font-size: .68rem;
+        padding: 4px 8px;
+    }
+
+    .sticker-ad-copy h2 {
+        font-size: 1.06rem;
+        margin-bottom: 6px;
+    }
+
+    .sticker-ad-copy p {
+        font-size: .84rem;
+        line-height: 1.55;
+        margin-bottom: 10px;
+    }
+
+    .sticker-ad-button {
+        width: auto;
+        min-height: 36px;
+        padding: 8px 13px;
+        font-size: .84rem;
     }
 }
 
@@ -1580,6 +1607,7 @@
         transition: none !important;
     }
 }
+
 </style>
 <link href="https://jarenhsu.github.io/gbookchurch_mbti_plus/" rel="canonical"/><meta content="website" property="og:type"/><meta content="zh_TW" property="og:locale"/><meta content="教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？" property="og:title"/><meta content="30,445 位基督徒參與者的 MBTI × 聖經人物資料：28,796 位平信徒、1,649 位牧者。看看本次樣本的人格分布、排行榜與平信徒／牧者差異。" property="og:description"/><meta content="https://jarenhsu.github.io/gbookchurch_mbti_plus/" property="og:url"/><meta content="summary" name="twitter:card"/><meta content="教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？" name="twitter:title"/><meta content="30,445 位基督徒參與者的 MBTI × 聖經人物資料：28,796 位平信徒、1,649 位牧者。看看本次樣本的人格分布、排行榜與平信徒／牧者差異。" name="twitter:description"/>
 <style id="v45-temperament-comic-art">
@@ -2245,7 +2273,7 @@ section > .section-title {
     </a>
     <div class="sticker-ad-copy">
       <div class="sticker-ad-kicker">教會小本本貼圖</div>
-      <h2 id="sticker-ad-title">教會裡不好說的<br/>就用貼圖說</h2>
+      <h2 id="sticker-ad-title">教會裡不好說的 就用貼圖說</h2>
       <p>金句、內心戲、教會日常，有些話不好開口，一張貼圖比較快。</p>
       <a class="sticker-ad-button" href="https://store.line.me/stickershop/product/31241357/zh-Hant" target="_blank" rel="noopener noreferrer">看完整貼圖 →</a>
     </div>
