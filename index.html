@@ -4642,6 +4642,39 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
         height: 50px;
     }
 }
+
+
+/* ===== V41｜全站主題標題置中＋四大面向解說對齊長條圖 ===== */
+/* 所有主題的色塊小標、主標與分隔線統一比照「四大性格群」置中。 */
+section > .section-tag {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+section > .section-title {
+    text-align: center;
+}
+
+section > .divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 四大面向：解說文字從長條圖的左緣開始，不再跟「平信徒／牧者」標籤對齊。 */
+#dimensions-section .dimension-compare-card > p {
+    margin-left: 86px;
+    width: calc(100% - 86px);
+}
+
+@media (max-width: 700px) {
+    /* 手機版標籤會移到長條圖上方，因此解說回到卡片左緣，仍與長條圖對齊。 */
+    #dimensions-section .dimension-compare-card > p {
+        margin-left: 0;
+        width: 100%;
+    }
+}
 </style>
 
 </body>
