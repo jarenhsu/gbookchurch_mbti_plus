@@ -1116,130 +1116,32 @@
         .lookup-world-card {
             min-width: 0;
             background: #F7F4EC;
-            border-left: 4px solid #B45F3C;
-            padding: 22px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            padding: 20px 22px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid #456B58;
         }
 
         .lookup-world-label {
-            display: inline-block;
-            background: #456B58;
-            color: #FFFEFB;
-            padding: 5px 10px;
-            font-size: 0.78rem;
-            font-weight: 900;
-            margin-bottom: 12px;
-        }
-
-        .lookup-character {
-            font-size: 1.3rem;
-            font-weight: 900;
+            display: block;
             color: #456B58;
-            margin-bottom: 10px;
-            overflow-wrap: anywhere;
+            font-size: 0.82rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: 0.03em;
         }
 
         .lookup-rank {
             font-size: 2rem;
             font-weight: 900;
-            color: #D6B66A;
+            color: #B45F3C;
             line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-        .lookup-stats-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 14px;
-            color: #463B33;
-            font-size: 0.92rem;
-            font-weight: 700;
-        }
-
-        .lookup-change-card {
-            margin-top: 18px;
-            background: #F0EDE5;
-            border: 2px solid #D6B66A;
-            padding: 20px;
-        }
-
-        .lookup-change-title {
-            font-size: 0.85rem;
-            font-weight: 900;
-            color: #456B58;
-            margin-bottom: 12px;
-        }
-
-        .lookup-change-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .lookup-change-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 12px;
-            font-size: 0.88rem;
-            font-weight: 900;
-            background: #FFFEFB;
-            border-left: 3px solid #463B33;
-        }
-
-        .lookup-change-pill.up {
-            color: #456B58;
-            border-left-color: #456B58;
-        }
-
-        .lookup-change-pill.down {
-            color: #B45F3C;
-            border-left-color: #B45F3C;
-        }
-
-        .lookup-change-pill.same {
-            color: #463B33;
-            border-left-color: #D6B66A;
-        }
-
-        .lookup-character-shift {
-            margin-top: 18px;
-            padding: 18px;
-            background: #FFFEFB;
-            border-left: 4px solid #456B58;
-        }
-
-        .lookup-character-flow {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            gap: 12px;
-            font-weight: 900;
-            color: #456B58;
-        }
-
-        .lookup-character-flow > span:not(.lookup-flow-arrow) {
-            min-width: 0;
-            overflow-wrap: anywhere;
-        }
-
-        .lookup-flow-arrow {
-            color: #B45F3C;
-            font-size: 1.3rem;
-        }
-
-        .lookup-character-comment {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #463B33;
-            font-weight: 700;
         }
 
         .lookup-rarity {
             margin-top: 18px;
             padding: 14px 16px;
-            background: rgba(214,182,106,0.12);
-            border-left: 4px solid #D6B66A;
+            background: rgba(214,182,106,0.10);
+            border-left: 3px solid #D6B66A;
         }
 
         .lookup-rarity-stars {
@@ -1248,30 +1150,87 @@
             letter-spacing: 0.08em;
         }
 
-        .lookup-rarity-note,
-        .lookup-method-note {
+        .lookup-rarity-note {
             margin-top: 6px;
             font-size: 0.78rem;
-            color: #463B33;
-            line-height: 1.7;
+            color: #6B5D52;
+            line-height: 1.65;
         }
 
-        .lookup-insight {
+        .lookup-profile-extra {
             margin-top: 18px;
-            background: #456B58;
-            color: #F7F4EC;
             padding: 20px;
+            background: #FFFEFB;
+            border: 1px solid #EAE3D8;
         }
 
-        .lookup-insight h3 {
-            color: #D6B66A;
-            font-size: 1.05rem;
+        .lookup-profile-eyebrow {
+            color: #B45F3C;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
             margin-bottom: 8px;
         }
 
-        .lookup-insight p {
+        .lookup-profile-tags {
+            color: #456B58;
+            font-size: 1.05rem;
+            font-weight: 900;
+            line-height: 1.6;
+        }
+
+        .lookup-modern-title {
+            margin-top: 16px;
+            margin-bottom: 10px;
+            color: #463B33;
+            font-size: 0.82rem;
+            font-weight: 900;
+        }
+
+        .lookup-modern-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .lookup-modern-person {
+            min-width: 0;
+            padding: 12px 14px;
+            background: #F7F4EC;
+        }
+
+        .lookup-modern-person strong,
+        .lookup-modern-person span {
+            display: block;
+            overflow-wrap: anywhere;
+        }
+
+        .lookup-modern-person strong {
+            color: #456B58;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .lookup-modern-person span {
+            margin-top: 4px;
+            color: #6B5D52;
+            font-size: 0.76rem;
+            line-height: 1.5;
+        }
+
+        .lookup-modern-desc {
+            margin-top: 9px;
+            color: #554A42;
+            font-size: 0.8rem;
+            line-height: 1.7;
             text-align: left;
-            line-height: 1.8;
+        }
+
+        .lookup-modern-note {
+            margin-top: 10px;
+            color: #7A6D62;
+            font-size: 0.74rem;
+            line-height: 1.6;
         }
 
         .sr-only {
@@ -1320,14 +1279,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .lookup-character-flow {
+            .lookup-modern-grid {
                 grid-template-columns: 1fr;
-                gap: 6px;
-            }
-
-            .lookup-flow-arrow {
-                transform: rotate(90deg);
-                width: fit-content;
             }
         }
 
@@ -1343,9 +1296,7 @@
             }
 
             .lookup-world-card,
-            .lookup-change-card,
-            .lookup-character-shift,
-            .lookup-insight {
+            .lookup-profile-extra {
                 padding: 16px;
             }
         }
@@ -1542,48 +1493,37 @@
 <p class="lookup-you-are">你是 <strong data-field="type">—</strong></p>
 <div class="lookup-result-grid">
 <article aria-labelledby="lookup-lay-title" class="lookup-world-card">
-<div class="lookup-world-label" id="lookup-lay-title">平信徒</div>
-<div class="lookup-character"><span data-field="lay-character">—</span>型</div>
+<div class="lookup-world-label" id="lookup-lay-title">平信徒排名</div>
 <div class="lookup-rank">第 <span data-field="lay-rank">—</span> 名</div>
-<div class="lookup-stats-row">
-<span><span data-field="lay-count">—</span> 人跟你一樣</span>
-<span><span data-field="lay-percent">—</span>%</span>
-</div>
 </article>
 <article aria-labelledby="lookup-pastor-title" class="lookup-world-card">
-<div class="lookup-world-label" id="lookup-pastor-title">牧者</div>
-<div class="lookup-character"><span data-field="pastor-character">—</span>型</div>
+<div class="lookup-world-label" id="lookup-pastor-title">牧者排名</div>
 <div class="lookup-rank">第 <span data-field="pastor-rank">—</span> 名</div>
-<div class="lookup-stats-row">
-<span><span data-field="pastor-count">—</span> 人跟你一樣</span>
-<span><span data-field="pastor-percent">—</span>%</span>
-</div>
 </article>
-</div>
-<div class="lookup-change-card">
-<div class="lookup-change-title">平信徒 → 牧者</div>
-<div class="lookup-change-row">
-<span class="lookup-change-pill" data-field="rank-change">—</span>
-<span class="lookup-change-pill" data-field="percent-change">—</span>
-</div>
-</div>
-<div class="lookup-character-shift">
-<div class="lookup-character-flow">
-<span>平信徒世界：<strong data-field="lay-world-character">—</strong>型</span>
-<span aria-hidden="true" class="lookup-flow-arrow">→</span>
-<span>牧者世界：<strong data-field="pastor-world-character">—</strong>型</span>
-</div>
-<p class="lookup-character-comment" data-field="character-comment">—</p>
 </div>
 <div class="lookup-rarity">
 <div><strong>教會稀有度</strong> <span class="lookup-rarity-stars" data-field="rarity-stars">☆☆☆☆☆</span></div>
-<p class="lookup-rarity-note">娛樂指標：依本次平信徒 16 型比例排序後，以五個相近分位群組計算；比例越低，星數越高。</p>
+<p class="lookup-rarity-note">娛樂指標，依本次平信徒 16 型樣本比例的相對位置計算；比例越低，星數越高。</p>
 </div>
-<div class="lookup-insight">
-<h3>數據怎麼說？</h3>
-<p data-field="insight">—</p>
+<div class="lookup-profile-extra">
+<div class="lookup-profile-eyebrow">原測驗卡片彩蛋</div>
+<div class="lookup-profile-tags" data-field="profile-tags">—</div>
+<div class="lookup-modern-title">近代代表人物</div>
+<div class="lookup-modern-grid">
+<div class="lookup-modern-person">
+<strong data-field="modern-1-name">—</strong>
+<span data-field="modern-1-role">—</span>
+<p data-field="modern-1-desc" class="lookup-modern-desc">—</p>
 </div>
-<p class="lookup-method-note">這裡只描述本次線上自願參與樣本，不代表所有台灣基督徒；非人口隨機抽樣。MBTI 僅作娛樂與自我探索用途，不作臨床診斷。</p></div>
+<div class="lookup-modern-person">
+<strong data-field="modern-2-name">—</strong>
+<span data-field="modern-2-role">—</span>
+<p data-field="modern-2-desc" class="lookup-modern-desc">—</p>
+</div>
+</div>
+<p class="lookup-modern-note">原測驗卡片的娛樂性對照，並非對當事人的正式 MBTI 判定。</p>
+</div>
+</div>
 <p aria-atomic="true" aria-live="polite" class="sr-only" id="mbti-result-announcer"></p>
 </div>
 </section><section id="lay-ranking">
@@ -3005,24 +2945,248 @@
         const BASE_TITLE = '教會 MBTI 大調查 | 近 3 萬位基督徒最像哪種人格？';
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-        const mbtiInsights = {
-            INTJ: '在平信徒裡排第 10，到了牧者樣本往前到第 8，比例也多了 2.1 個百分點。原本算中後段，換到牧者榜反而稍微更常見；而且保羅直接換成以利亞，角色真的有換台。',
-            INTP: '平信徒第 12、牧者第 9，比例增加 2.8 個百分點，是很明顯的往前移。這型在兩邊都不是最大宗，但到了牧者樣本存在感確實提高，多馬也換成所羅門來演。',
-            ENTJ: '平信徒本來就偏稀有，到了牧者樣本又從第 14 掉到第 16，比例少 1.4 個百分點。底波拉沒有換人，只是這次在牧者榜真的站得比較後面。',
-            ENTP: '名次從第 15 升到第 12，看起來前進不少，但比例其實只增加 0.3 個百分點。這張很適合提醒大家：名次是相對位置，不能只看箭頭就腦補一整齣。',
-            INFJ: '平信徒第 5，到了牧者樣本掉到第 11，比例少了 5.8 個百分點。這次資料裡的落差很明顯，但只能說樣本分布不同，先不要急著替但以理寫職涯建議。',
-            INFP: '從平信徒第 8 一口氣到牧者第 2，比例增加 4.5 個百分點，是這次排名上升很明顯的一型。約翰沒有換人，只是到了牧者世界突然站到很前面。',
-            ENFJ: '平信徒第 4，牧者樣本卻到第 15，比例少了 8.1 個百分點，是整份資料最醒目的落差之一。亞伯拉罕還是亞伯拉罕，只是這次牧者樣本裡真的很少見。',
-            ENFP: '第 6 變第 5，比例只多 0.5 個百分點，算是相當穩定。巴拿巴在兩個世界都維持差不多的存在感，沒有突然爆紅，也沒有突然神隱。',
-            ISTJ: '平信徒第 9、牧者第 6，比例增加 1.3 個百分點。尼希米型在牧者樣本裡往前幾格，屬於不是暴衝、但確實變得更常見的那種。',
-            ISFJ: '平信徒第 2、牧者第 3，名次只小退一格，但比例少了 2.1 個百分點。更有趣的是人物從路得換成以斯帖：MBTI 沒變，聖經卡司先換了。',
-            ESTJ: '名次從第 11 升到第 10，但比例反而少了 0.4 個百分點。這型根本是「不要只看排行榜」的示範題：位置前進，不等於樣本比例真的增加。',
-            ESFJ: '平信徒是第 1 名熱門款，到了牧者樣本變第 4，比例少 3.0 個百分點。馬大還是馬大，只是從榜首退了幾步，依然不算稀有。',
-            ISTP: '平信徒第 13、牧者第 14，比例少 1.8 個百分點。本來就不是教會裡的大宗，到了牧者樣本又更少一些；參孫這次一路自己演到底。',
-            ISFP: '這型很妙：平信徒第 7、牧者也是第 7，兩邊比例都剛好 7.6%。數字穩得像複製貼上，但人物卻從大衛換成以利沙，統計沒動、卡司動了。',
-            ESTP: '名次從第 16 升到第 13，但比例其實少了 0.3 個百分點。彼得看起來往前衝了三名，實際上更像是其他類型重新洗牌，不是自己突然大量出現。',
-            ESFP: '平信徒第 3，到了牧者樣本直接第 1，比例增加 11.3 個百分點，是這次最明顯的上升之一。撒馬利亞婦人換成馬利亞，連人物都跟著排行榜一起大洗牌。'
-        };
+        const MBTI_PROFILE_EXTRAS = {
+            "ESTP": {
+                        "tags": "果斷、實際、愛冒險",
+                        "reps": [
+                                    {
+                                                "name": "馬偕 George Leslie Mackay",
+                                                "role": "加拿大來台宣教士",
+                                                "desc": "向外的開拓者，勇於冒險進入全新的文化，以務實、直接的行動從零開始建立事業。"
+                                    },
+                                    {
+                                                "name": "馬丁路德 Martin Luther",
+                                                "role": "德國宗教改革家",
+                                                "desc": "向內的改革者，以無比勇氣和衝勁直接挑戰當時龐大而僵化的體制，引發翻天覆地的改革。"
+                                    }
+                        ]
+            },
+            "ISTP": {
+                        "tags": "實用、冷靜、臨危不亂",
+                        "reps": [
+                                    {
+                                                "name": "林書豪 Jeremy Lin",
+                                                "role": "美籍台裔籃球員",
+                                                "desc": "人造場域的巧匠，在高速的籃球賽場上，與隊友和對手進行戰術博弈。"
+                                    },
+                                    {
+                                                "name": "貝瑟尼．漢密爾頓 Bethany Hamilton",
+                                                "role": "美國衝浪選手",
+                                                "desc": "自然場域的巧匠，在變幻莫測的大海中，展現對極端環境的驚人適應力與問題解決能力。"
+                                    }
+                        ]
+            },
+            "INTJ": {
+                        "tags": "策略規劃、遠見、獨立",
+                        "reps": [
+                                    {
+                                                "name": "C.S. 路易斯 C.S. Lewis",
+                                                "role": "英國作家、學者",
+                                                "desc": "橋樑的建築師，他建構富於想像力的世界與通俗論證，為現代人搭建通往信仰的橋樑。"
+                                    },
+                                    {
+                                                "name": "約翰．加爾文 John Calvin",
+                                                "role": "法國宗教改革家、神學家",
+                                                "desc": "體系的建築師，他建構了一座宏偉、精密的神學思想體系，為新教神學奠定數百年的根基。"
+                                    }
+                        ]
+            },
+            "ISFP": {
+                        "tags": "溫和、隨和、藝術感",
+                        "reps": [
+                                    {
+                                                "name": "柯麗．鄧．波姆 Corrie ten Boom",
+                                                "role": "荷蘭作家、集中營倖存者",
+                                                "desc": "生命的見證，她原是一位安靜的鐘錶匠，其內在價值觀讓她在時代洪流中活出勇氣與犧牲。"
+                                    },
+                                    {
+                                                "name": "文森．梵谷 Vincent van Gogh",
+                                                "role": "荷蘭畫家",
+                                                "desc": "情感的畫布，一位內心充滿激情與掙扎的藝術家，其作品是他對世界、光影和信仰強烈感受的直接傾倒。"
+                                    }
+                        ]
+            },
+            "ESFP": {
+                        "tags": "熱情、外向、樂於助人",
+                        "reps": [
+                                    {
+                                                "name": "柯克．富蘭克林 Kirk Franklin",
+                                                "role": "美國福音音樂家",
+                                                "desc": "舞台上的表演者，他以極富感染力的音樂和舞台魅力，將人們聚集在一起，將信仰變成充滿活力的慶典。"
+                                    },
+                                    {
+                                                "name": "方濟各 Pope Francis",
+                                                "role": "天主教會教宗",
+                                                "desc": "人群中的表演者，他以溫暖、謙卑、自發性的親民舉動，直接與人們建立情感連結，傳遞愛與喜樂。"
+                                    }
+                        ]
+            },
+            "ENFP": {
+                        "tags": "樂觀、鼓舞人心、充滿創意",
+                        "reps": [
+                                    {
+                                                "name": "力克．胡哲 Nick Vujicic",
+                                                "role": "澳洲勵志演說家",
+                                                "desc": "為希望而競選，他以自身不可思議的生命故事，在全球為「凡事都有可能」的信念作見證，點燃人們的希望。"
+                                    },
+                                    {
+                                                "name": "凱瑟琳．卜維廉 Catherine Booth",
+                                                "role": "救世軍創辦人之一",
+                                                "desc": "為社會改革而競選，她在19世紀為社會公義和信仰實踐的理念競選，並建立了一個延續至今的全球性組織。"
+                                    }
+                        ]
+            },
+            "ISTJ": {
+                        "tags": "忠誠、重視細節、實事求是",
+                        "reps": [
+                                    {
+                                                "name": "伊麗莎白．艾略特 Elisabeth Elliot",
+                                                "role": "美國作家、演說家",
+                                                "desc": "對個人呼召的忠誠，她在極度的個人悲劇中，依然堅守崗位，以其堅忍的生命和清晰的教導成為無數人的榜樣。"
+                                    },
+                                    {
+                                                "name": "潘霍華 Dietrich Bonhoeffer",
+                                                "role": "德國神學家、殉道者",
+                                                "desc": "原則的守護者，他以學者的嚴謹和殉道者的勇氣，在邪惡時代為信仰的具體實踐和代價作出沉重見證。"
+                                    }
+                        ]
+            },
+            "INTP": {
+                        "tags": "分析、好奇、理性",
+                        "reps": [
+                                    {
+                                                "name": "李．史特博 Lee Strobel",
+                                                "role": "美國作家、前記者",
+                                                "desc": "應用的邏輯學家，他發揮記者的調查精神，將邏輯框架應用於現實證據，透過追尋與驗證來確立信仰。"
+                                    },
+                                    {
+                                                "name": "卡爾．巴特 Karl Barth",
+                                                "role": "瑞士神學家",
+                                                "desc": "理論的邏輯學家，20世紀神學巨匠，以窮盡畢生之力建構龐大、複雜、自成一格的神學體系。"
+                                    }
+                        ]
+            },
+            "INFJ": {
+                        "tags": "洞察、理想、同理心",
+                        "reps": [
+                                    {
+                                                "name": "馬丁．路德．金 Martin Luther King Jr.",
+                                                "role": "美國民權領袖",
+                                                "desc": "社會改革型的倡議者，他將內心對公義的深刻異象，透過充滿魅力的演說和社會運動向外投射，致力於改變現實世界。"
+                                    },
+                                    {
+                                                "name": "J.R.R. 托爾金 J.R.R. Tolkien",
+                                                "role": "英國作家、語言學家",
+                                                "desc": "世界建構型的倡議者，他將內心對真善美的深刻價值觀，透過數十年的潛心寫作向內構築成完整的藝術世界。"
+                                    }
+                        ]
+            },
+            "ENFJ": {
+                        "tags": "有感染力、善於啟發他人",
+                        "reps": [
+                                    {
+                                                "name": "佛羅倫絲．南丁格爾 Florence Nightingale",
+                                                "role": "英國護理先驅、社會改革家",
+                                                "desc": "戰地與體制的改革者，她在19世紀的歐洲，以專業和遠見為病患與護理人員爭取尊嚴與標準。"
+                                    },
+                                    {
+                                                "name": "杏林子（劉俠）",
+                                                "role": "台灣作家、伊甸基金會創辦人",
+                                                "desc": "社會與心靈的改革者，她在20世紀的台灣，以文學和行動為身心障礙者爭取權益，並用自己的生命故事激勵無數人心。"
+                                    }
+                        ]
+            },
+            "ENTJ": {
+                        "tags": "領導、果斷、組織力",
+                        "reps": [
+                                    {
+                                                "name": "提摩太．凱勒 Timothy Keller",
+                                                "role": "美國牧師、作家",
+                                                "desc": "思想界的指揮官，他運用神學的遠見與策略，在文化和思想領域開疆闢土。"
+                                    },
+                                    {
+                                                "name": "柴契爾夫人 Margaret Thatcher",
+                                                "role": "英國前首相",
+                                                "desc": "政治界的指揮官，她運用國家的權力與堅定意志，在現實政治舞台上推動大刀闊斧的改革。"
+                                    }
+                        ]
+            },
+            "INFP": {
+                        "tags": "感性、忠於自我、理想主義",
+                        "reps": [
+                                    {
+                                                "name": "盧雲 Henri Nouwen",
+                                                "role": "荷蘭神父、作家",
+                                                "desc": "內省的療癒者，他透過探索自身的脆弱與靈性，觸動並療癒了無數渴望真誠的靈魂。"
+                                    },
+                                    {
+                                                "name": "尤金．畢德生 Eugene Peterson",
+                                                "role": "美國牧師、作家",
+                                                "desc": "教牧詩人，他透過代表作《信息本聖經》，以充滿詩意和生活氣息的語言，為當代人重新詮釋聖經，搭起神聖與日常之間的橋樑。"
+                                    }
+                        ]
+            },
+            "ESFJ": {
+                        "tags": "關懷、善於協調、樂於服務",
+                        "reps": [
+                                    {
+                                                "name": "喬依絲．邁爾 Joyce Meyer",
+                                                "role": "美國電視福音佈道家",
+                                                "desc": "現代媒體的關懷者，她透過廣播和電視，為全球數百萬人提供實用的生活教導和心靈支持。"
+                                    },
+                                    {
+                                                "name": "艾美．卡邁可 Amy Carmichael",
+                                                "role": "愛爾蘭裔印度宣教士",
+                                                "desc": "宣教前線的關懷者，她在艱苦環境中親手建立真實的庇護所，成為數百名孤兒的母親和保護者。"
+                                    }
+                        ]
+            },
+            "ENTP": {
+                        "tags": "創新、辯論、挑戰傳統",
+                        "reps": [
+                                    {
+                                                "name": "唐崇榮 Stephen Tong",
+                                                "role": "印尼華裔牧師、佈道家",
+                                                "desc": "講台上的辯論家，他以其嚴謹的邏輯和充沛辯才，在講台上與各種哲學、神學思想進行正面交鋒。"
+                                    },
+                                    {
+                                                "name": "麥爾坎．蒙格理奇 Malcolm Muggeridge",
+                                                "role": "英國記者、諷刺作家",
+                                                "desc": "媒體中的辯論家，他以機智、諷刺的筆觸和敏銳觀察力，對社會文化和時事進行犀利批判，引發深刻反思。"
+                                    }
+                        ]
+            },
+            "ISFJ": {
+                        "tags": "溫柔、樂於助人、持守本分",
+                        "reps": [
+                                    {
+                                                "name": "德蕾莎修女 Mother Teresa",
+                                                "role": "天主教會修女、慈善家",
+                                                "desc": "透過打破階級的激進服事來奉獻，她走入人群，親身觸摸最卑微的人。"
+                                    },
+                                    {
+                                                "name": "伊莉莎白二世 Queen Elizabeth II",
+                                                "role": "英國女王",
+                                                "desc": "透過持守位階的莊嚴責任來奉獻，她穩坐王位，成為國家穩定與傳統傳承的象徵。"
+                                    }
+                        ]
+            },
+            "ESTJ": {
+                        "tags": "務實、領導能力、組織力強",
+                        "reps": [
+                                    {
+                                                "name": "約翰．衛斯理 John Wesley",
+                                                "role": "英國神學家、循道宗創始人",
+                                                "desc": "工業革命前的開拓者，他用雙腳和馬匹，建立了一個面對面的組織網絡。"
+                                    },
+                                    {
+                                                "name": "彭蒙惠 Doris Brougham",
+                                                "role": "空中英語教室創辦人",
+                                                "desc": "大眾傳播時代的開拓者，她用廣播、電視和網路，建立了一個影響數代人的媒體教育帝國。"
+                                    }
+                        ]
+            }
+};
 
         function normalizeText(value) {
             return (value || '').replace(/\s+/g, ' ').trim();
@@ -3071,9 +3235,6 @@
                 };
             });
 
-            MBTI_TYPES.forEach((type) => {
-                if (data[type]) data[type].insight = mbtiInsights[type] || '';
-            });
             return data;
         }
 
@@ -3173,11 +3334,7 @@
         function animateResultNumbers(entry) {
             const fields = {
                 'lay-rank': [entry.lay.rank, (v) => Math.max(1, Math.round(v)).toString()],
-                'pastor-rank': [entry.pastor.rank, (v) => Math.max(1, Math.round(v)).toString()],
-                'lay-count': [entry.lay.count, (v) => Math.round(v).toLocaleString('zh-TW')],
-                'pastor-count': [entry.pastor.count, (v) => Math.round(v).toLocaleString('zh-TW')],
-                'lay-percent': [entry.lay.percent, (v) => v.toFixed(1)],
-                'pastor-percent': [entry.pastor.percent, (v) => v.toFixed(1)]
+                'pastor-rank': [entry.pastor.rank, (v) => Math.max(1, Math.round(v)).toString()]
             };
             Object.entries(fields).forEach(([field,[target,formatter]]) => {
                 animateNumber(document.querySelector(`[data-field="${field}"]`), target, { formatter });
@@ -3187,40 +3344,24 @@
         function renderMbtiResult(type, options = {}) {
             const entry = mbtiData[type];
             if (!entry?.lay || !entry?.pastor) return false;
+
             document.querySelectorAll('.mbti-option').forEach((button) => {
                 button.setAttribute('aria-pressed', button.dataset.type === type ? 'true' : 'false');
             });
+
+            const profile = MBTI_PROFILE_EXTRAS[type] || { tags: '—', reps: [] };
             const result = document.getElementById('mbti-lookup-result');
-            const rankChangeNode = document.querySelector('[data-field="rank-change"]');
-            const percentChangeNode = document.querySelector('[data-field="percent-change"]');
-            const rankDelta = entry.lay.rank - entry.pastor.rank;
-            const percentDelta = entry.pastor.percent - entry.lay.percent;
 
             setField('type', type);
-            setField('lay-character', entry.lay.character);
-            setField('pastor-character', entry.pastor.character);
-            setField('lay-world-character', entry.lay.character);
-            setField('pastor-world-character', entry.pastor.character);
             setField('rarity-stars', getRarityStars(entry.lay.percent));
-            setField('insight', entry.insight || '建議同時看排名與比例，不要只看其中一個數字。');
+            setField('profile-tags', profile.tags || '—');
 
-            if (rankChangeNode) {
-                rankChangeNode.className = 'lookup-change-pill';
-                if (rankDelta > 0) { rankChangeNode.textContent = `排名 ↑ ${rankDelta} 名`; rankChangeNode.classList.add('up'); }
-                else if (rankDelta < 0) { rankChangeNode.textContent = `排名 ↓ ${Math.abs(rankDelta)} 名`; rankChangeNode.classList.add('down'); }
-                else { rankChangeNode.textContent = '排名 → 沒變'; rankChangeNode.classList.add('same'); }
-            }
-            if (percentChangeNode) {
-                percentChangeNode.className = 'lookup-change-pill';
-                percentChangeNode.textContent = Math.abs(percentDelta) < 0.05
-                    ? '比例 → 持平（0.0 個百分點）'
-                    : `比例 ${formatPercentPoint(percentDelta)} 個百分點`;
-                percentChangeNode.classList.add(percentDelta > 0.05 ? 'up' : percentDelta < -0.05 ? 'down' : 'same');
-            }
-
-            setField('character-comment', entry.lay.character === entry.pastor.character
-                ? `這次人物沒有換人，${entry.lay.character}一路演到底。`
-                : '你的 MBTI 沒變，但聖經人物換人演了。😂');
+            [0, 1].forEach((index) => {
+                const rep = profile.reps?.[index] || {};
+                setField(`modern-${index + 1}-name`, rep.name || '—');
+                setField(`modern-${index + 1}-role`, rep.role || '');
+                setField(`modern-${index + 1}-desc`, rep.desc || '');
+            });
 
             if (result) {
                 result.hidden = false;
@@ -3228,10 +3369,14 @@
                 void result.offsetWidth;
                 result.classList.add('is-entering');
             }
+
             animateResultNumbers(entry);
 
             const announcer = document.getElementById('mbti-result-announcer');
-            if (announcer) announcer.textContent = `${type} 結果已更新。平信徒第 ${entry.lay.rank} 名，牧者第 ${entry.pastor.rank} 名。`;
+            if (announcer) {
+                announcer.textContent = `${type} 結果已更新。平信徒第 ${entry.lay.rank} 名，牧者第 ${entry.pastor.rank} 名。`;
+            }
+
             if (options.updateUrl !== false) updateUrlType(type);
             document.title = `${type}｜教會 MBTI 圖鑑`;
             return true;
