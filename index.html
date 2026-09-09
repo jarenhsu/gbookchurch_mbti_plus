@@ -1411,13 +1411,13 @@
 <p class="hero-eyebrow">教會 MBTI 圖鑑 · 三萬份答案攤開來看</p>
 <div aria-label="總樣本數 30,445" class="hero-total-number" id="hero-total">30,445</div>
 <p class="hero-total-label">位基督徒參與者</p>
-<h1>F，幾乎成了這份樣本的共同語言。</h1>
+<h1>教會最在意的還是人</h1>
 <div aria-label="樣本組成" class="hero-sample-split">
 <span><strong id="hero-lay-total">28,796</strong> 平信徒</span>
 <span aria-hidden="true" class="hero-times">×</span>
 <span><strong id="hero-pastor-total">1,649</strong> 牧者</span>
 </div>
-<p class="hero-story">一年前，我們做了一個「你最像哪一個聖經人物」MBTI 測驗。<br/>一年後，我們把三萬多份答案全部攤開來看。</p>
+<p class="hero-story">一年前撒下一份測驗<br/>一年後收回三萬份答案</p>
 <button class="cta-btn" id="hero-start-button" type="button">看看教會到底長什麼樣 →</button>
 </div></section><section class="f-section" id="discovery-section"><div class="section-tag">8 個有趣發現</div><h2 class="section-title">先看八個教會現場，再往下揭曉</h2><div class="divider"></div><p class="section-subtitle discovery-intro">把三萬多份結果攤開來，有些數字真的很像教會現場：有人顧感受、有人顧流程，也有人講完道只想先安靜一下。先看八個最有畫面的發現。</p><div class="discovery-grid phase2-discovery-grid">
 <article class="discovery-card">
@@ -3783,6 +3783,59 @@
             transform: none !important;
         }
     }
+
+
+    /* ===== V15｜大面積色塊漸層質感優化 =====
+       原則：只處理大面積背景；卡片與互動元件維持純色，避免視覺噪音。 */
+    :root {
+        --page-gradient: linear-gradient(180deg, #F9F6EF 0%, #F5F1E9 100%);
+        --alt-gradient: linear-gradient(180deg, #F1EEE7 0%, #ECE8E0 52%, #F3F0E8 100%);
+        --hero-gradient:
+            radial-gradient(circle at 18% 16%, rgba(214, 182, 106, 0.12) 0%, rgba(214, 182, 106, 0) 34%),
+            radial-gradient(circle at 86% 82%, rgba(127, 155, 138, 0.16) 0%, rgba(127, 155, 138, 0) 38%),
+            linear-gradient(135deg, #4A6F5C 0%, #3C5D4E 46%, #2D493D 100%);
+        --cta-gradient:
+            radial-gradient(circle at 80% 18%, rgba(214, 182, 106, 0.11) 0%, rgba(214, 182, 106, 0) 34%),
+            radial-gradient(circle at 14% 84%, rgba(127, 155, 138, 0.14) 0%, rgba(127, 155, 138, 0) 38%),
+            linear-gradient(145deg, #3F6251 0%, #345344 52%, #2B463A 100%);
+    }
+
+    body {
+        background: #F7F4EC;
+    }
+
+    /* 第一屏：以深綠為主體，金色與鼠尾草綠只提供很淡的光感。 */
+    .hero {
+        background: var(--hero-gradient);
+    }
+
+    /* 內容區只做低對比的暖米色漸層，避免每個 section 像不同色塊。 */
+    section.f-section,
+    #lay-ranking {
+        background: var(--page-gradient);
+    }
+
+    section.alt {
+        background: var(--alt-gradient);
+    }
+
+    /* 個人查詢區稍微帶一點灰綠霧感，仍維持同一套底色。 */
+    .mbti-lookup-section {
+        background:
+            radial-gradient(circle at 88% 12%, rgba(127, 155, 138, 0.07) 0%, rgba(127, 155, 138, 0) 32%),
+            var(--page-gradient);
+    }
+
+    /* 收尾使用和 Hero 同家族、但更沉穩的漸層，形成 ending 感。 */
+    .final-cta {
+        background: var(--cta-gradient);
+    }
+
+    /* footer 保持深色錨點，只做極輕微明暗過渡。 */
+    footer {
+        background: linear-gradient(180deg, #433A32 0%, #382F29 100%);
+    }
+
 </style>
 
 </body>
