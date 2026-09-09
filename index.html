@@ -2855,6 +2855,9 @@
       可能和誰願意點進線上測驗、樣本來源、角色分布等因素有關。最安全的結論不是「ENFJ 不適合當牧師」，而是：<strong>ENFJ 牧者是真的少，還是這次剛好沒被我們遇到？資料本身還回答不了。</strong>
 </div>
 </div>
+<figure class="mystery-character-art" aria-hidden="true">
+<img id="mystery-abraham-art" alt="" loading="lazy" decoding="async"/>
+</figure>
 </div></section><section class="alt" id="temperament-section">
 <div class="section-tag">四大性格群</div>
 <h2 class="section-title">16 型再分隊，你是哪一派？</h2>
@@ -3414,15 +3417,16 @@
             return figure;
         }
 
-        function decorateTopRankingCards() {
-            const layCards = Array.from(document.querySelectorAll('#lay-ranking .mbti-card')).slice(0, 3);
-            layCards.forEach((card) => {
+        function decorateRankingCards() {
+            const layCards = Array.from(document.querySelectorAll('#lay-ranking .mbti-card'));
+            layCards.forEach((card, index) => {
                 const text = normalizeText(card.textContent);
                 const match = text.match(/^\d+\s+([EI][NS][TF][JP])｜(.+?)\s+[\d,]+\s*人/);
                 if (!match) return;
                 const character = match[2].trim();
                 const thumb = makeRankCharacterThumb(character);
                 if (!thumb) return;
+                if (index >= 3) thumb.classList.add('is-compact');
                 const head = card.firstElementChild;
                 const indicator = head?.querySelector('.expand-indicator');
                 if (head && !head.querySelector('.rank-character-thumb')) {
@@ -3432,17 +3436,30 @@
                 }
             });
 
-            const pastorCards = Array.from(document.querySelectorAll('#pastor-ranking .pastor-top-grid .pastor-rank-card')).slice(0, 3);
-            pastorCards.forEach((card) => {
+            const pastorCards = Array.from(document.querySelectorAll('#pastor-ranking .pastor-rank-card'));
+            pastorCards.forEach((card, index) => {
                 const title = normalizeText(card.querySelector('.pastor-rank-title')?.textContent || '');
                 const character = title.split('｜')[1] || '';
                 const thumb = makeRankCharacterThumb(character.trim());
                 const head = card.querySelector('.pastor-rank-head');
-                if (thumb && head && !head.querySelector('.rank-character-thumb')) {
+                if (!thumb || !head) return;
+                if (index >= 3) thumb.classList.add('is-compact');
+                if (!head.querySelector('.rank-character-thumb')) {
                     head.appendChild(thumb);
                     card.classList.add('has-rank-art');
                 }
             });
+        }
+
+        function decorateMysteryCharacter() {
+            const img = document.getElementById('mystery-abraham-art');
+            if (!img) return;
+            const src = getCharacterArt('亞伯拉罕');
+            if (!src) {
+                img.closest('.mystery-character-art')?.setAttribute('hidden', '');
+                return;
+            }
+            img.src = src;
         }
 
         function renderMbtiResult(type, options = {}) {
@@ -3678,7 +3695,8 @@
             animateNumber(document.getElementById('enfj-stat2'),entry.pastor.percent,{formatter:(v)=>v.toFixed(1)});
         }
 
-        decorateTopRankingCards();
+        decorateRankingCards();
+        decorateMysteryCharacter();
         initInteractiveRankCards();
         initHero();
         initMethodPanel();
@@ -3988,7 +4006,7 @@
         filter: drop-shadow(0 8px 10px rgba(70, 59, 51, 0.16));
     }
 
-    /* Top 3 才放人物縮圖，完整榜維持資料閱讀感。 */
+    /* 排行榜 16 型皆有人物圖；Top 3 稍大，其餘名次縮小，兼顧圖鑑感與閱讀密度。 */
     .rank-character-thumb {
         position: relative;
         flex: 0 0 78px;
@@ -4083,9 +4101,132 @@
         }
     }
 
+
+    .rank-character-thumb.is-compact {
+        flex-basis: 64px;
+        width: 64px;
+        height: 72px;
+        margin-left: 5px;
+        margin-right: 4px;
+    }
+
+    .rank-character-thumb.is-compact::before {
+        width: 54px;
+        height: 54px;
+        top: 7px;
+    }
+
+    .rank-character-thumb.is-compact img {
+        width: 62px;
+        height: 70px;
+    }
+
+    .pastor-rank-head .rank-character-thumb.is-compact {
+        flex-basis: 66px;
+        width: 66px;
+        height: 74px;
+    }
+
+    .pastor-rank-head .rank-character-thumb.is-compact img {
+        width: 64px;
+        height: 72px;
+    }
+
+    /* 數據懸案：讓亞伯拉罕成為右側主視覺，而不是另一張資訊卡。 */
+    #enfj-mystery .mystery-compact {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(190px, 255px);
+        gap: clamp(24px, 5vw, 54px);
+        align-items: center;
+        max-width: 1050px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #enfj-mystery .enfj-left {
+        min-width: 0;
+    }
+
+    .mystery-character-art {
+        position: relative;
+        width: 100%;
+        min-height: 320px;
+        margin: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    .mystery-character-art[hidden] { display: none !important; }
+
+    .mystery-character-art::before {
+        content: '';
+        position: absolute;
+        width: 235px;
+        height: 235px;
+        top: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(214, 182, 106, 0.32) 0%, rgba(214, 182, 106, 0.12) 50%, rgba(214, 182, 106, 0) 73%);
+    }
+
+    .mystery-character-art img {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 330px;
+        object-fit: contain;
+        object-position: center bottom;
+        filter: drop-shadow(0 14px 14px rgba(70, 59, 51, 0.16));
+    }
+
+    @media (max-width: 760px) {
+        #enfj-mystery .mystery-compact {
+            grid-template-columns: 1fr;
+            gap: 6px;
+        }
+
+        .mystery-character-art {
+            min-height: 245px;
+            max-width: 230px;
+            margin: -8px auto 0;
+        }
+
+        .mystery-character-art::before {
+            width: 180px;
+            height: 180px;
+            top: 24px;
+        }
+
+        .mystery-character-art img {
+            height: 250px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .rank-character-thumb.is-compact,
+        .pastor-rank-head .rank-character-thumb.is-compact {
+            flex-basis: 54px;
+            width: 54px;
+            height: 64px;
+            margin-left: 2px;
+            margin-right: 0;
+        }
+        .rank-character-thumb.is-compact::before { width: 46px; height: 46px; top: 8px; }
+        .rank-character-thumb.is-compact img,
+        .pastor-rank-head .rank-character-thumb.is-compact img {
+            width: 52px;
+            height: 62px;
+        }
+    }
+
     @media (prefers-reduced-motion: reduce) {
         .lookup-character-art img,
-        .rank-character-thumb img { transition: none !important; }
+        .rank-character-thumb img,
+        .mystery-character-art img { transition: none !important; }
     }
 </style>
 
