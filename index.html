@@ -2972,7 +2972,7 @@
 </div>
 </section><section class="final-cta" id="final-cta"><div class="final-cta-inner">
 <p class="final-kicker">看完三萬人的答案，</p>
-<h2>換你了。</h2>
+<h2>換你了</h2>
 <p class="final-subtitle">你還是去年的那個人嗎？</p>
 <div class="cta-buttons final-actions">
 <a class="cta-btn-primary" href="https://ooopenlab.cc/quiz/SUBWt9ffyQck8ulXgfwm" rel="noopener" target="_blank">我是平信徒 → 再測一次</a>
@@ -4506,6 +4506,142 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
         }
     }
 
+
+
+/* ===== V40｜四大性格群置中＋牧者排行榜版面優化 ===== */
+/* 四大性格群：章節大標、色塊小標、四型列與卡片內小標都置中。 */
+#temperament-section > .section-tag {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#temperament-section > .section-title {
+    text-align: center;
+}
+
+#temperament-section > .divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#temperament-section .temperament-header,
+#temperament-section .temperament-types {
+    text-align: center;
+}
+
+#temperament-section .temperament-desc > strong {
+    display: block;
+    text-align: center;
+}
+
+/* 牧者排行榜改成與平信徒相同的單欄閱讀節奏，避免前三名被切成窄窄三欄。 */
+#pastor-ranking .pastor-top-grid,
+#pastor-ranking .pastor-extra-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+/* 收合狀態做成緊湊排行列，不再是一大塊白色卡片。 */
+#pastor-ranking .pastor-rank-card:not(.expanded) {
+    padding: 14px 16px;
+    border: 1px solid #DDD6CA;
+    border-left: 3px solid #B45F3C !important;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #FFFEFB 0%, #FAF7F0 100%);
+    box-shadow: 0 2px 8px rgba(46, 52, 48, 0.05);
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-head {
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-number {
+    min-width: 30px;
+    font-size: 1.55rem;
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-title {
+    font-size: 1.03rem;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-stat {
+    margin-top: 2px;
+    font-size: 0.8rem;
+}
+
+/* 排行榜人物圖縮成點綴，讓人物名字保有完整一行的空間。 */
+#pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 62px;
+    margin: -7px 0 -7px 4px;
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb::before {
+    width: 50px;
+    height: 50px;
+    top: 6px;
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb img {
+    width: 58px;
+    height: 62px;
+}
+
+#pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-head::after {
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    #pastor-ranking .pastor-rank-card:not(.expanded) {
+        padding: 12px 13px;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-head {
+        gap: 8px;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-number {
+        min-width: 25px;
+        font-size: 1.35rem;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-title {
+        font-size: clamp(0.86rem, 3.6vw, 0.98rem);
+        letter-spacing: -0.01em;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .pastor-rank-stat {
+        font-size: 0.75rem;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb,
+    #pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb.is-compact {
+        flex-basis: 46px;
+        width: 46px;
+        height: 52px;
+        margin: -5px 0 -5px 1px;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb::before,
+    #pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb.is-compact::before {
+        width: 40px;
+        height: 40px;
+        top: 6px;
+    }
+
+    #pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb img,
+    #pastor-ranking .pastor-rank-card:not(.expanded) .rank-character-thumb.is-compact img {
+        width: 44px;
+        height: 50px;
+    }
+}
 </style>
 
 </body>
