@@ -1455,8 +1455,8 @@
 <span aria-hidden="true" class="hero-times">×</span>
 <span><strong id="hero-pastor-total">1,649</strong> 牧者</span>
 </div>
-<p class="hero-story">一年前撒下一份測驗<br/>一年後收回三萬份答案</p>
-<button class="cta-btn" id="hero-start-button" type="button">看看教會到底長什麼樣 →</button>
+<p class="hero-story">基督徒 MBTI 測驗結果報告</p>
+<button class="cta-btn" id="hero-start-button" type="button">三萬個基督徒，到底都是哪一型？ →</button>
 </div></section><section class="f-section" id="discovery-section"><div class="section-tag">8 個有趣發現</div><h2 class="section-title">先看八個教會現場，再往下揭曉</h2><div class="divider"></div><div class="discovery-grid phase2-discovery-grid">
 <article class="discovery-card">
 <div class="discovery-number">1</div>
@@ -5105,6 +5105,78 @@ section > .divider {
 @media (prefers-reduced-motion: reduce) {
     .contrast-card { transition: none !important; }
 }
+
+
+/* ===== V43｜首頁字重放鬆＋MBTI 選項滑過變色 ===== */
+/* Hero 保留數字主視覺，但降低整體字重與壓迫感，讓文字之間更有呼吸。 */
+.hero-eyebrow {
+    font-weight: 650;
+    letter-spacing: 0.055em;
+    opacity: 0.86;
+    margin-bottom: 10px;
+}
+
+.hero-total-number {
+    font-weight: 820;
+    letter-spacing: -0.045em;
+    text-shadow: 2px 3px 0 rgba(0,0,0,0.12);
+    margin: 14px 0 6px;
+}
+
+.hero-total-label {
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+}
+
+.hero-sample-split {
+    gap: 12px;
+    margin: 21px auto 24px;
+}
+
+.hero-sample-split span:not(.hero-times) {
+    padding: 9px 14px;
+    font-weight: 500;
+}
+
+.hero-sample-split strong {
+    font-weight: 760;
+}
+
+.hero-times {
+    font-weight: 700;
+}
+
+.hero-story {
+    font-weight: 450;
+    letter-spacing: 0.015em;
+    line-height: 1.9 !important;
+    margin-bottom: 8px;
+}
+
+#hero-start-button {
+    font-weight: 650;
+    letter-spacing: 0.01em;
+}
+
+/* 尚未選取時，滑鼠移過 16 型選項會有明確但不刺眼的色彩回饋。 */
+@media (hover: hover) and (pointer: fine) {
+    .mbti-option:not([aria-pressed="true"]):hover {
+        background: #E4ECE6;
+        color: #304C40;
+        border-color: #B45F3C;
+        box-shadow: 4px 5px 0 rgba(180,95,60,0.17);
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-eyebrow { font-weight: 620; }
+    .hero-total-number { font-weight: 800; }
+    .hero-total-label { font-weight: 620; }
+    .hero-story { line-height: 1.85 !important; }
+}
+
 </style>
 
 </body>
