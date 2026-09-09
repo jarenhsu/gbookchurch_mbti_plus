@@ -2835,29 +2835,59 @@
 </div>
 </section><section class="alt myth-section" id="myth-section">
 <div class="section-tag">反差小抄</div>
-<h2 class="section-title">教會 MBTI：你以為 vs 實際上</h2>
-
+<h2 class="section-title">你以為的教會 跟數字看到的不太一樣</h2>
 <div class="divider"></div>
-<div class="myth-grid">
-<article class="myth-card">
-<div class="myth-side"><span>你以為</span><p>「牧師一定都是 E 人。」</p></div>
-<div aria-hidden="true" class="myth-arrow">↓</div>
-<div class="myth-side actual"><span>實際上</span><p>牧者樣本中，I 是 <strong data-myth="pastor-i">—</strong>%，比 E 還多。</p></div>
+
+<div class="contrast-deck">
+<article class="contrast-card contrast-card-split">
+<div class="contrast-half contrast-myth">
+<span class="contrast-kicker">你以為</span>
+<p class="contrast-question">牧師應該都很 E 吧</p>
+</div>
+<div class="contrast-vs" aria-hidden="true">VS</div>
+<div class="contrast-half contrast-data">
+<span class="contrast-kicker">數據說</span>
+<div class="contrast-big"><strong data-myth="pastor-i">—</strong><span>%</span></div>
+<p class="contrast-answer">牧者樣本反而是 I 人更多</p>
+</div>
 </article>
-<article class="myth-card">
-<div class="myth-side"><span>你以為</span><p>「ENFJ 這麼有領袖氣質，牧者一定很多。」</p></div>
-<div aria-hidden="true" class="myth-arrow">↓</div>
-<div class="myth-side actual"><span>實際上</span><p>本次牧者樣本只有 <strong data-myth="enfj-pastor">—</strong>%，而平信徒是 <strong data-myth="enfj-lay">—</strong>%。</p></div>
+
+<article class="contrast-card contrast-card-split contrast-card-reverse">
+<div class="contrast-half contrast-data">
+<span class="contrast-kicker">數據說</span>
+<div class="contrast-shift"><strong data-myth="enfj-lay">—</strong>% <span aria-hidden="true">→</span> <strong data-myth="enfj-pastor">—</strong>%</div>
+<p class="contrast-answer">ENFJ 到了牧者樣本突然變稀有</p>
+</div>
+<div class="contrast-vs" aria-hidden="true">但</div>
+<div class="contrast-half contrast-myth">
+<span class="contrast-kicker">你以為</span>
+<p class="contrast-question">這麼會帶人 牧者應該很多吧</p>
+</div>
 </article>
-<article class="myth-card">
-<div class="myth-side"><span>你以為</span><p>「牧師的行事曆一定排得超整齊。」</p></div>
-<div aria-hidden="true" class="myth-arrow">↓</div>
-<div class="myth-side actual"><span>實際上</span><p>牧者樣本反而 P <strong data-myth="pastor-p">—</strong>% ＞ J <strong data-myth="pastor-j">—</strong>%。</p></div>
+
+<article class="contrast-card contrast-card-feature">
+<div class="contrast-feature-copy">
+<span class="contrast-kicker">最大反轉</span>
+<p>平信徒比較偏 J</p>
+</div>
+<div class="contrast-jp" aria-label="J 轉向 P"><span>J</span><b aria-hidden="true">→</b><span>P</span></div>
+<div class="contrast-feature-copy is-right">
+<span class="contrast-kicker">牧者樣本</span>
+<p>P <strong data-myth="pastor-p">—</strong>%　J <strong data-myth="pastor-j">—</strong>%</p>
+</div>
 </article>
-<article class="myth-card">
-<div class="myth-side"><span>你以為</span><p>「平信徒最熱門的類型，牧者榜應該也差不多。」</p></div>
-<div aria-hidden="true" class="myth-arrow">↓</div>
-<div class="myth-side actual"><span>實際上</span><p>平信徒榜首是 <strong data-myth="lay-top">—</strong>；牧者榜首換成 <strong data-myth="pastor-top">—</strong>。</p></div>
+
+<article class="contrast-card contrast-card-ranking">
+<div class="ranking-belief">
+<span class="contrast-kicker">你以為</span>
+<p>排行榜第一名 應該差不多吧</p>
+</div>
+<div class="ranking-switch" aria-hidden="true">換人</div>
+<div class="ranking-result">
+<div><small>平信徒榜首</small><strong data-myth="lay-top">—</strong></div>
+<span aria-hidden="true">→</span>
+<div><small>牧者榜首</small><strong data-myth="pastor-top">—</strong></div>
+</div>
 </article>
 </div>
 </section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">平信徒 vs 牧者，一眼看出差在哪</h2><div class="divider"></div><div class="dimension-compare-grid">
@@ -4674,6 +4704,406 @@ section > .divider {
         margin-left: 0;
         width: 100%;
     }
+}
+</style>
+
+<style id="v42-myth-redesign">
+/* ===== V42｜反差小抄：中場視覺換景 ===== */
+#myth-section.myth-section {
+    position: relative;
+    max-width: none;
+    width: 100%;
+    padding: 76px 20px 82px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 14%, rgba(214,182,106,.16) 0%, rgba(214,182,106,0) 32%),
+        radial-gradient(circle at 88% 86%, rgba(180,95,60,.18) 0%, rgba(180,95,60,0) 34%),
+        linear-gradient(145deg, #294438 0%, #355647 48%, #243C32 100%);
+}
+
+#myth-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .14;
+    background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.55), transparent 78%);
+}
+
+#myth-section > .section-tag,
+#myth-section > .section-title,
+#myth-section > .divider,
+#myth-section > .contrast-deck {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#myth-section > .section-tag {
+    background: var(--gold, #D6B66A);
+    color: #2B4036;
+}
+
+#myth-section > .section-title {
+    color: #FFFDF7;
+    text-wrap: balance;
+}
+
+#myth-section > .divider {
+    background: var(--orange, #B45F3C);
+}
+
+.contrast-deck {
+    display: grid;
+    gap: 22px;
+    margin-top: 34px;
+}
+
+.contrast-card {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 14px 34px rgba(15,27,22,.24);
+}
+
+.contrast-card-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 225px;
+    background: #F8F2E8;
+}
+
+.contrast-half {
+    padding: 30px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contrast-myth {
+    background: linear-gradient(145deg, #F6EFE4 0%, #EEE6D9 100%);
+    color: #4A4038;
+}
+
+.contrast-data {
+    background: linear-gradient(145deg, #B75F3C 0%, #A55135 100%);
+    color: #FFFDF7;
+}
+
+.contrast-card-reverse .contrast-data {
+    background: linear-gradient(145deg, #D1AE59 0%, #B9923F 100%);
+    color: #2F3E35;
+}
+
+.contrast-kicker {
+    display: inline-flex;
+    align-self: flex-start;
+    width: fit-content;
+    padding: 5px 9px;
+    margin-bottom: 14px;
+    border-radius: 999px;
+    background: rgba(45,59,51,.10);
+    color: inherit;
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+.contrast-data .contrast-kicker {
+    background: rgba(255,255,255,.16);
+}
+
+.contrast-question,
+.contrast-answer {
+    margin: 0;
+    text-align: left !important;
+}
+
+.contrast-question {
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.contrast-answer {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.55;
+}
+
+.contrast-big {
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+    line-height: .9;
+    margin-bottom: 14px;
+}
+
+.contrast-big strong {
+    font-size: clamp(3.6rem, 8vw, 6.3rem);
+    font-weight: 950;
+    letter-spacing: -.06em;
+}
+
+.contrast-big span {
+    margin-top: .55em;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.contrast-shift {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: clamp(2.3rem, 5vw, 4.4rem);
+    font-weight: 950;
+    letter-spacing: -.04em;
+    white-space: nowrap;
+}
+
+.contrast-shift span {
+    opacity: .72;
+    font-size: .72em;
+}
+
+.contrast-vs {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #FFFDF7;
+    border: 5px solid #355647;
+    color: #355647;
+    font-weight: 950;
+    box-shadow: 0 6px 14px rgba(0,0,0,.18);
+}
+
+.contrast-card-feature {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 28px;
+    min-height: 245px;
+    padding: 30px 42px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(214,182,106,.14), transparent 42%),
+        #FFFDF7;
+    border: 3px solid #D6B66A;
+}
+
+.contrast-feature-copy {
+    max-width: 220px;
+}
+
+.contrast-feature-copy.is-right {
+    text-align: right;
+    justify-self: end;
+}
+
+.contrast-feature-copy.is-right .contrast-kicker {
+    margin-left: auto;
+}
+
+.contrast-feature-copy p {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 850;
+    color: #4B4038;
+    line-height: 1.55;
+}
+
+.contrast-feature-copy.is-right p {
+    text-align: right !important;
+}
+
+.contrast-jp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 28px);
+    white-space: nowrap;
+}
+
+.contrast-jp span {
+    font-size: clamp(5.8rem, 13vw, 9rem);
+    line-height: .82;
+    font-weight: 950;
+    letter-spacing: -.08em;
+}
+
+.contrast-jp span:first-child { color: #456B58; }
+.contrast-jp span:last-child { color: #B45F3C; }
+.contrast-jp b {
+    color: #D6B66A;
+    font-size: clamp(2.1rem, 5vw, 4rem);
+}
+
+.contrast-card-ranking {
+    display: grid;
+    grid-template-columns: .85fr auto 1.35fr;
+    align-items: stretch;
+    background: #F7F1E7;
+}
+
+.ranking-belief {
+    padding: 30px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #4A4038;
+}
+
+.ranking-belief p {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
+.ranking-switch {
+    align-self: center;
+    margin: 0 -10px;
+    z-index: 2;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: #355647;
+    color: #FFFDF7;
+    font-weight: 950;
+    transform: rotate(-6deg);
+    box-shadow: 0 5px 12px rgba(0,0,0,.15);
+}
+
+.ranking-result {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 32px;
+    background: linear-gradient(145deg, #D6B66A 0%, #C39D48 100%);
+    color: #2F3E35;
+}
+
+.ranking-result > span {
+    font-size: 2rem;
+    font-weight: 950;
+    opacity: .7;
+}
+
+.ranking-result div {
+    min-width: 0;
+}
+
+.ranking-result small {
+    display: block;
+    margin-bottom: 5px;
+    font-size: .72rem;
+    font-weight: 900;
+}
+
+.ranking-result strong {
+    display: block;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    line-height: 1.2;
+    font-weight: 950;
+    overflow-wrap: anywhere;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .contrast-card {
+        transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .contrast-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 38px rgba(15,27,22,.32);
+    }
+}
+
+@media (max-width: 720px) {
+    #myth-section.myth-section {
+        padding: 62px 16px 68px;
+    }
+
+    .contrast-card-split,
+    .contrast-card-ranking {
+        grid-template-columns: 1fr;
+    }
+
+    .contrast-half {
+        padding: 25px 24px;
+    }
+
+    .contrast-card-reverse .contrast-data { order: 2; }
+    .contrast-card-reverse .contrast-myth { order: 1; }
+
+    .contrast-vs {
+        left: 50%;
+        top: 50%;
+        width: 46px;
+        height: 46px;
+        border-width: 4px;
+    }
+
+    .contrast-card-feature {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 28px 22px;
+        text-align: center;
+    }
+
+    .contrast-feature-copy,
+    .contrast-feature-copy.is-right {
+        max-width: none;
+        justify-self: stretch;
+        text-align: center;
+    }
+
+    .contrast-feature-copy .contrast-kicker,
+    .contrast-feature-copy.is-right .contrast-kicker {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contrast-feature-copy p,
+    .contrast-feature-copy.is-right p {
+        text-align: center !important;
+    }
+
+    .contrast-jp span {
+        font-size: clamp(5.2rem, 28vw, 7.2rem);
+    }
+
+    .ranking-switch {
+        justify-self: center;
+        margin: -13px 0;
+        transform: rotate(-4deg);
+    }
+
+    .ranking-result {
+        padding: 26px 20px;
+    }
+}
+
+@media (max-width: 390px) {
+    .contrast-question { font-size: 1.24rem; }
+    .contrast-shift { font-size: 2.15rem; gap: 7px; }
+    .ranking-result { grid-template-columns: 1fr; text-align: center; gap: 7px; }
+    .ranking-result > span { transform: rotate(90deg); font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contrast-card { transition: none !important; }
 }
 </style>
 
