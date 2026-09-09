@@ -1606,9 +1606,7 @@
 <div class="section-tag">排行榜</div>
 <h2 class="section-title">平信徒 16 型全排行</h2>
 <div class="divider"></div>
-<p style="margin-bottom: 30px; color: #463B33; font-size: 1rem; line-height: 1.6;">
-            十六型人格一進教會，畫風真的差很多。有人顧流程，有人顧氣氛，有人專門發現大家沒發現的事。
-</p>
+
 <div style="display: grid; gap: 20px; margin: 30px 0;">
 <!-- 1. ESFJ 馬大 -->
 <div class="mbti-card" style="background: #FFFEFB; border-left: 4px solid #B45F3C; padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
@@ -2444,17 +2442,10 @@
 <div class="section-tag">牧者排行榜</div>
 <h2 class="section-title">換成牧者之後，16 型重新洗牌</h2>
 <div class="divider"></div>
-<p style="
-        margin: 0 auto 30px;
-        max-width: 760px;
-        color: #463B33;
-        font-size: 1rem;
-        line-height: 1.8;
-        text-align: left;
-    ">同樣是 16 型，換成牧者樣本後，排行榜真的重新洗牌。前兩名先幫你打開，其他想看再點。</p>
+
 <div class="pastor-top-grid" style="display: grid; gap: 30px; margin: 30px 0;">
 <!-- 1. ESFP 馬利亞 -->
-<div class="pastor-rank-card expanded">
+<div class="pastor-rank-card">
 <div class="pastor-rank-head">
 <div class="pastor-rank-number">1</div>
 <div>
@@ -2478,7 +2469,7 @@
 </div>
 </div>
 <!-- 2. INFP 約翰 -->
-<div class="pastor-rank-card expanded">
+<div class="pastor-rank-card">
 <div class="pastor-rank-head">
 <div class="pastor-rank-number">2</div>
 <div>
@@ -2845,7 +2836,7 @@
 </section><section class="alt myth-section" id="myth-section">
 <div class="section-tag">反差小抄</div>
 <h2 class="section-title">教會 MBTI：你以為 vs 實際上</h2>
-<p class="section-subtitle">不是說大家真的都這樣想，而是把常見印象拿來跟這份樣本對照一下。</p>
+
 <div class="divider"></div>
 <div class="myth-grid">
 <article class="myth-card">
@@ -2869,7 +2860,7 @@
 <div class="myth-side actual"><span>實際上</span><p>平信徒榜首是 <strong data-myth="lay-top">—</strong>；牧者榜首換成 <strong data-myth="pastor-top">—</strong>。</p></div>
 </article>
 </div>
-</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">平信徒 vs 牧者，一眼看出差在哪</h2><p class="section-subtitle">同樣是 E/I、S/N、T/F、J/P，兩群人的差異其實不平均。最值得記住的，是最後一組的方向直接翻轉。</p><div class="divider"></div><div class="dimension-compare-grid">
+</section><section class="alt" id="dimensions-section"><div class="section-tag">四大面向</div><h2 class="section-title">平信徒 vs 牧者，一眼看出差在哪</h2><div class="divider"></div><div class="dimension-compare-grid">
 <article class="dimension-compare-card" data-dimension="EI">
 <div class="dimension-card-head"><h3>E 外向 / I 內向</h3><span class="dimension-takeaway">兩邊都微偏 I</span></div>
 <div class="dimension-bars" data-dimension-bars="EI"></div>
@@ -2918,10 +2909,7 @@
         line-height: 1.8;
         text-align: left;
     ">
-        如果把 16 型再往上整理，大致可以看成四種很不一樣的做事方式。
-        有人先做再說，有人一定要有流程；有人什麼都想問清楚，也有人最在意這件事到底有沒有意義。
-        <br/><br/>
-        放進教會裡看，就更有畫面了。
+        把 16 型放進教會，大致就是四種服事節奏：先做、守流程、追問道理，或先問這件事有沒有意義。
     </p>
 <div class="temperament-grid">
 <!-- SP -->
@@ -3588,12 +3576,6 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
                 shell.appendChild(card);
             });
 
-            if (!sameCharacter) {
-                const note = document.createElement('p');
-                note.className = 'lookup-character-story-note';
-                note.textContent = '同一個 MBTI，在平信徒與牧者版本用不同聖經人物呈現，所以這裡分開介紹。';
-                shell.appendChild(note);
-            }
         }
 
 
