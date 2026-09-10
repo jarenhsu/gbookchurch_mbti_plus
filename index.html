@@ -1037,6 +1037,66 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
+        /* ===== V59｜找到你的 MBTI × 四大性格群標籤呼應 ===== */
+        .lookup-title-separator {
+            display: inline;
+        }
+
+        .mbti-option {
+            min-height: 68px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .mbti-option-type {
+            display: block;
+            font-size: 1.04rem;
+            line-height: 1;
+        }
+
+        .mbti-option-group,
+        .lookup-temperament-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            border-radius: 999px;
+            font-size: .68rem;
+            font-weight: 850;
+            line-height: 1;
+            letter-spacing: .02em;
+            white-space: nowrap;
+        }
+
+        .mbti-option-group {
+            padding: 4px 8px;
+        }
+
+        .temperament-badge-sp { background: #D6B66A; color: #463B33; }
+        .temperament-badge-sj { background: #B45F3C; color: #FFFEFB; }
+        .temperament-badge-nt { background: #456B58; color: #FFFEFB; }
+        .temperament-badge-nf { background: #7F9B8A; color: #FFFEFB; }
+
+        .mbti-option[aria-pressed="true"] .mbti-option-group {
+            box-shadow: 0 0 0 1px rgba(255,254,251,.7);
+        }
+
+        .lookup-you-are {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 10px;
+        }
+
+        .lookup-temperament-badge {
+            padding: 6px 10px;
+            font-size: .75rem;
+            transform: translateY(1px);
+        }
+
         .mbti-option:hover {
             transform: translateY(-2px);
             box-shadow: 4px 5px 0 rgba(69,107,88,0.16);
@@ -1706,6 +1766,26 @@ section > .section-title {
         margin-bottom: 18px;
     }
 
+    #mbti-lookup .lookup-title-separator {
+        display: none;
+    }
+
+    #mbti-lookup .mbti-option {
+        min-height: 64px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    #mbti-lookup .mbti-option-group {
+        font-size: .64rem;
+        padding: 4px 7px;
+    }
+
+    #mbti-lookup .lookup-you-are {
+        justify-content: center;
+        text-align: center;
+    }
+
     #mbti-lookup .section-subtitle {
         width: min(100%, 19.5rem);
         margin-bottom: 22px;
@@ -2090,34 +2170,34 @@ section > .section-title {
 </div>
 </div><section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
 <div class="section-tag">找到你的位置</div>
-<h2 class="section-title" id="mbti-lookup-title">來看看你的 MBTI<br class="mobile-title-break"/>在教會裡是什麼畫風</h2>
+<h2 class="section-title" id="mbti-lookup-title">找到你的 MBTI<span class="lookup-title-separator" aria-hidden="true">｜</span><br class="mobile-title-break"/>這一型在三萬份答案裡排第幾</h2>
 <div class="divider"></div>
-<p class="section-subtitle">選擇你的 MBTI，看看排行、稀有度、對應聖經人物，還有這一型在教會裡可能是什麼畫風。</p>
+<p class="section-subtitle">選擇你的 MBTI，快速看看這一型在本次調查中的排名、比例、稀有度，以及對應的聖經人物和近代代表人物。</p>
 <div class="mbti-lookup-shell">
 
 <fieldset class="mbti-picker">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
 <div aria-label="16 型 MBTI 選擇器" class="mbti-picker-grid" role="group">
-<button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button">INTJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="INTP" type="button">INTP</button>
-<button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button">ENTJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button">ENTP</button>
-<button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button">INFJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="INFP" type="button">INFP</button>
-<button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button">ENFJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button">ENFP</button>
-<button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button">ISTJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button">ISFJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button">ESTJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button">ESFJ</button>
-<button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button">ISTP</button>
-<button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button">ISFP</button>
-<button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button">ESTP</button>
-<button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button">ESFP</button>
+<button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button"><span class="mbti-option-type">INTJ</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INTP" type="button"><span class="mbti-option-type">INTP</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button"><span class="mbti-option-type">ENTJ</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button"><span class="mbti-option-type">ENTP</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button"><span class="mbti-option-type">INFJ</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INFP" type="button"><span class="mbti-option-type">INFP</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button"><span class="mbti-option-type">ENFJ</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button"><span class="mbti-option-type">ENFP</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button"><span class="mbti-option-type">ISTJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button"><span class="mbti-option-type">ISFJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button"><span class="mbti-option-type">ESTJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button"><span class="mbti-option-type">ESFJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button"><span class="mbti-option-type">ISTP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button"><span class="mbti-option-type">ISFP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button"><span class="mbti-option-type">ESTP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
 </div>
 </fieldset>
 <div class="mbti-lookup-result" hidden="" id="mbti-lookup-result">
-<p class="lookup-you-are">你是 <strong data-field="type">—</strong></p>
+<p class="lookup-you-are">你是 <strong data-field="type">—</strong><span class="lookup-temperament-badge" data-field="temperament-label">—</span></p>
 <div class="lookup-result-grid">
 <article aria-labelledby="lookup-lay-title" class="lookup-world-card" id="lookup-lay-card">
 <div class="lookup-world-content">
@@ -4051,6 +4131,26 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             NF: ['ENFP','INFP','ENFJ','INFJ']
         };
 
+        const TEMPERAMENT_LABELS = {
+            SP: 'SP 行動派',
+            SJ: 'SJ 穩定派',
+            NT: 'NT 思考派',
+            NF: 'NF 理想派'
+        };
+
+        function getTemperamentGroup(type) {
+            return Object.keys(TEMPERAMENTS).find((group) => TEMPERAMENTS[group].includes(type)) || '';
+        }
+
+        function renderLookupTemperament(type) {
+            const group = getTemperamentGroup(type);
+            const badge = document.querySelector('[data-field="temperament-label"]');
+            if (!badge) return;
+            badge.textContent = TEMPERAMENT_LABELS[group] || '—';
+            badge.className = `lookup-temperament-badge${group ? ` temperament-badge-${group.toLowerCase()}` : ''}`;
+        }
+
+
         function calculateTemperaments(role) {
             const data = getDataset(role);
             const total = Object.values(data).reduce((sum,item) => sum + item.count, 0);
@@ -4286,6 +4386,7 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             const result = document.getElementById('mbti-lookup-result');
 
             setField('type', type);
+            renderLookupTemperament(type);
             setField('lay-character', entry.lay.character || '—');
             setField('pastor-character', entry.pastor.character || '—');
             setField('rarity-stars', getRarityStars(entry.lay.percent));
