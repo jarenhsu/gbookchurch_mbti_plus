@@ -2062,67 +2062,8 @@ section > .section-title {
     }
 }
 </style>
-<style id="v60-temperament-characters-links">
-/* ===== V60｜四大性格群：對應聖經人物 × 找到你的 MBTI 直達連結 ===== */
-#mbti-lookup .mbti-option-wrap {
-    position: relative;
-    min-width: 0;
-}
-
-#mbti-lookup .mbti-option-wrap .mbti-option {
-    width: 100%;
-    min-height: 68px;
-    padding-bottom: 31px;
-}
-
-#mbti-lookup .mbti-option-wrap .mbti-option-group {
-    position: absolute;
-    left: 50%;
-    bottom: 8px;
-    z-index: 2;
-    transform: translateX(-50%);
-    padding: 4px 8px;
-    text-decoration: none;
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-}
-
-#mbti-lookup .mbti-option[aria-pressed="true"] + .mbti-option-group {
-    box-shadow: 0 0 0 2px rgba(255,254,251,.9), 0 2px 0 rgba(70,59,51,.18);
-}
-
-#mbti-lookup .mbti-option-group:hover,
-#mbti-lookup .mbti-option-group:focus-visible,
-#mbti-lookup .lookup-temperament-badge:hover,
-#mbti-lookup .lookup-temperament-badge:focus-visible {
-    filter: brightness(.96);
-    text-decoration: none;
-}
-
-#mbti-lookup .mbti-option-group:hover {
-    transform: translateX(-50%) translateY(-1px);
-}
-
-#mbti-lookup .mbti-option-group:focus-visible,
-#mbti-lookup .lookup-temperament-badge:focus-visible {
-    outline: 3px solid #D6B66A;
-    outline-offset: 3px;
-}
-
-#mbti-lookup .lookup-temperament-badge {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#mbti-lookup .lookup-temperament-badge::after {
-    content: " ↓";
-    font-size: .88em;
-    opacity: .82;
-}
-
-#temperament-section .temperament-card {
-    scroll-margin-top: 24px;
-}
-
+<style id="v61-temperament-characters">
+/* ===== V61｜四大性格群保留對應聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 ===== */
 #temperament-section .temperament-characters {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2156,28 +2097,7 @@ section > .section-title {
     opacity: .55;
 }
 
-#temperament-section .temperament-card:target {
-    animation: temperamentTargetPulse 1.15s ease-out 1;
-}
-
-@keyframes temperamentTargetPulse {
-    0% { box-shadow: 0 0 0 0 rgba(214,182,106,.72); }
-    45% { box-shadow: 0 0 0 7px rgba(214,182,106,.28); }
-    100% { box-shadow: 0 0 0 0 rgba(214,182,106,0); }
-}
-
 @media (max-width: 700px) {
-    #mbti-lookup .mbti-option-wrap .mbti-option {
-        min-height: 64px;
-        padding: 9px 6px 30px;
-    }
-
-    #mbti-lookup .mbti-option-wrap .mbti-option-group {
-        bottom: 7px;
-        padding: 4px 7px;
-        font-size: .63rem;
-    }
-
     #temperament-section .temperament-characters {
         gap: 7px;
         margin-bottom: 14px;
@@ -2289,26 +2209,26 @@ section > .section-title {
 <fieldset class="mbti-picker">
 <legend class="sr-only">選擇你的 MBTI 類型</legend>
 <div aria-label="16 型 MBTI 選擇器" class="mbti-picker-grid" role="group">
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button"><span class="mbti-option-type">INTJ</span></button><a aria-label="查看 NT 思考派 的四大性格群介紹" class="mbti-option-group temperament-badge-nt" href="#temperament-nt">NT 思考派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="INTP" type="button"><span class="mbti-option-type">INTP</span></button><a aria-label="查看 NT 思考派 的四大性格群介紹" class="mbti-option-group temperament-badge-nt" href="#temperament-nt">NT 思考派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button"><span class="mbti-option-type">ENTJ</span></button><a aria-label="查看 NT 思考派 的四大性格群介紹" class="mbti-option-group temperament-badge-nt" href="#temperament-nt">NT 思考派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button"><span class="mbti-option-type">ENTP</span></button><a aria-label="查看 NT 思考派 的四大性格群介紹" class="mbti-option-group temperament-badge-nt" href="#temperament-nt">NT 思考派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button"><span class="mbti-option-type">INFJ</span></button><a aria-label="查看 NF 理想派 的四大性格群介紹" class="mbti-option-group temperament-badge-nf" href="#temperament-nf">NF 理想派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="INFP" type="button"><span class="mbti-option-type">INFP</span></button><a aria-label="查看 NF 理想派 的四大性格群介紹" class="mbti-option-group temperament-badge-nf" href="#temperament-nf">NF 理想派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button"><span class="mbti-option-type">ENFJ</span></button><a aria-label="查看 NF 理想派 的四大性格群介紹" class="mbti-option-group temperament-badge-nf" href="#temperament-nf">NF 理想派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button"><span class="mbti-option-type">ENFP</span></button><a aria-label="查看 NF 理想派 的四大性格群介紹" class="mbti-option-group temperament-badge-nf" href="#temperament-nf">NF 理想派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button"><span class="mbti-option-type">ISTJ</span></button><a aria-label="查看 SJ 穩定派 的四大性格群介紹" class="mbti-option-group temperament-badge-sj" href="#temperament-sj">SJ 穩定派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button"><span class="mbti-option-type">ISFJ</span></button><a aria-label="查看 SJ 穩定派 的四大性格群介紹" class="mbti-option-group temperament-badge-sj" href="#temperament-sj">SJ 穩定派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button"><span class="mbti-option-type">ESTJ</span></button><a aria-label="查看 SJ 穩定派 的四大性格群介紹" class="mbti-option-group temperament-badge-sj" href="#temperament-sj">SJ 穩定派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button"><span class="mbti-option-type">ESFJ</span></button><a aria-label="查看 SJ 穩定派 的四大性格群介紹" class="mbti-option-group temperament-badge-sj" href="#temperament-sj">SJ 穩定派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button"><span class="mbti-option-type">ISTP</span></button><a aria-label="查看 SP 行動派 的四大性格群介紹" class="mbti-option-group temperament-badge-sp" href="#temperament-sp">SP 行動派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button"><span class="mbti-option-type">ISFP</span></button><a aria-label="查看 SP 行動派 的四大性格群介紹" class="mbti-option-group temperament-badge-sp" href="#temperament-sp">SP 行動派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button"><span class="mbti-option-type">ESTP</span></button><a aria-label="查看 SP 行動派 的四大性格群介紹" class="mbti-option-group temperament-badge-sp" href="#temperament-sp">SP 行動派</a></div>
-<div class="mbti-option-wrap"><button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span></button><a aria-label="查看 SP 行動派 的四大性格群介紹" class="mbti-option-group temperament-badge-sp" href="#temperament-sp">SP 行動派</a></div>
+<button aria-pressed="false" class="mbti-option" data-type="INTJ" type="button"><span class="mbti-option-type">INTJ</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INTP" type="button"><span class="mbti-option-type">INTP</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENTJ" type="button"><span class="mbti-option-type">ENTJ</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENTP" type="button"><span class="mbti-option-type">ENTP</span><span class="mbti-option-group temperament-badge-nt">NT 思考派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INFJ" type="button"><span class="mbti-option-type">INFJ</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="INFP" type="button"><span class="mbti-option-type">INFP</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENFJ" type="button"><span class="mbti-option-type">ENFJ</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ENFP" type="button"><span class="mbti-option-type">ENFP</span><span class="mbti-option-group temperament-badge-nf">NF 理想派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISTJ" type="button"><span class="mbti-option-type">ISTJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISFJ" type="button"><span class="mbti-option-type">ISFJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESTJ" type="button"><span class="mbti-option-type">ESTJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESFJ" type="button"><span class="mbti-option-type">ESFJ</span><span class="mbti-option-group temperament-badge-sj">SJ 穩定派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISTP" type="button"><span class="mbti-option-type">ISTP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ISFP" type="button"><span class="mbti-option-type">ISFP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESTP" type="button"><span class="mbti-option-type">ESTP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
+<button aria-pressed="false" class="mbti-option" data-type="ESFP" type="button"><span class="mbti-option-type">ESFP</span><span class="mbti-option-group temperament-badge-sp">SP 行動派</span></button>
 </div>
 </fieldset>
 <div class="mbti-lookup-result" hidden="" id="mbti-lookup-result">
-<p class="lookup-you-are">你是 <strong data-field="type">—</strong><a aria-label="前往四大性格群介紹" class="lookup-temperament-badge" data-field="temperament-label" href="#temperament-section">—</a></p>
+<p class="lookup-you-are">你是 <strong data-field="type">—</strong><span class="lookup-temperament-badge" data-field="temperament-label">—</span></p>
 <div class="lookup-result-grid">
 <article aria-labelledby="lookup-lay-title" class="lookup-world-card" id="lookup-lay-card">
 <div class="lookup-world-content">
@@ -3695,7 +3615,7 @@ section > .section-title {
 <figure aria-hidden="true" class="mystery-character-art">
 <img alt="" decoding="async" id="mystery-abraham-art" loading="lazy"/>
 </figure>
-</div></section><!-- V60：四大性格群補上平信徒版聖經人物，找到你的 MBTI 標籤可直達對應群組 -->
+</div></section><!-- V61：四大性格群保留平信徒版聖經人物；找到你的 MBTI 標籤還原 V59 非連結設定 -->
 <section class="alt" id="temperament-section">
 <div class="section-tag">四大性格群</div>
 <h2 class="section-title">教會裡的 100 位平信徒<br class="mobile-title-break"/>大概分成哪四派？</h2>
@@ -4248,13 +4168,8 @@ const MODERN_ART = {"提摩太．凱勒 Timothy Keller":"data:image/webp;base64,
             const group = getTemperamentGroup(type);
             const badge = document.querySelector('[data-field="temperament-label"]');
             if (!badge) return;
-            const label = TEMPERAMENT_LABELS[group] || '—';
-            badge.textContent = label;
+            badge.textContent = TEMPERAMENT_LABELS[group] || '—';
             badge.className = `lookup-temperament-badge${group ? ` temperament-badge-${group.toLowerCase()}` : ''}`;
-            if (badge.tagName === 'A') {
-                badge.href = group ? `#temperament-${group.toLowerCase()}` : '#temperament-section';
-                badge.setAttribute('aria-label', group ? `前往 ${label} 的四大性格群介紹` : '前往四大性格群介紹');
-            }
         }
 
 
