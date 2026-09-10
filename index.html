@@ -2420,6 +2420,66 @@ section > .section-title {
 }
 </style>
 
+
+<style id="v68-question-highlight-colors-and-method-order">
+/* ===== V68｜四個精選題目加強色彩；資料說明移到 MBTI 小檔案之後 ===== */
+#question-stats-section .question-highlight-card {
+    position: relative;
+    overflow: hidden;
+    border-width: 1px;
+    box-shadow: 0 10px 26px rgba(69, 58, 45, .07);
+}
+#question-stats-section .question-highlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 5px;
+    background: currentColor;
+    opacity: .88;
+}
+#question-stats-section .question-highlight-card:nth-child(1) {
+    color: #A95337;
+    background: linear-gradient(180deg, rgba(180,95,60,.16), rgba(255,255,255,.9));
+    border-color: rgba(180,95,60,.34);
+}
+#question-stats-section .question-highlight-card:nth-child(2) {
+    color: #8A6D28;
+    background: linear-gradient(180deg, rgba(214,182,106,.25), rgba(255,255,255,.9));
+    border-color: rgba(184,145,55,.38);
+}
+#question-stats-section .question-highlight-card:nth-child(3) {
+    color: #3F6653;
+    background: linear-gradient(180deg, rgba(69,107,88,.16), rgba(255,255,255,.9));
+    border-color: rgba(69,107,88,.34);
+}
+#question-stats-section .question-highlight-card:nth-child(4) {
+    color: #587A69;
+    background: linear-gradient(180deg, rgba(127,155,138,.22), rgba(255,255,255,.9));
+    border-color: rgba(91,126,108,.32);
+}
+#question-stats-section .question-highlight-card .question-highlight-number {
+    color: currentColor;
+}
+#question-stats-section .question-highlight-card .question-highlight-kicker {
+    color: currentColor;
+    opacity: .92;
+}
+#question-stats-section .question-highlight-card .question-highlight-title,
+#question-stats-section .question-highlight-card .question-highlight-note {
+    color: #443F38;
+}
+
+/* 讓「這份資料怎麼來的？」在 MBTI 小檔案之後形成清楚但不搶戲的收束。 */
+#mbti-lookup + #method-strip {
+    margin-top: 0;
+}
+
+@media (max-width: 700px) {
+    #question-stats-section .question-highlight-card {
+        box-shadow: 0 7px 18px rgba(69, 58, 45, .065);
+    }
+}
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -2541,17 +2601,7 @@ section > .section-title {
 </div>
 <p class="question-stats-note"><strong>資料說明：</strong>這裡整理的是每題 1,000 份作答結果，用來看「每一道題大家怎麼選」。它不是 28,796 位平信徒的完整逐題資料，因此不要直接把這些比例當成全部平信徒的作答比例。</p>
 </section>
-<div class="method-strip" id="method-strip">
-<button aria-controls="method-panel" aria-expanded="false" class="method-toggle" id="method-toggle" type="button">ⓘ 這份資料怎麼來的？</button>
-<div class="method-panel" hidden="" id="method-panel">
-<div class="method-grid">
-<div><strong data-total="lay">28,796</strong><span>平信徒樣本</span></div>
-<div><strong data-total="pastor">1,649</strong><span>牧者樣本</span></div>
-<div><strong data-total="all">30,445</strong><span>總參與樣本</span></div>
-</div>
-<p>本資料來自線上自願參與測驗者，並非台灣基督徒人口的隨機抽樣，只能描述本次參與樣本。MBTI 僅作娛樂與自我探索用途，不作臨床診斷；人格類型也沒有優劣之分。</p>
-</div>
-</div><section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
+<section aria-labelledby="mbti-lookup-title" class="f-section mbti-lookup-section" id="mbti-lookup">
 <div class="section-tag">找到你的位置</div>
 <h2 class="section-title" id="mbti-lookup-title">接著看看自己<span aria-hidden="true" class="lookup-title-separator">｜</span><br class="mobile-title-break"/>你的 MBTI 小檔案</h2>
 <div class="divider"></div>
@@ -2639,6 +2689,18 @@ section > .section-title {
 <p aria-atomic="true" aria-live="polite" class="sr-only" id="mbti-result-announcer"></p>
 </div>
 </section>
+<div class="method-strip" id="method-strip">
+<button aria-controls="method-panel" aria-expanded="false" class="method-toggle" id="method-toggle" type="button">ⓘ 這份資料怎麼來的？</button>
+<div class="method-panel" hidden="" id="method-panel">
+<div class="method-grid">
+<div><strong data-total="lay">28,796</strong><span>平信徒樣本</span></div>
+<div><strong data-total="pastor">1,649</strong><span>牧者樣本</span></div>
+<div><strong data-total="all">30,445</strong><span>總參與樣本</span></div>
+</div>
+<p>本資料來自線上自願參與測驗者，並非台灣基督徒人口的隨機抽樣，只能描述本次參與樣本。MBTI 僅作娛樂與自我探索用途，不作臨床診斷；人格類型也沒有優劣之分。</p>
+</div>
+</div>
+
 <section aria-label="教會小本本 LINE 貼圖廣告" class="sticker-ad-section">
 <div class="sticker-ad-card">
 <a aria-label="前往 LINE STORE 查看《教會小本本》LINE 貼圖" class="sticker-ad-visual" href="https://store.line.me/stickershop/product/31241357/zh-Hant" rel="noopener noreferrer" target="_blank">
